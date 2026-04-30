@@ -23,6 +23,9 @@ describe("formatTxHash", () => {
   it("returns input untouched if shorter than 12 chars", () => {
     expect(formatTxHash("0x1234")).toBe("0x1234");
   });
+  it("does not truncate strings of length exactly 12", () => {
+    expect(formatTxHash("0x1234567890")).toBe("0x1234567890"); // 12 chars
+  });
 });
 
 describe("formatRelativeTime", () => {
@@ -41,5 +44,9 @@ describe("formatRelativeTime", () => {
   it("returns days ago when over a day", () => {
     const t = new Date(Date.now() - 2 * 24 * 60 * 60_000).toISOString();
     expect(formatRelativeTime(t)).toBe("2 d ago");
+  });
+  it("returns 'unknown' for invalid date strings", () => {
+    expect(formatRelativeTime("not-a-date")).toBe("unknown");
+    expect(formatRelativeTime("")).toBe("unknown");
   });
 });

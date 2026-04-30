@@ -10,12 +10,14 @@ export function formatNeon(value: number, opts: { compact?: boolean } = {}): str
 }
 
 export function formatTxHash(hash: string): string {
-  if (hash.length < 12) return hash;
+  if (hash.length <= 12) return hash;
   return `${hash.slice(0, 6)}…${hash.slice(-4)}`;
 }
 
 export function formatRelativeTime(iso: string): string {
-  const diffMs = Date.now() - new Date(iso).getTime();
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return "unknown";
+  const diffMs = Date.now() - t;
   const sec = Math.floor(diffMs / 1000);
   if (sec < 60) return "just now";
   const min = Math.floor(sec / 60);
