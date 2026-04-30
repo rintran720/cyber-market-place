@@ -16,7 +16,7 @@ export default function BrowsePage() {
   return (
     <div className="flex gap-6 items-start">
       <FilterSidebar value={filters} onChange={setFilters} />
-      <section className="flex-1 cp-stack" style={{ ["--cp-stack-gap" as string]: "1.5rem" }}>
+      <section className="flex-1 min-w-0 flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <NeonHeading level="lg" rarity="cyan">{"// ARSENAL CATALOG"}</NeonHeading>
           <span className="text-cp-fg-muted text-sm font-cp-mono">

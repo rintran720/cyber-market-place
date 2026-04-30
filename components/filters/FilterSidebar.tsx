@@ -30,8 +30,8 @@ export function FilterSidebar({ value, onChange }: Props) {
 
   return (
     <aside
-      className="cp-stack p-4 border border-cp-border bg-cp-bg-soft"
-      style={{ ["--cp-stack-gap" as string]: "1.25rem", width: 280, position: "sticky", top: 80, alignSelf: "start" }}
+      className="flex flex-col gap-5 p-4 border border-cp-border bg-cp-bg-soft shrink-0"
+      style={{ width: 280, position: "sticky", top: 80, alignSelf: "start" }}
       aria-label="Filters"
     >
       <SearchBox value={value.q} onChange={(q) => set("q", q)} />

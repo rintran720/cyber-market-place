@@ -21,7 +21,7 @@ export function RarityFilter({ value, onChange }: Props) {
   return (
     <fieldset>
       <legend className="cp-field__label">RARITY</legend>
-      <div className="cp-stack" style={{ ["--cp-stack-gap" as string]: "0.4rem" }}>
+      <div className="flex flex-col gap-1.5">
         {ALL.map((o) => (
           <label key={o.key} className="cp-checkbox">
             <input

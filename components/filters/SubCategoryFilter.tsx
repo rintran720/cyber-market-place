@@ -20,7 +20,7 @@ export function SubCategoryFilter({ value, onChange }: Props) {
   return (
     <fieldset>
       <legend className="cp-field__label">CATEGORY</legend>
-      <div className="cp-stack" style={{ ["--cp-stack-gap" as string]: "0.5rem" }}>
+      <div className="flex flex-col gap-2">
         {ALL.map((o) => (
           <label key={o.key} className="cp-checkbox">
             <input
