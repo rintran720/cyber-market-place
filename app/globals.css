@@ -90,16 +90,16 @@ body {
 }
 
 /* Continuous floating for high-tier rarities */
-.cm-card-float[data-rarity="mythic"],
-.cm-card-float[data-rarity="unique"] {
+.cm-card-float[data-rarity="unique"],
+.cm-card-float[data-rarity="legendary"] {
   animation:
     cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both,
     cm-float 4.5s ease-in-out infinite 700ms,
     cm-glow-pulse 3s ease-in-out infinite 700ms;
 }
 
-.cm-card-float[data-rarity="mythic"]:hover,
-.cm-card-float[data-rarity="unique"]:hover {
+.cm-card-float[data-rarity="unique"]:hover,
+.cm-card-float[data-rarity="legendary"]:hover {
   /* freeze float on hover so user can read it */
   animation:
     cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;

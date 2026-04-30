@@ -53,13 +53,12 @@ const RARITY_GLOW: Record<string, { rim: string; soft: string }> = {
   rare: { rim: "rgba(57,255,20,0.5)", soft: "rgba(57,255,20,0.18)" },
   epic: { rim: "rgba(189,0,255,0.55)", soft: "rgba(189,0,255,0.2)" },
   legendary: { rim: "rgba(252,238,10,0.6)", soft: "rgba(252,238,10,0.22)" },
-  mythic: { rim: "rgba(0,240,255,0.65)", soft: "rgba(0,240,255,0.25)" },
   unique: { rim: "rgba(255,0,234,0.7)", soft: "rgba(255,0,234,0.28)" },
 };
 
 function ItemPreviewDialog({ weapon, onClose }: { weapon: Weapon; onClose: () => void }) {
   const color = rarityColor(weapon.rarity);
-  const glow = RARITY_GLOW[weapon.rarity] ?? RARITY_GLOW.mythic;
+  const glow = RARITY_GLOW[weapon.rarity] ?? RARITY_GLOW.legendary;
 
   return (
     <div

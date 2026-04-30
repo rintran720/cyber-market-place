@@ -19,8 +19,8 @@ describe("applyFilters", () => {
   });
 
   it("filters by rarity", () => {
-    const r = applyFilters(all, { rarities: ["mythic"] });
-    expect(r.items.every((w) => w.rarity === "mythic")).toBe(true);
+    const r = applyFilters(all, { rarities: ["legendary"] });
+    expect(r.items.every((w) => w.rarity === "legendary")).toBe(true);
   });
 
   it("filters by price range inclusive", () => {

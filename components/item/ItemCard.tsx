@@ -18,7 +18,6 @@ const RARITY_GLOW_VAR: Record<Rarity, { glow: string; soft: string; rim: string 
   rare:      { glow: "rgba(57,255,20,0.5)",     soft: "rgba(57,255,20,0.18)",   rim: "#39ff14" },
   epic:      { glow: "rgba(189,0,255,0.55)",    soft: "rgba(189,0,255,0.2)",    rim: "#bd00ff" },
   legendary: { glow: "rgba(252,238,10,0.6)",    soft: "rgba(252,238,10,0.22)",  rim: "#fcee0a" },
-  mythic:    { glow: "rgba(0,240,255,0.65)",    soft: "rgba(0,240,255,0.25)",   rim: "#00f0ff" },
   unique:    { glow: "rgba(255,0,234,0.7)",     soft: "rgba(255,0,234,0.28)",   rim: "#ff00ea" },
 };
 

@@ -3,8 +3,7 @@ import type { ItemFilters, ItemsResponse, Weapon, SortKey } from "@/lib/client/t
 const PAGE_SIZE = 24;
 
 const RARITY_ORDER: Record<string, number> = {
-  unique: 6,
-  mythic: 5,
+  unique: 5,
   legendary: 4,
   epic: 3,
   rare: 2,

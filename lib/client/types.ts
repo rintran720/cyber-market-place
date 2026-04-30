@@ -1,5 +1,5 @@
 // lib/client/types.ts
-export type Rarity = "common" | "rare" | "epic" | "legendary" | "mythic" | "unique";
+export type Rarity = "common" | "rare" | "epic" | "legendary" | "unique";
 export type SubCategory = "melee" | "ranged" | "energy-divine" | "cursed" | "1of1";
 
 export type WeaponStats = {

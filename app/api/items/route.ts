@@ -6,7 +6,7 @@ import { maybeError, toErrorResponse } from "@/lib/api/error";
 import type { ItemFilters, Rarity, SortKey, SubCategory } from "@/lib/client/types";
 
 const VALID_SUB: SubCategory[] = ["melee", "ranged", "energy-divine", "cursed", "1of1"];
-const VALID_RARITY: Rarity[] = ["common", "rare", "epic", "legendary", "mythic", "unique"];
+const VALID_RARITY: Rarity[] = ["common", "rare", "epic", "legendary", "unique"];
 const VALID_SORT: SortKey[] = ["newest", "price-asc", "price-desc", "rarity"];
 
 function parseList<T extends string>(raw: string | null, valid: T[]): T[] | undefined {

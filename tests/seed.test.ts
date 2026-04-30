@@ -19,6 +19,6 @@ describe("seed", () => {
   });
   it("covers every rarity tier at least once", () => {
     const rarities = new Set(getAllWeapons().map((w) => w.rarity));
-    expect(rarities.size).toBe(6);
+    expect(rarities.size).toBe(5);
   });
 });

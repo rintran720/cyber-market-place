@@ -5,7 +5,6 @@ const RARITY_LABEL: Record<Rarity, string> = {
   rare: "▲ RARE",
   epic: "◇ EPIC",
   legendary: "★ LEGENDARY",
-  mythic: "◆ MYTHIC",
   unique: "⬢ 1/1 UNIQUE",
 };
 
@@ -14,7 +13,6 @@ const RARITY_COLOR: Record<Rarity, string> = {
   rare: "green",
   epic: "purple",
   legendary: "yellow",
-  mythic: "cyan",
   unique: "magenta",
 };
 

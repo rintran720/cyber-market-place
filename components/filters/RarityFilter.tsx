@@ -6,7 +6,6 @@ const ALL: { key: Rarity; label: string; color: string }[] = [
   { key: "rare", label: "Rare", color: "green" },
   { key: "epic", label: "Epic", color: "purple" },
   { key: "legendary", label: "Legendary", color: "yellow" },
-  { key: "mythic", label: "Mythic", color: "cyan" },
   { key: "unique", label: "1/1 Unique", color: "magenta" },
 ];
 
