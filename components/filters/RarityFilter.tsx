@@ -20,18 +20,18 @@ export function RarityFilter({ value, onChange }: Props) {
     onChange(value.includes(k) ? value.filter((x) => x !== k) : [...value, k]);
   return (
     <fieldset>
-      <legend className="cp-field__label">RARITY</legend>
-      <div className="flex flex-col gap-1.5">
+      <legend className="cp-field__label">// RARITY</legend>
+      <div className="flex flex-col gap-2 mt-2">
         {ALL.map((o) => (
-          <label key={o.key} className="cp-checkbox">
+          <label key={o.key} className={`cp-check cp-check--${o.color === "fg-muted" ? "cyan" : o.color}`}>
             <input
               type="checkbox"
-              className="cp-checkbox__input"
+              className="cp-check__input"
               checked={value.includes(o.key)}
               onChange={() => toggle(o.key)}
             />
-            <span className="cp-checkbox__mark" />
-            <span className={`cp-chip cp-chip--${o.color}`}>{o.label}</span>
+            <span className="cp-check__box" />
+            <span className={`cp-chip cp-chip--${o.color} text-[10px]`}>{o.label}</span>
           </label>
         ))}
       </div>

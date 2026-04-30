@@ -19,18 +19,18 @@ export function SubCategoryFilter({ value, onChange }: Props) {
     onChange(value.includes(k) ? value.filter((x) => x !== k) : [...value, k]);
   return (
     <fieldset>
-      <legend className="cp-field__label">CATEGORY</legend>
-      <div className="flex flex-col gap-2">
+      <legend className="cp-field__label">// CATEGORY</legend>
+      <div className="flex flex-col gap-2 mt-2">
         {ALL.map((o) => (
-          <label key={o.key} className="cp-checkbox">
+          <label key={o.key} className="cp-check">
             <input
               type="checkbox"
-              className="cp-checkbox__input"
+              className="cp-check__input"
               checked={value.includes(o.key)}
               onChange={() => toggle(o.key)}
             />
-            <span className="cp-checkbox__mark" />
-            {o.label}
+            <span className="cp-check__box" />
+            <span className="cp-check__label">{o.label}</span>
           </label>
         ))}
       </div>
