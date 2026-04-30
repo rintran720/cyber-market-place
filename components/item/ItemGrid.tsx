@@ -8,8 +8,8 @@ export function ItemGrid({ items }: { items: Weapon[] }) {
   }
   return (
     <div className="cp-grid cp-grid--auto" style={{ ["--cp-grid-min" as string]: "260px" }}>
-      {items.map((w) => (
-        <ItemCard key={w.slug} weapon={w} />
+      {items.map((w, i) => (
+        <ItemCard key={w.slug} weapon={w} index={i} />
       ))}
     </div>
   );

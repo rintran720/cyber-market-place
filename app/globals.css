@@ -9,3 +9,212 @@ html {
 body {
   min-height: 100dvh;
 }
+
+/* ======================================================
+ * Item card "bay bổng" effects
+ * ====================================================== */
+
+@keyframes cm-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cm-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes cm-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px var(--cm-glow, rgba(0, 240, 255, 0.4)),
+      0 0 40px var(--cm-glow-soft, rgba(0, 240, 255, 0.15));
+  }
+  50% {
+    box-shadow:
+      0 0 35px var(--cm-glow, rgba(0, 240, 255, 0.55)),
+      0 0 70px var(--cm-glow-soft, rgba(0, 240, 255, 0.25));
+  }
+}
+
+@keyframes cm-shine {
+  0%   { transform: translateX(-200%) skewX(-20deg); opacity: 0; }
+  10%  { opacity: 0.5; }
+  100% { transform: translateX(400%) skewX(-20deg); opacity: 0; }
+}
+
+@keyframes cm-bg-drift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+@keyframes cm-modal-in {
+  from { opacity: 0; transform: translateY(40px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cm-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cm-glitch-line {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  50%  { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Card wrapper: rise-in entry + lift on hover + 3D tilt */
+.cm-card-float {
+  animation: cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition:
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms ease,
+    border-color 250ms ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.cm-card-float:hover {
+  transform: translateY(-10px) scale(1.025) rotateX(2deg);
+  z-index: 10;
+  box-shadow: 0 28px 60px -20px var(--cm-glow, rgba(0, 240, 255, 0.4));
+}
+
+/* Continuous floating for high-tier rarities */
+.cm-card-float[data-rarity="mythic"],
+.cm-card-float[data-rarity="unique"] {
+  animation:
+    cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both,
+    cm-float 4.5s ease-in-out infinite 700ms,
+    cm-glow-pulse 3s ease-in-out infinite 700ms;
+}
+
+.cm-card-float[data-rarity="mythic"]:hover,
+.cm-card-float[data-rarity="unique"]:hover {
+  /* freeze float on hover so user can read it */
+  animation:
+    cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform: translateY(-12px) scale(1.04) rotateX(2deg);
+}
+
+/* Image inside card — slow zoom + filter on hover */
+.cm-card-image {
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 500ms ease;
+}
+
+.cm-card-float:hover .cm-card-image {
+  transform: scale(1.08);
+  filter: brightness(1.12) saturate(1.25) contrast(1.05);
+}
+
+/* Light-sweep shine across image on hover */
+.cm-card-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cm-card-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 65%
+  );
+  transform: translateX(-200%) skewX(-20deg);
+}
+.cm-card-float:hover .cm-card-shine::before {
+  animation: cm-shine 900ms ease forwards;
+}
+
+/* Reticle corners that fade in on hover */
+.cm-card-corners {
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+.cm-card-float:hover .cm-card-corners {
+  opacity: 1;
+}
+.cm-card-corners > span {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--cm-glow-color, var(--cp-cyan-500, #00f0ff));
+}
+.cm-card-corners > span:nth-child(1) { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+.cm-card-corners > span:nth-child(2) { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+.cm-card-corners > span:nth-child(3) { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+.cm-card-corners > span:nth-child(4) { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* Hover-only glitch scanline */
+.cm-card-glitch-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cm-glow-color, var(--cp-cyan-500, #00f0ff)),
+    transparent
+  );
+  pointer-events: none;
+  opacity: 0;
+}
+.cm-card-float:hover .cm-card-glitch-line {
+  animation: cm-glitch-line 700ms ease-in-out;
+}
+
+/* ======================================================
+ * Preview dialog
+ * ====================================================== */
+
+.cm-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 0, 12, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  animation: cm-backdrop-in 220ms ease both;
+}
+
+.cm-modal-panel {
+  animation: cm-modal-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cm-bg-grid-drift {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 234, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: cm-bg-drift 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-card-float,
+  .cm-card-float[data-rarity="mythic"],
+  .cm-card-float[data-rarity="unique"],
+  .cm-card-image,
+  .cm-modal-panel,
+  .cm-modal-backdrop,
+  .cm-bg-grid-drift {
+    animation: none !important;
+    transition: none !important;
+  }
+}

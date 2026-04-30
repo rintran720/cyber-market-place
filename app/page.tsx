@@ -217,7 +217,7 @@ export default function HomePage() {
         >
           {trending.isLoading
             ? Array.from({ length: 4 }).map((_, i) => <ItemCardSkeleton key={i} />)
-            : featured.map((w) => <ItemCard key={w.slug} weapon={w} />)}
+            : featured.map((w, i) => <ItemCard key={w.slug} weapon={w} index={i} />)}
         </Section>
 
         {/* NEW DROPS */}
@@ -229,7 +229,7 @@ export default function HomePage() {
         >
           {newest.isLoading
             ? Array.from({ length: 4 }).map((_, i) => <ItemCardSkeleton key={i} />)
-            : newDrops.map((w) => <ItemCard key={w.slug} weapon={w} />)}
+            : newDrops.map((w, i) => <ItemCard key={w.slug} weapon={w} index={i} />)}
         </Section>
 
         {/* STARTER ROW */}
@@ -248,7 +248,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-4">
             {cheapest.isLoading
               ? Array.from({ length: 3 }).map((_, i) => <ItemCardSkeleton key={i} />)
-              : starterDeals.map((w) => <ItemCard key={w.slug} weapon={w} />)}
+              : starterDeals.map((w, i) => <ItemCard key={w.slug} weapon={w} index={i} />)}
           </div>
         </section>
 

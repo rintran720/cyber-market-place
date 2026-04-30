@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TickerTape } from "@/components/feedback/TickerTape";
+import { ItemPreviewProvider } from "@/components/item/ItemPreviewProvider";
 
 export const metadata: Metadata = {
   title: "NeonMarket — Arsenal of Myths",
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-cp-theme="dark">
       <body className="cp-root cp-grid-bg cp-scanlines">
-        <Header />
-        <TickerTape items={TICKER_ITEMS} />
-        <main className="cp-container py-8 min-h-[60vh]">{children}</main>
-        <Footer />
+        <ItemPreviewProvider>
+          <Header />
+          <TickerTape items={TICKER_ITEMS} />
+          <main className="cp-container py-8 min-h-[60vh]">{children}</main>
+          <Footer />
+        </ItemPreviewProvider>
       </body>
     </html>
   );
