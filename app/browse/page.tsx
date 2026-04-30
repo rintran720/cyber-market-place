@@ -18,7 +18,7 @@ export default function BrowsePage() {
       <FilterSidebar value={filters} onChange={setFilters} />
       <section className="flex-1 cp-stack" style={{ ["--cp-stack-gap" as string]: "1.5rem" }}>
         <div className="flex items-center justify-between">
-          <NeonHeading level="lg" rarity="cyan">// ARSENAL CATALOG</NeonHeading>
+          <NeonHeading level="lg" rarity="cyan">{"// ARSENAL CATALOG"}</NeonHeading>
           <span className="text-cp-fg-muted text-sm font-cp-mono">
             {isLoading ? "scanning..." : `${total} weapons indexed`}
           </span>

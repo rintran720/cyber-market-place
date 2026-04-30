@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NeonMarket — Cyber-Market
 
-## Getting Started
+A cyberpunk × mythology marketplace UI demo. Year 2185. Mega-corps mine ancient relics and sell them as tech-weapons.
 
-First, run the development server:
+## Stack
+
+- Next.js 15 (App Router) + TypeScript + Tailwind v4
+- `@rintran720/cyberpunk-ui` (CSS-only theme)
+- SWR for client data fetching
+- In-memory mock API via Next.js Route Handlers
+
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — dev server (Turbopack)
+- `npm run build` — production build
+- `npm test` — Vitest unit tests
+- `npm run e2e` — Playwright smoke test
 
-## Learn More
+## Plan 1 tour (current scope)
 
-To learn more about Next.js, take a look at the following resources:
+- `/browse` — 40 mythological weapons across 5 sub-categories, 6 rarity tiers
+- Filter by category / rarity / price / search; sort newest / price / rarity; paginate 24 / page
+- Header shows hardcoded "John Tran" + ⟁ 250K placeholder balance (real wallet in Plan 3)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Coming in later plans
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Plan 2: Home page + Item Detail page (HUD/radar/gauge)
+- Plan 3: Cart, checkout, wallet, orders, profile
+- Plan 4: Seller dashboard + 4-step create flow
+- Plan 5: Glow toggle, animation polish, a11y audit
