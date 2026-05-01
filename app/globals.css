@@ -10,6 +10,28 @@ body {
   min-height: 100dvh;
 }
 
+/* Library override: cp-btn--neon variants render text in the same accent color
+ * as the background, making them invisible on bright tiers. Force dark text
+ * for all light-tier accents. */
+.cp-btn.cp-btn--neon.cp-btn--cyan,
+.cp-btn.cp-btn--neon.cp-btn--green,
+.cp-btn.cp-btn--neon.cp-btn--yellow {
+  color: #04050b !important;
+  font-weight: 700;
+}
+.cp-btn.cp-btn--neon.cp-btn--cyan:hover,
+.cp-btn.cp-btn--neon.cp-btn--green:hover,
+.cp-btn.cp-btn--neon.cp-btn--yellow:hover {
+  color: #04050b !important;
+  filter: brightness(1.1);
+}
+/* Magenta + purple accents are dark enough that white text reads cleanly */
+.cp-btn.cp-btn--neon.cp-btn--magenta,
+.cp-btn.cp-btn--neon.cp-btn--purple {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
 /* ======================================================
  * Item card "bay bổng" effects
  * ====================================================== */
