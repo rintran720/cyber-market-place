@@ -17,26 +17,28 @@ export function useCart() {
   const cart = data ?? empty;
 
   const addItem = async (slug: string, qty = 1) => {
+    const doFetch = () =>
+      fetch(KEY, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ slug, qty }),
+      }).then(async (r) => {
+        if (!r.ok) throw new Error(`cart POST failed: ${r.status}`);
+        return r.json() as Promise<CartResponse>;
+      });
     try {
-      await mutate(
-        fetch(KEY, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ slug, qty }),
-        }).then((r) => r.json() as Promise<CartResponse>),
-        {
-          optimisticData: (prev) => {
-            const base = prev ?? empty;
-            const existing = base.lines.find((l) => l.itemSlug === slug);
-            const lines = existing
-              ? base.lines.map((l) => (l.itemSlug === slug ? { ...l, qty: l.qty + qty } : l))
-              : [...base.lines, { itemSlug: slug, qty, addedAt: new Date().toISOString() }];
-            return { ...base, lines };
-          },
-          rollbackOnError: true,
-          revalidate: true,
+      await mutate(doFetch(), {
+        optimisticData: (prev) => {
+          const base = prev ?? empty;
+          const existing = base.lines.find((l) => l.itemSlug === slug);
+          const lines = existing
+            ? base.lines.map((l) => (l.itemSlug === slug ? { ...l, qty: l.qty + qty } : l))
+            : [...base.lines, { itemSlug: slug, qty, addedAt: new Date().toISOString() }];
+          return { ...base, lines };
         },
-      );
+        rollbackOnError: true,
+        revalidate: true,
+      });
       pushToast({ tone: "success", message: `Added ${qty}× to cart` });
     } catch (e) {
       pushToast({ tone: "danger", title: "ICE_INTERFERENCE", message: "Failed to add. Retry." });
