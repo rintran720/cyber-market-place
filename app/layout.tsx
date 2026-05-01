@@ -21,7 +21,7 @@ const TICKER_ITEMS = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-cp-theme="dark">
+    <html lang="en" data-cp-theme="dark" suppressHydrationWarning>
       <body className="cp-root cp-grid-bg cp-scanlines">
         <ItemPreviewProvider>
           <Header />
