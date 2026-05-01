@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="ls-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="60%" stop-color="#1c1200"/>
+      <stop offset="100%" stop-color="#342808"/>
+    </linearGradient>
+    <radialGradient id="ls-aura" cx="0.75" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#fcee0a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ls-shaft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1400"/>
+      <stop offset="50%" stop-color="#3a2e08"/>
+      <stop offset="100%" stop-color="#0e0c00"/>
+    </linearGradient>
+    <linearGradient id="ls-tip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0d060"/>
+      <stop offset="50%" stop-color="#fcee0a"/>
+      <stop offset="100%" stop-color="#7a6a00"/>
+    </linearGradient>
+    <radialGradient id="ls-sunburst" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="30%" stop-color="#fcee0a" stop-opacity="0.7"/>
+      <stop offset="65%" stop-color="#ff8800" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ls-laserDot" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#fcee0a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="ls-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="ls-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="ls-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ls-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ls-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#ls-bg)"/>
+  <rect width="600" height="600" fill="url(#ls-grid)"/>
+
+  <!-- Solar aura -->
+  <ellipse cx="430" cy="300" rx="200" ry="130" fill="url(#ls-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ LUGH-spear ] ulster-tactical</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- CELTIC SOLAR SPEAR (horizontal, tip pointing right) -->
+  <g>
+    <!-- SHAFT -->
+    <rect x="60" y="285" width="420" height="30" rx="5" fill="url(#ls-shaft)" stroke="#9a8020" stroke-width="1.5"/>
+    <!-- Shaft edge highlight -->
+    <rect x="60" y="285" width="420" height="3" fill="#c8a828" opacity="0.4"/>
+    <!-- Energy line along shaft -->
+    <line x1="65" y1="300" x2="450" y2="300" stroke="#fcee0a" stroke-width="1.5" opacity="0.7" filter="url(#ls-softGlow)"/>
+
+    <!-- Celtic knotwork segments along shaft -->
+    <g stroke="#c8a828" stroke-width="1.2" fill="none" opacity="0.6">
+      <!-- Knot 1 -->
+      <path d="M 100 285 C 106 278, 114 278, 120 285 C 126 292, 126 300, 120 307 C 114 314, 106 314, 100 307 C 94 300, 94 292, 100 285"/>
+      <!-- Knot 2 -->
+      <path d="M 180 285 C 186 278, 194 278, 200 285 C 206 292, 206 300, 200 307 C 194 314, 186 314, 180 307 C 174 300, 174 292, 180 285"/>
+      <!-- Knot 3 -->
+      <path d="M 260 285 C 266 278, 274 278, 280 285 C 286 292, 286 300, 280 307 C 274 314, 266 314, 260 307 C 254 300, 254 292, 260 285"/>
+      <!-- Knot 4 -->
+      <path d="M 340 285 C 346 278, 354 278, 360 285 C 366 292, 366 300, 360 307 C 354 314, 346 314, 340 307 C 334 300, 334 292, 340 285"/>
+    </g>
+
+    <!-- Butt cap (left end) -->
+    <circle cx="65" cy="300" r="18" fill="#1a1400" stroke="#c8a828" stroke-width="2"/>
+    <circle cx="65" cy="300" r="10" fill="#fcee0a" opacity="0.3" filter="url(#ls-softGlow)"/>
+    <circle cx="65" cy="300" r="5" fill="#fcee0a" opacity="0.7"/>
+
+    <!-- SPEAR TIP (right, angular Celtic blade) -->
+    <polygon points="478,278 540,300 478,322" fill="url(#ls-tip)" stroke="#fcee0a" stroke-width="2"/>
+    <!-- Tip fuller -->
+    <line x1="480" y1="291" x2="535" y2="298" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+    <!-- Tip socket ring -->
+    <rect x="470" y="280" width="14" height="40" rx="3" fill="#3a2e08" stroke="#c8a828" stroke-width="1.5"/>
+
+    <!-- SUNBURST HALO behind tip -->
+    <g filter="url(#ls-softGlow)">
+      <circle cx="510" cy="300" r="70" fill="url(#ls-sunburst)" opacity="0.5"/>
+      <!-- Solar rays -->
+      <g stroke="#fcee0a" stroke-width="1.5" opacity="0.7">
+        <line x1="510" y1="225" x2="510" y2="210"/>
+        <line x1="540" y1="238" x2="550" y2="228"/>
+        <line x1="555" y1="268" x2="567" y2="262"/>
+        <line x1="555" y1="332" x2="567" y2="338"/>
+        <line x1="540" y1="362" x2="550" y2="372"/>
+        <line x1="510" y1="375" x2="510" y2="390"/>
+        <line x1="480" y1="362" x2="470" y2="372"/>
+        <line x1="465" y1="332" x2="453" y2="338"/>
+        <line x1="465" y1="268" x2="453" y2="262"/>
+        <line x1="480" y1="238" x2="470" y2="228"/>
+      </g>
+      <!-- Halo ring -->
+      <circle cx="510" cy="300" r="56" fill="none" stroke="#fcee0a" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="510" cy="300" r="42" fill="none" stroke="#fcee0a" stroke-width="0.8" opacity="0.4" stroke-dasharray="4 5"/>
+    </g>
+
+    <!-- HOMING LASER DOT at tip -->
+    <circle cx="538" cy="300" r="12" fill="url(#ls-laserDot)" filter="url(#ls-softGlow)" opacity="0.9"/>
+    <circle cx="538" cy="300" r="5" fill="#ffffff" opacity="0.95"/>
+
+    <!-- TARGET-LOCK CROSSHAIR around laser dot -->
+    <g stroke="#fcee0a" stroke-width="1" fill="none" filter="url(#ls-hardGlow)" opacity="0.8">
+      <circle cx="538" cy="300" r="20" stroke-dasharray="4 4"/>
+      <line x1="538" y1="276" x2="538" y2="282"/>
+      <line x1="538" y1="318" x2="538" y2="324"/>
+      <line x1="514" y1="300" x2="520" y2="300"/>
+      <line x1="556" y1="300" x2="562" y2="300"/>
+    </g>
+  </g>
+
+  <!-- Laser beam trace -->
+  <line x1="542" y1="300" x2="580" y2="300" stroke="#fcee0a" stroke-width="1" opacity="0.5" stroke-dasharray="3 4" filter="url(#ls-softGlow)"/>
+
+  <!-- Ambient solar particles -->
+  <g fill="#fcee0a" opacity="0.6" filter="url(#ls-hardGlow)">
+    <circle cx="470" cy="210" r="2"/>
+    <circle cx="500" cy="225" r="1.5"/>
+    <circle cx="490" cy="395" r="2"/>
+    <circle cx="465" cy="380" r="1.5"/>
+    <circle cx="120" cy="180" r="1.5"/>
+    <circle cx="100" cy="440" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#ls-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// SOLAR-LOCK: ACQUIRED · LASER: HOMING</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 6.3K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#ls-vignette)"/>
+</svg>

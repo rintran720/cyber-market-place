@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="tb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="60%" stop-color="#1c1200"/>
+      <stop offset="100%" stop-color="#342808"/>
+    </linearGradient>
+    <radialGradient id="tb-aura" cx="0.5" cy="0.3" r="0.55">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#fcee0a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tb-shaft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e0c04"/>
+      <stop offset="50%" stop-color="#3a2e10"/>
+      <stop offset="100%" stop-color="#0e0c04"/>
+    </linearGradient>
+    <linearGradient id="tb-blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2a2400"/>
+      <stop offset="40%" stop-color="#9a8c2a"/>
+      <stop offset="60%" stop-color="#f0e47a"/>
+      <stop offset="100%" stop-color="#1a1600"/>
+    </linearGradient>
+    <linearGradient id="tb-sash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a2800"/>
+      <stop offset="50%" stop-color="#c8900a"/>
+      <stop offset="100%" stop-color="#1a1200"/>
+    </linearGradient>
+    <radialGradient id="tb-shimmer" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#fcee0a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="tb-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="tb-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="tb-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tb-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="tb-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#tb-bg)"/>
+  <rect width="600" height="600" fill="url(#tb-grid)"/>
+
+  <!-- Yellow aura -->
+  <ellipse cx="300" cy="250" rx="180" ry="230" fill="url(#tb-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ TONBOGIRI-spear ] ame-no-cyber</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- VERTICAL SPEAR centered -->
+  <g>
+    <!-- Shaft (vertical, long) -->
+    <rect x="284" y="175" width="32" height="390" rx="5" fill="url(#tb-shaft)" stroke="#7a6010" stroke-width="1.5"/>
+    <!-- Shaft edge highlight -->
+    <rect x="284" y="175" width="3" height="390" fill="#c8a828" opacity="0.3"/>
+    <rect x="313" y="175" width="3" height="390" fill="#000" opacity="0.4"/>
+
+    <!-- Shaft wrappings (lacquered cords) -->
+    <g stroke="#c8900a" stroke-width="3" opacity="0.7">
+      <line x1="284" y1="420" x2="316" y2="424"/>
+      <line x1="284" y1="430" x2="316" y2="434"/>
+      <line x1="284" y1="440" x2="316" y2="444"/>
+      <line x1="284" y1="450" x2="316" y2="454"/>
+      <line x1="284" y1="460" x2="316" y2="464"/>
+      <line x1="284" y1="470" x2="316" y2="474"/>
+      <line x1="284" y1="480" x2="316" y2="484"/>
+      <line x1="284" y1="490" x2="316" y2="494"/>
+    </g>
+
+    <!-- Pommel end spike -->
+    <polygon points="300,558 288,540 312,540" fill="url(#tb-blade)" stroke="#c8a828" stroke-width="1.5"/>
+
+    <!-- BLADE (at top, tall and elegant) -->
+    <!-- Blade body -->
+    <path d="M 284 185 L 274 250 L 278 280 L 284 295 L 316 295 L 322 280 L 326 250 L 316 185 Z"
+          fill="url(#tb-blade)" stroke="#c8a828" stroke-width="2"/>
+    <!-- Blade tip-->
+    <polygon points="284,185 316,185 300,100" fill="#f0e47a" opacity="0.9" stroke="#fcee0a" stroke-width="1.5"/>
+    <!-- Fuller line -->
+    <line x1="300" y1="115" x2="300" y2="280" stroke="#ffffff" stroke-width="1.5" opacity="0.5" filter="url(#tb-softGlow)"/>
+    <line x1="300" y1="115" x2="300" y2="280" stroke="#fcee0a" stroke-width="0.8" opacity="0.9"/>
+    <!-- Tip glow -->
+    <circle cx="300" cy="102" r="10" fill="#fcee0a" opacity="0.8" filter="url(#tb-softGlow)"/>
+    <circle cx="300" cy="102" r="4" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Blade shimmer accent -->
+    <ellipse cx="300" cy="200" rx="10" ry="60" fill="#fcee0a" opacity="0.12" filter="url(#tb-softGlow)"/>
+
+    <!-- DRAGONFLY emblem at base of blade (where blade meets shaft) -->
+    <g transform="translate(300, 308)" filter="url(#tb-softGlow)">
+      <!-- Dragonfly body -->
+      <ellipse cx="0" cy="0" rx="5" ry="18" fill="#fcee0a" opacity="0.9"/>
+      <!-- Dragonfly wings (4 wings) -->
+      <path d="M -5 -8 C -28 -22, -35 -10, -20 -2 C -12 2, -5 -2, -5 -8 Z" fill="#fcee0a" opacity="0.5"/>
+      <path d="M 5 -8 C 28 -22, 35 -10, 20 -2 C 12 2, 5 -2, 5 -8 Z" fill="#fcee0a" opacity="0.5"/>
+      <path d="M -5 0 C -26 -8, -32 4, -18 8 C -10 10, -5 5, -5 0 Z" fill="#fcee0a" opacity="0.4"/>
+      <path d="M 5 0 C 26 -8, 32 4, 18 8 C 10 10, 5 5, 5 0 Z" fill="#fcee0a" opacity="0.4"/>
+      <!-- Head -->
+      <circle cx="0" cy="-20" r="4" fill="#fcee0a" opacity="0.9"/>
+    </g>
+
+    <!-- TONBO WING SASH hanging from haft -->
+    <!-- Left sash band -->
+    <path d="M 284 390 C 254 400, 234 420, 240 450 C 244 468, 258 472, 264 460 C 270 448, 262 432, 270 418 C 276 408, 284 402, 284 395"
+          fill="url(#tb-sash)" opacity="0.8" stroke="#c8900a" stroke-width="1"/>
+    <!-- Right sash band -->
+    <path d="M 316 390 C 346 400, 366 420, 360 450 C 356 468, 342 472, 336 460 C 330 448, 338 432, 330 418 C 324 408, 316 402, 316 395"
+          fill="url(#tb-sash)" opacity="0.8" stroke="#c8900a" stroke-width="1"/>
+
+    <!-- Sash decorative ends -->
+    <polygon points="247,452 240,468 254,468" fill="#fcee0a" opacity="0.7"/>
+    <polygon points="353,452 360,468 346,468" fill="#fcee0a" opacity="0.7"/>
+  </g>
+
+  <!-- Shimmer particles -->
+  <g fill="#fcee0a" opacity="0.6" filter="url(#tb-hardGlow)">
+    <circle cx="240" cy="140" r="2"/>
+    <circle cx="360" cy="130" r="1.5"/>
+    <circle cx="220" cy="200" r="1"/>
+    <circle cx="380" cy="190" r="1.5"/>
+    <circle cx="250" cy="350" r="1"/>
+    <circle cx="350" cy="360" r="2"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#tb-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// DRAGONFLY-CUT: ACTIVE · EDGE: MONOMOLECULAR</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 5.9K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#tb-vignette)"/>
+</svg>

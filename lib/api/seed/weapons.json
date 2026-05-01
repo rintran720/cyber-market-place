@@ -127,7 +127,7 @@
     "priceNeon": 7100,
     "seller": "abyss-marine-tech",
     "origin": "Greek",
-    "imageUrl": "https://picsum.photos/seed/trident-poseidon/600/600",
+    "imageUrl": "/items/trident-poseidon.svg",
     "stats": {
       "damage": 86,
       "speed": 55,
@@ -151,7 +151,7 @@
     "priceNeon": 850,
     "seller": "dharma-blade-co",
     "origin": "Indian",
-    "imageUrl": "https://picsum.photos/seed/shadow-katar/600/600",
+    "imageUrl": "/items/shadow-katar.svg",
     "stats": {
       "damage": 55,
       "speed": 90,
@@ -174,7 +174,7 @@
     "priceNeon": 3300,
     "seller": "tartarus-trade",
     "origin": "Greek-cursed",
-    "imageUrl": "https://picsum.photos/seed/blackbow-cursed/600/600",
+    "imageUrl": "/items/blackbow-cursed.svg",
     "stats": {
       "damage": 70,
       "speed": 65,
@@ -198,7 +198,7 @@
     "priceNeon": 2100,
     "seller": "duat-cyberware",
     "origin": "Egyptian",
-    "imageUrl": "https://picsum.photos/seed/claws-of-anubis/600/600",
+    "imageUrl": "/items/claws-of-anubis.svg",
     "stats": {
       "damage": 72,
       "speed": 78,
@@ -221,7 +221,7 @@
     "priceNeon": 5400,
     "seller": "norse-arsenal-corp",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/valkyrie-rifle/600/600",
+    "imageUrl": "/items/valkyrie-rifle.svg",
     "stats": {
       "damage": 75,
       "speed": 68,
@@ -313,7 +313,7 @@
     "priceNeon": 980,
     "seller": "rebirth-ordnance",
     "origin": "Multiple",
-    "imageUrl": "https://picsum.photos/seed/phoenix-quiver/600/600",
+    "imageUrl": "/items/phoenix-quiver.svg",
     "stats": {
       "damage": 60,
       "speed": 70,
@@ -336,7 +336,7 @@
     "priceNeon": 180,
     "seller": "duat-cyberware",
     "origin": "Egyptian",
-    "imageUrl": "https://picsum.photos/seed/scarab-shuriken/600/600",
+    "imageUrl": "/items/scarab-shuriken.svg",
     "stats": {
       "damage": 30,
       "speed": 95,
@@ -359,7 +359,7 @@
     "priceNeon": 3100,
     "seller": "indra-cyberworks",
     "origin": "Indian",
-    "imageUrl": "https://picsum.photos/seed/vajra-mace/600/600",
+    "imageUrl": "/items/vajra-mace.svg",
     "stats": {
       "damage": 76,
       "speed": 58,
@@ -382,7 +382,7 @@
     "priceNeon": 640,
     "seller": "akan-cyberweb",
     "origin": "African",
-    "imageUrl": "https://picsum.photos/seed/anansi-net/600/600",
+    "imageUrl": "/items/anansi-net.svg",
     "stats": {
       "damage": 22,
       "speed": 75,
@@ -452,7 +452,7 @@
     "priceNeon": 5200,
     "seller": "ame-no-cyber",
     "origin": "Japanese",
-    "imageUrl": "https://picsum.photos/seed/amaterasu-flare/600/600",
+    "imageUrl": "/items/amaterasu-flare.svg",
     "stats": {
       "damage": 85,
       "speed": 65,
@@ -475,7 +475,7 @@
     "priceNeon": 3400,
     "seller": "ulster-tactical",
     "origin": "Celtic",
-    "imageUrl": "https://picsum.photos/seed/cu-chulainn-spear/600/600",
+    "imageUrl": "/items/cu-chulainn-spear.svg",
     "stats": {
       "damage": 78,
       "speed": 70,
@@ -498,7 +498,7 @@
     "priceNeon": 1100,
     "seller": "shadow-trade-net",
     "origin": "Norse-cursed",
-    "imageUrl": "https://picsum.photos/seed/loki-dagger/600/600",
+    "imageUrl": "/items/loki-dagger.svg",
     "stats": {
       "damage": 58,
       "speed": 92,
@@ -521,7 +521,7 @@
     "priceNeon": 3700,
     "seller": "duat-cyberware",
     "origin": "Egyptian-cursed",
-    "imageUrl": "https://picsum.photos/seed/set-curse-rod/600/600",
+    "imageUrl": "/items/set-curse-rod.svg",
     "stats": {
       "damage": 64,
       "speed": 60,
@@ -590,7 +590,7 @@
     "priceNeon": 4900,
     "seller": "wolf-iron-works",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/fang-of-jormungandr/600/600",
+    "imageUrl": "/items/fang-of-jormungandr.svg",
     "stats": {
       "damage": 89,
       "speed": 70,
@@ -613,7 +613,7 @@
     "priceNeon": 720,
     "seller": "shadow-trade-net",
     "origin": "Norse-cursed",
-    "imageUrl": "https://picsum.photos/seed/garm-leash/600/600",
+    "imageUrl": "/items/garm-leash.svg",
     "stats": {
       "damage": 40,
       "speed": 65,
@@ -636,7 +636,7 @@
     "priceNeon": 880,
     "seller": "dreamtime-arms",
     "origin": "Aboriginal",
-    "imageUrl": "https://picsum.photos/seed/boomerang-of-mimi/600/600",
+    "imageUrl": "/items/boomerang-of-mimi.svg",
     "stats": {
       "damage": 52,
       "speed": 80,
@@ -658,7 +658,7 @@
     "priceNeon": 5900,
     "seller": "ame-no-cyber",
     "origin": "Japanese",
-    "imageUrl": "https://picsum.photos/seed/tonbogiri-spear/600/600",
+    "imageUrl": "/items/tonbogiri-spear.svg",
     "stats": {
       "damage": 82,
       "speed": 64,
@@ -703,7 +703,7 @@
     "priceNeon": 4600,
     "seller": "tartarus-trade",
     "origin": "Greek-cursed",
-    "imageUrl": "https://picsum.photos/seed/nyx-shroud/600/600",
+    "imageUrl": "/items/nyx-shroud.svg",
     "stats": {
       "damage": 60,
       "speed": 75,
@@ -749,7 +749,7 @@
     "priceNeon": 6300,
     "seller": "ulster-tactical",
     "origin": "Celtic",
-    "imageUrl": "https://picsum.photos/seed/lugh-spear/600/600",
+    "imageUrl": "/items/lugh-spear.svg",
     "stats": {
       "damage": 84,
       "speed": 60,
@@ -865,7 +865,7 @@
     "priceNeon": 1080,
     "seller": "ame-no-cyber",
     "origin": "Japanese",
-    "imageUrl": "https://picsum.photos/seed/raiden-rod/600/600",
+    "imageUrl": "/items/raiden-rod.svg",
     "stats": {
       "damage": 62,
       "speed": 70,

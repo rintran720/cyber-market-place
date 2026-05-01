@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="nx-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="55%" stop-color="#1a1000"/>
+      <stop offset="100%" stop-color="#282000"/>
+    </linearGradient>
+    <radialGradient id="nx-aura" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.25"/>
+      <stop offset="55%" stop-color="#fcee0a" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nx-cape" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080508"/>
+      <stop offset="50%" stop-color="#1a1220"/>
+      <stop offset="100%" stop-color="#050308"/>
+    </linearGradient>
+    <linearGradient id="nx-blade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3020"/>
+      <stop offset="50%" stop-color="#c8b840"/>
+      <stop offset="100%" stop-color="#1a1800"/>
+    </linearGradient>
+    <radialGradient id="nx-eyeGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#c8a800" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="nx-stars" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="15" r="1" fill="#fcee0a" fill-opacity="0.5"/>
+      <circle cx="35" cy="8" r="0.8" fill="#fcee0a" fill-opacity="0.4"/>
+      <circle cx="42" cy="32" r="1.2" fill="#fcee0a" fill-opacity="0.6"/>
+      <circle cx="18" cy="40" r="0.8" fill="#fcee0a" fill-opacity="0.3"/>
+      <circle cx="28" cy="25" r="0.6" fill="#fcee0a" fill-opacity="0.4"/>
+    </pattern>
+    <pattern id="nx-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="nx-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="nx-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="nx-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="nx-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#nx-bg)"/>
+  <rect width="600" height="600" fill="url(#nx-grid)"/>
+
+  <!-- Night star aura -->
+  <ellipse cx="300" cy="310" rx="230" ry="230" fill="url(#nx-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ NYX-shroud ] tartarus-trade</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- CAPE/SHROUD (diagonal, partially transforming) -->
+  <g>
+    <!-- Main cape body (large diagonal shape) -->
+    <path d="M 120,120 C 160,140 200,170 260,210 C 320,250 360,290 400,340 C 440,390 470,430 490,480 L 460,500 C 442,455 415,415 378,368 C 340,320 300,278 242,238 C 184,198 142,165 108,145 Z"
+          fill="url(#nx-cape)" stroke="#5a4a00" stroke-width="2"/>
+
+    <!-- Star pattern across cape fabric -->
+    <clipPath id="nx-capeClip">
+      <path d="M 120,120 C 160,140 200,170 260,210 C 320,250 360,290 400,340 C 440,390 470,430 490,480 L 460,500 C 442,455 415,415 378,368 C 340,320 300,278 242,238 C 184,198 142,165 108,145 Z"/>
+    </clipPath>
+    <rect width="600" height="600" fill="url(#nx-stars)" opacity="0.9" clip-path="url(#nx-capeClip)"/>
+
+    <!-- Cape edge highlight -->
+    <path d="M 120,120 C 160,140 200,170 260,210 C 320,250 360,290 400,340"
+          fill="none" stroke="#7a6a00" stroke-width="1.5" opacity="0.7"/>
+    <path d="M 108,145 C 142,165 184,198 242,238 C 300,278 340,320 378,368"
+          fill="none" stroke="#3a3000" stroke-width="1" opacity="0.5"/>
+
+    <!-- Cape folds -->
+    <path d="M 145,135 C 165,160 195,188 235,218" fill="none" stroke="#2a2010" stroke-width="2" opacity="0.6"/>
+    <path d="M 178,156 C 198,182 230,210 270,240" fill="none" stroke="#2a2010" stroke-width="2" opacity="0.5"/>
+    <path d="M 220,185 C 250,215 285,248 322,280" fill="none" stroke="#2a2010" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- THROWN BLADE TRANSFORMATION at trailing edge -->
+    <!-- Blades breaking off from cape edge and flying -->
+    <!-- Blade 1 (bottom right, fully formed) -->
+    <g transform="translate(450, 390) rotate(-45)">
+      <polygon points="0,-35 -8,-10 8,-10" fill="url(#nx-blade)" stroke="#c8b840" stroke-width="1.5" filter="url(#nx-softGlow)"/>
+      <rect x="-4" y="-10" width="8" height="20" rx="2" fill="#3a3020"/>
+    </g>
+    <!-- Blade 2 (mid, partially formed from fabric) -->
+    <g transform="translate(420, 360) rotate(-38)">
+      <polygon points="0,-28 -6,-8 6,-8" fill="url(#nx-blade)" stroke="#c8b840" stroke-width="1.2" opacity="0.85" filter="url(#nx-softGlow)"/>
+    </g>
+    <!-- Blade 3 (barely formed, still part of cape edge) -->
+    <g transform="translate(390, 330) rotate(-30)" opacity="0.6">
+      <polygon points="0,-20 -5,-5 5,-5" fill="url(#nx-blade)" stroke="#a89820" stroke-width="1" filter="url(#nx-softGlow)"/>
+    </g>
+    <!-- Blade 4 (upper right, in flight) -->
+    <g transform="translate(480, 350) rotate(-60)">
+      <polygon points="0,-38 -7,-12 7,-12" fill="url(#nx-blade)" stroke="#c8b840" stroke-width="1.5" filter="url(#nx-softGlow)"/>
+      <!-- Blade trail -->
+      <line x1="0" y1="-38" x2="0" y2="-55" stroke="#fcee0a" stroke-width="0.8" opacity="0.5" stroke-dasharray="2 3"/>
+    </g>
+
+    <!-- EYE-SYMBOL CLASP (at collar, upper left of cape) -->
+    <g transform="translate(148, 155)" filter="url(#nx-softGlow)">
+      <!-- Eye outer shape -->
+      <ellipse cx="0" cy="0" rx="22" ry="14" fill="#1a1000" stroke="#c8a800" stroke-width="2"/>
+      <!-- Iris -->
+      <circle cx="0" cy="0" r="10" fill="url(#nx-eyeGlow)"/>
+      <circle cx="0" cy="0" r="8" fill="#c8a800" opacity="0.7"/>
+      <!-- Pupil (vertical slit, like Nyx) -->
+      <ellipse cx="0" cy="0" rx="3" ry="8" fill="#000"/>
+      <!-- Eye reflections -->
+      <circle cx="-3" cy="-3" r="2" fill="#ffffff" opacity="0.6"/>
+      <!-- Eyelashes/rays -->
+      <g stroke="#c8a800" stroke-width="0.8" opacity="0.7">
+        <line x1="-22" y1="-5" x2="-28" y2="-9"/>
+        <line x1="-22" y1="0" x2="-30" y2="0"/>
+        <line x1="-22" y1="5" x2="-28" y2="9"/>
+        <line x1="22" y1="-5" x2="28" y2="-9"/>
+        <line x1="22" y1="0" x2="30" y2="0"/>
+        <line x1="22" y1="5" x2="28" y2="9"/>
+        <line x1="0" y1="-14" x2="0" y2="-20"/>
+        <line x1="0" y1="14" x2="0" y2="20"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Night stars scattered on canvas -->
+  <g fill="#fcee0a" opacity="0.7" filter="url(#nx-hardGlow)">
+    <circle cx="90" cy="200" r="1.5"/>
+    <circle cx="80" cy="350" r="1"/>
+    <circle cx="510" cy="180" r="1.5"/>
+    <circle cx="525" cy="320" r="1"/>
+    <circle cx="150" cy="500" r="1.5"/>
+    <circle cx="480" cy="520" r="1"/>
+    <circle cx="95" cy="450" r="1"/>
+    <circle cx="540" cy="450" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#nx-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// NIGHT-MODE: ACTIVE · BLADES: DEPLOYING</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 4.6K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#nx-vignette)"/>
+</svg>

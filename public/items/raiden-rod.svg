@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="rr-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#010a04"/>
+      <stop offset="60%" stop-color="#041208"/>
+      <stop offset="100%" stop-color="#0a2010"/>
+    </linearGradient>
+    <radialGradient id="rr-aura" cx="0.5" cy="0.35" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#39ff14" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rr-shaft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a1a0a"/>
+      <stop offset="50%" stop-color="#1e3a1e"/>
+      <stop offset="100%" stop-color="#0a1a0a"/>
+    </linearGradient>
+    <linearGradient id="rr-bell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3a1a"/>
+      <stop offset="50%" stop-color="#3a6a3a"/>
+      <stop offset="100%" stop-color="#0a1a0a"/>
+    </linearGradient>
+    <radialGradient id="rr-thunderRing" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#39ff14" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="rr-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#39ff14" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="rr-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="rr-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="rr-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="rr-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#rr-bg)"/>
+  <rect width="600" height="600" fill="url(#rr-grid)"/>
+
+  <!-- Green thunder aura -->
+  <ellipse cx="300" cy="220" rx="180" ry="200" fill="url(#rr-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#39ff14" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ RAIDEN-rod ] ame-no-cyber</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">▲ RARE</text>
+  </g>
+
+  <!-- THUNDER-ROD (vertical drumstick shape) -->
+  <g>
+    <!-- SHAFT (handle, cylindrical) -->
+    <rect x="284" y="330" width="32" height="220" rx="10" fill="url(#rr-shaft)" stroke="#39ff14" stroke-width="1.5"/>
+    <!-- Shaft edge -->
+    <rect x="284" y="330" width="4" height="220" rx="2" fill="#39ff14" opacity="0.3"/>
+
+    <!-- Grip texture (wrap bands) -->
+    <g stroke="#39ff14" stroke-width="2" opacity="0.5">
+      <line x1="284" y1="360" x2="316" y2="362"/>
+      <line x1="284" y1="375" x2="316" y2="377"/>
+      <line x1="284" y1="390" x2="316" y2="392"/>
+      <line x1="284" y1="405" x2="316" y2="407"/>
+      <line x1="284" y1="420" x2="316" y2="422"/>
+      <line x1="284" y1="435" x2="316" y2="437"/>
+      <line x1="284" y1="450" x2="316" y2="452"/>
+      <line x1="284" y1="465" x2="316" y2="467"/>
+    </g>
+
+    <!-- Pommel stub -->
+    <rect x="280" y="540" width="40" height="16" rx="6" fill="#1a3a1a" stroke="#39ff14" stroke-width="1.5"/>
+
+    <!-- LIGHTNING-BOLT ZIGZAG along shaft -->
+    <g stroke="#39ff14" stroke-width="2" fill="none" filter="url(#rr-softGlow)" opacity="0.8">
+      <path d="M 310 340 L 298 360 L 308 360 L 295 385 L 306 385 L 290 415"/>
+      <path d="M 290 340 L 302 360 L 292 360 L 305 385 L 294 385 L 310 415"/>
+    </g>
+
+    <!-- BELL-SHAPED HEAD at top -->
+    <!-- Bell outer body (flares wider at bottom of bell) -->
+    <path d="M 264 260 C 255 250, 250 235, 255 220 C 258 210, 264 205, 300 200 C 336 205, 342 210, 345 220 C 350 235, 345 250, 336 260 L 336 332 L 264 332 Z"
+          fill="url(#rr-bell)" stroke="#39ff14" stroke-width="2"/>
+    <!-- Bell inner rim detail -->
+    <path d="M 270 258 C 262 248, 258 236, 262 224 C 265 215, 270 210, 300 207 C 330 210, 335 215, 338 224 C 342 236, 338 248, 330 258"
+          fill="none" stroke="#1aff00" stroke-width="1" opacity="0.5"/>
+    <!-- Bell top dome -->
+    <ellipse cx="300" cy="202" rx="45" ry="24" fill="#2a4a2a" stroke="#39ff14" stroke-width="1.5"/>
+    <!-- Bell cap -->
+    <ellipse cx="300" cy="200" rx="18" ry="10" fill="#39ff14" opacity="0.4" filter="url(#rr-softGlow)"/>
+
+    <!-- ONI MASK EMBLEM on bell front -->
+    <g transform="translate(300, 280)" filter="url(#rr-hardGlow)">
+      <!-- Face outline -->
+      <ellipse cx="0" cy="0" rx="24" ry="28" fill="#0a1a0a" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Horns -->
+      <path d="M -12 -22 C -14 -32, -10 -38, -6 -34 C -3 -30, -6 -24, -10 -22" fill="#39ff14" opacity="0.8"/>
+      <path d="M 12 -22 C 14 -32, 10 -38, 6 -34 C 3 -30, 6 -24, 10 -22" fill="#39ff14" opacity="0.8"/>
+      <!-- Eyes -->
+      <ellipse cx="-9" cy="-5" rx="5" ry="6" fill="#39ff14" opacity="0.9"/>
+      <ellipse cx="9" cy="-5" rx="5" ry="6" fill="#39ff14" opacity="0.9"/>
+      <circle cx="-9" cy="-5" r="2.5" fill="#000"/>
+      <circle cx="9" cy="-5" r="2.5" fill="#000"/>
+      <!-- Nose bridge -->
+      <line x1="0" y1="-2" x2="0" y2="6" stroke="#39ff14" stroke-width="1" opacity="0.6"/>
+      <!-- Fanged mouth -->
+      <path d="M -10 12 C -5 18, 5 18, 10 12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <line x1="-6" y1="12" x2="-6" y2="17" stroke="#39ff14" stroke-width="1"/>
+      <line x1="0" y1="12" x2="0" y2="18" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="6" y1="12" x2="6" y2="17" stroke="#39ff14" stroke-width="1"/>
+    </g>
+
+    <!-- THUNDER RINGS around bell head (3 concentric rings) -->
+    <g filter="url(#rr-softGlow)">
+      <circle cx="300" cy="265" r="65" fill="none" stroke="#39ff14" stroke-width="2" opacity="0.5"/>
+      <circle cx="300" cy="265" r="85" fill="none" stroke="#39ff14" stroke-width="1" opacity="0.3"/>
+      <circle cx="300" cy="265" r="105" fill="none" stroke="#39ff14" stroke-width="0.8" opacity="0.2" stroke-dasharray="5 6"/>
+    </g>
+    <!-- Ring LED nodes -->
+    <g fill="#39ff14" filter="url(#rr-hardGlow)">
+      <circle cx="300" cy="200" r="3"/>
+      <circle cx="365" cy="265" r="3"/>
+      <circle cx="300" cy="330" r="3"/>
+      <circle cx="235" cy="265" r="3"/>
+    </g>
+
+    <!-- Lightning radiating from bell -->
+    <g stroke="#39ff14" stroke-width="1.5" fill="none" filter="url(#rr-softGlow)" opacity="0.7">
+      <path d="M 230 230 L 215 215 L 205 220"/>
+      <path d="M 370 230 L 385 215 L 395 220"/>
+      <path d="M 230 305 L 212 318 L 205 310"/>
+      <path d="M 370 305 L 388 318 L 395 310"/>
+    </g>
+  </g>
+
+  <!-- Ambient particles -->
+  <g fill="#39ff14" opacity="0.55" filter="url(#rr-hardGlow)">
+    <circle cx="160" cy="160" r="2"/>
+    <circle cx="440" cy="150" r="1.5"/>
+    <circle cx="140" cy="450" r="1"/>
+    <circle cx="460" cy="440" r="1.5"/>
+    <circle cx="100" cy="300" r="1"/>
+    <circle cx="500" cy="310" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#rr-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// THUNDER: LOCALIZED · RING-FREQ: 120Hz</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 1.08K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#rr-vignette)"/>
+</svg>

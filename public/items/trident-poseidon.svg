@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="tp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#000d14"/>
+      <stop offset="60%" stop-color="#001824"/>
+      <stop offset="100%" stop-color="#02283a"/>
+    </linearGradient>
+    <radialGradient id="tp-aura" cx="0.5" cy="0.35" r="0.55">
+      <stop offset="0%" stop-color="#00b4ff" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#00b4ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00b4ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tp-shaft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a1828"/>
+      <stop offset="50%" stop-color="#1a3a5a"/>
+      <stop offset="100%" stop-color="#0a1828"/>
+    </linearGradient>
+    <linearGradient id="tp-prong" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a3050"/>
+      <stop offset="50%" stop-color="#70b8d8"/>
+      <stop offset="100%" stop-color="#0a1828"/>
+    </linearGradient>
+    <radialGradient id="tp-tipGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#c8a800" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tp-waveWrap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0050a0"/>
+      <stop offset="50%" stop-color="#0080d0"/>
+      <stop offset="100%" stop-color="#0040a0"/>
+    </linearGradient>
+    <pattern id="tp-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#00b4ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="tp-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="tp-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tp-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="tp-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#tp-bg)"/>
+  <rect width="600" height="600" fill="url(#tp-grid)"/>
+
+  <!-- Underwater tidal aura -->
+  <ellipse cx="300" cy="250" rx="200" ry="230" fill="url(#tp-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ TRIDENT-of-POSEIDON ] abyss-marine-tech</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- TRIDENT (vertical) -->
+  <g>
+    <!-- SHAFT -->
+    <rect x="288" y="250" width="24" height="320" rx="5" fill="url(#tp-shaft)" stroke="#0080d0" stroke-width="1.5"/>
+    <!-- Shaft edge -->
+    <rect x="288" y="250" width="3" height="320" fill="#00b4ff" opacity="0.3"/>
+    <!-- Wave-pattern wrap on shaft (sinusoidal lines) -->
+    <g stroke="#0080d0" stroke-width="1.5" fill="none" opacity="0.7">
+      <path d="M 291 280 C 295 272, 299 280, 303 288 C 307 296, 311 280, 311 272"/>
+      <path d="M 291 310 C 295 302, 299 310, 303 318 C 307 326, 311 310, 311 302"/>
+      <path d="M 291 340 C 295 332, 299 340, 303 348 C 307 356, 311 340, 311 332"/>
+      <path d="M 291 370 C 295 362, 299 370, 303 378 C 307 386, 311 370, 311 362"/>
+      <path d="M 291 400 C 295 392, 299 400, 303 408 C 307 416, 311 400, 311 392"/>
+      <path d="M 291 430 C 295 422, 299 430, 303 438 C 307 446, 311 430, 311 422"/>
+      <path d="M 291 460 C 295 452, 299 460, 303 468 C 307 476, 311 460, 311 452"/>
+      <path d="M 291 490 C 295 482, 299 490, 303 498 C 307 506, 311 490, 311 482"/>
+      <path d="M 291 520 C 295 512, 299 520, 303 528 C 307 536, 311 520, 311 512"/>
+    </g>
+
+    <!-- Pommel spike -->
+    <polygon points="300,570 288,548 312,548" fill="url(#tp-prong)" stroke="#00b4ff" stroke-width="1.5"/>
+
+    <!-- TIDE-BLUE ROUTER RINGS (around shaft mid-section) -->
+    <g fill="none">
+      <circle cx="300" cy="380" r="38" stroke="#00b4ff" stroke-width="2" opacity="0.6"/>
+      <circle cx="300" cy="380" r="50" stroke="#00b4ff" stroke-width="1" opacity="0.4"/>
+      <circle cx="300" cy="380" r="62" stroke="#00b4ff" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 6"/>
+    </g>
+    <!-- LED ring nodes -->
+    <g fill="#00b4ff" filter="url(#tp-hardGlow)">
+      <circle cx="300" cy="342" r="3"/>
+      <circle cx="338" cy="380" r="3"/>
+      <circle cx="300" cy="418" r="3"/>
+      <circle cx="262" cy="380" r="3"/>
+    </g>
+
+    <!-- THREE-PRONG HEAD (central tallest) -->
+    <!-- Left prong -->
+    <path d="M 276 258 L 268 258 L 258 225 L 265 180 L 272 155 L 278 180 L 284 225 L 280 258 Z"
+          fill="url(#tp-prong)" stroke="#0080d0" stroke-width="1.5"/>
+    <!-- Center prong (tallest) -->
+    <path d="M 288 256 L 282 256 L 278 220 L 290 120 L 300 90 L 310 120 L 322 220 L 318 256 L 312 256 Z"
+          fill="url(#tp-prong)" stroke="#0080d0" stroke-width="2"/>
+    <!-- Right prong -->
+    <path d="M 320 258 L 316 258 L 322 225 L 328 180 L 334 155 L 338 180 L 342 225 L 332 258 Z"
+          fill="url(#tp-prong)" stroke="#0080d0" stroke-width="1.5"/>
+
+    <!-- Prong connector bar -->
+    <rect x="258" y="250" width="84" height="14" rx="3" fill="#0a1828" stroke="#0080d0" stroke-width="1.5"/>
+
+    <!-- YELLOW LIGHTNING at prong tips -->
+    <g filter="url(#tp-softGlow)" opacity="0.9">
+      <!-- Left tip lightning -->
+      <circle cx="272" cy="158" r="10" fill="url(#tp-tipGlow)"/>
+      <circle cx="272" cy="158" r="5" fill="#ffffff" opacity="0.9"/>
+      <!-- Center tip lightning (biggest) -->
+      <circle cx="300" cy="92" r="14" fill="url(#tp-tipGlow)"/>
+      <circle cx="300" cy="92" r="6" fill="#ffffff" opacity="0.95"/>
+      <!-- Right tip lightning -->
+      <circle cx="336" cy="158" r="10" fill="url(#tp-tipGlow)"/>
+      <circle cx="336" cy="158" r="5" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+    <!-- Lightning bolts from tips -->
+    <g stroke="#fcee0a" stroke-width="1.5" fill="none" filter="url(#tp-softGlow)" opacity="0.8">
+      <path d="M 265 158 L 255 145 L 245 150"/>
+      <path d="M 300 92 L 288 78 L 278 84"/>
+      <path d="M 300 92 L 312 78 L 322 84"/>
+      <path d="M 336 158 L 346 145 L 356 150"/>
+    </g>
+  </g>
+
+  <!-- Underwater light caustic rays -->
+  <g opacity="0.2" stroke="#00b4ff" stroke-width="1" fill="none">
+    <path d="M 300 600 C 250 500, 200 420, 180 350"/>
+    <path d="M 300 600 C 330 500, 380 430, 400 360"/>
+    <path d="M 300 600 C 280 520, 260 460, 250 400"/>
+    <path d="M 300 600 C 320 520, 340 460, 350 400"/>
+  </g>
+
+  <!-- Bubble particles -->
+  <g fill="none" stroke="#00b4ff" stroke-width="1" opacity="0.5">
+    <circle cx="180" cy="280" r="5"/>
+    <circle cx="420" cy="320" r="4"/>
+    <circle cx="160" cy="380" r="6"/>
+    <circle cx="440" cy="250" r="3"/>
+    <circle cx="200" cy="450" r="4"/>
+    <circle cx="400" cy="460" r="5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#tp-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// TIDE: ARMED · UNDERWATER-ROUTER: ONLINE</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 7.1K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#tp-vignette)"/>
+</svg>

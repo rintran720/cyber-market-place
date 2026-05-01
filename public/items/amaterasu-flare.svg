@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="af-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="60%" stop-color="#1c1200"/>
+      <stop offset="100%" stop-color="#342808"/>
+    </linearGradient>
+    <radialGradient id="af-aura" cx="0.8" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#fcee0a" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="af-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2000"/>
+      <stop offset="50%" stop-color="#4a3a10"/>
+      <stop offset="100%" stop-color="#1a1400"/>
+    </linearGradient>
+    <linearGradient id="af-bodyEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a0800"/>
+      <stop offset="50%" stop-color="#9a8020"/>
+      <stop offset="100%" stop-color="#0a0800"/>
+    </linearGradient>
+    <radialGradient id="af-solarBurst" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="20%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ff8800" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="af-sunDisc" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#fcee0a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff8800" stop-opacity="0.3"/>
+    </radialGradient>
+    <pattern id="af-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="af-kiku" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="3" fill="none" stroke="#fcee0a" stroke-opacity="0.08" stroke-width="0.8"/>
+    </pattern>
+    <pattern id="af-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="af-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="af-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="af-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#af-bg)"/>
+  <rect width="600" height="600" fill="url(#af-grid)"/>
+  <!-- Chrysanthemum micro-pattern -->
+  <rect width="600" height="600" fill="url(#af-kiku)" opacity="0.5"/>
+
+  <!-- Solar blinding aura at muzzle -->
+  <ellipse cx="470" cy="300" rx="200" ry="160" fill="url(#af-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ AMATERASU-flare ] ame-no-cyber</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- SOLAR PISTOL (horizontal, muzzle pointing right) -->
+  <g>
+    <!-- MAIN BODY -->
+    <path d="M 120,282 L 220,275 L 260,272 L 260,335 L 220,338 L 120,330 L 110,306 Z"
+          fill="url(#af-body)" stroke="url(#af-bodyEdge)" stroke-width="2"/>
+
+    <!-- CHRYSANTHEMUM PATTERN on grip (engraved) -->
+    <g transform="translate(145, 306)" opacity="0.6">
+      <!-- Central circle -->
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#fcee0a" stroke-width="1"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#fcee0a" stroke-width="0.8"/>
+      <!-- 12 petals radiating -->
+      <g stroke="#fcee0a" stroke-width="0.8">
+        <line x1="0" y1="-10" x2="0" y2="-18"/>
+        <line x1="5" y1="-8.6" x2="9" y2="-15.6"/>
+        <line x1="8.6" y1="-5" x2="15.6" y2="-9"/>
+        <line x1="10" y1="0" x2="18" y2="0"/>
+        <line x1="8.6" y1="5" x2="15.6" y2="9"/>
+        <line x1="5" y1="8.6" x2="9" y2="15.6"/>
+        <line x1="0" y1="10" x2="0" y2="18"/>
+        <line x1="-5" y1="8.6" x2="-9" y2="15.6"/>
+        <line x1="-8.6" y1="5" x2="-15.6" y2="9"/>
+        <line x1="-10" y1="0" x2="-18" y2="0"/>
+        <line x1="-8.6" y1="-5" x2="-15.6" y2="-9"/>
+        <line x1="-5" y1="-8.6" x2="-9" y2="-15.6"/>
+      </g>
+    </g>
+
+    <!-- Grip frame with Japanese lattice -->
+    <path d="M 115,330 L 130,330 L 135,370 L 120,375 L 108,368 L 108,345 Z"
+          fill="url(#af-body)" stroke="#9a8020" stroke-width="1.5"/>
+    <!-- Lattice pattern on grip -->
+    <g stroke="#fcee0a" stroke-width="0.6" opacity="0.4">
+      <line x1="109" y1="335" x2="133" y2="337"/>
+      <line x1="109" y1="342" x2="134" y2="344"/>
+      <line x1="109" y1="349" x2="134" y2="351"/>
+      <line x1="109" y1="356" x2="134" y2="358"/>
+      <line x1="115" y1="330" x2="112" y2="372"/>
+      <line x1="122" y1="330" x2="120" y2="373"/>
+      <line x1="129" y1="330" x2="128" y2="373"/>
+    </g>
+    <!-- Trigger -->
+    <path d="M 182,310 L 192,308 L 194,324 L 184,326" fill="none" stroke="#fcee0a" stroke-width="1" opacity="0.7"/>
+
+    <!-- Forward slide -->
+    <rect x="220" y="275" width="40" height="62" rx="2" fill="#2a2000" stroke="#9a8020" stroke-width="1"/>
+    <g stroke="#fcee0a" stroke-width="0.8" opacity="0.4">
+      <line x1="228" y1="278" x2="228" y2="334"/>
+      <line x1="236" y1="278" x2="236" y2="334"/>
+      <line x1="244" y1="278" x2="244" y2="334"/>
+      <line x1="252" y1="278" x2="252" y2="334"/>
+    </g>
+
+    <!-- SUN DISC emblem above muzzle (large disc with rays) -->
+    <g filter="url(#af-softGlow)">
+      <!-- Disc body -->
+      <circle cx="340" cy="258" r="38" fill="url(#af-sunDisc)" opacity="0.9"/>
+      <circle cx="340" cy="258" r="26" fill="#fcee0a" opacity="0.6"/>
+      <circle cx="340" cy="258" r="14" fill="#ffffff" opacity="0.95"/>
+      <!-- Radiating rays (12 rays) -->
+      <g stroke="#fcee0a" stroke-width="2" opacity="0.9">
+        <line x1="340" y1="214" x2="340" y2="204"/>
+        <line x1="367" y1="222" x2="373" y2="214"/>
+        <line x1="384" y1="248" x2="392" y2="244"/>
+        <line x1="384" y1="272" x2="392" y2="276"/>
+        <line x1="367" y1="294" x2="373" y2="302"/>
+        <line x1="340" y1="302" x2="340" y2="312"/>
+        <line x1="313" y1="294" x2="307" y2="302"/>
+        <line x1="296" y1="272" x2="288" y2="276"/>
+        <line x1="296" y1="248" x2="288" y2="244"/>
+        <line x1="313" y1="222" x2="307" y2="214"/>
+      </g>
+      <!-- Outer glow ring -->
+      <circle cx="340" cy="258" r="42" fill="none" stroke="#fcee0a" stroke-width="1" opacity="0.5" stroke-dasharray="4 5"/>
+    </g>
+
+    <!-- BARREL (below sun disc) -->
+    <rect x="258" y="283" width="180" height="44" rx="4" fill="url(#af-body)" stroke="url(#af-bodyEdge)" stroke-width="1.5"/>
+
+    <!-- Barrel join ring -->
+    <rect x="436" y="280" width="10" height="50" fill="#fcee0a" opacity="0.5" rx="2"/>
+
+    <!-- Muzzle section -->
+    <path d="M 444,285 L 520,291 L 521,319 L 444,323 Z" fill="url(#af-body)" stroke="#9a8020" stroke-width="1.5"/>
+
+    <!-- SOLAR BURST from barrel (blinding yellow) -->
+    <circle cx="520" cy="305" r="50" fill="url(#af-solarBurst)" filter="url(#af-softGlow)" opacity="0.8"/>
+    <circle cx="520" cy="305" r="30" fill="url(#af-solarBurst)" filter="url(#af-softGlow)"/>
+    <circle cx="520" cy="305" r="15" fill="none" stroke="#fcee0a" stroke-width="2" opacity="0.8"/>
+    <circle cx="520" cy="305" r="8" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Rays from muzzle burst -->
+    <g stroke="#fcee0a" stroke-width="1.5" opacity="0.6" filter="url(#af-softGlow)">
+      <line x1="520" y1="275" x2="540" y2="258"/>
+      <line x1="540" y1="290" x2="562" y2="282"/>
+      <line x1="540" y1="315" x2="562" y2="325"/>
+      <line x1="520" y1="330" x2="538" y2="348"/>
+    </g>
+
+    <!-- Barrel vent slots -->
+    <g stroke="#fcee0a" stroke-width="0.8" opacity="0.4">
+      <line x1="270" y1="287" x2="270" y2="323"/>
+      <line x1="280" y1="285" x2="280" y2="325"/>
+      <line x1="290" y1="285" x2="290" y2="325"/>
+    </g>
+  </g>
+
+  <!-- Ambient solar particles -->
+  <g fill="#fcee0a" opacity="0.6" filter="url(#af-hardGlow)">
+    <circle cx="480" cy="195" r="2.5"/>
+    <circle cx="500" cy="215" r="2"/>
+    <circle cx="520" cy="240" r="1.5"/>
+    <circle cx="490" cy="390" r="2"/>
+    <circle cx="510" cy="375" r="1.5"/>
+    <circle cx="100" cy="200" r="1.5"/>
+    <circle cx="120" cy="440" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#af-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// SOLAR: CHARGED · BLIND-RANGE: 30m</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 5.2K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#af-vignette)"/>
+</svg>

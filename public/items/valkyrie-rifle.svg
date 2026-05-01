@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="vr-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="60%" stop-color="#1c1200"/>
+      <stop offset="100%" stop-color="#342808"/>
+    </linearGradient>
+    <radialGradient id="vr-aura" cx="0.85" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#fcee0a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vr-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2000"/>
+      <stop offset="50%" stop-color="#4a3a10"/>
+      <stop offset="100%" stop-color="#1a1400"/>
+    </linearGradient>
+    <linearGradient id="vr-bodyEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a0800"/>
+      <stop offset="50%" stop-color="#9a8020"/>
+      <stop offset="100%" stop-color="#0a0800"/>
+    </linearGradient>
+    <radialGradient id="vr-muzzleGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#c8a800" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="vr-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="vr-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="vr-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="vr-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="vr-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#vr-bg)"/>
+  <rect width="600" height="600" fill="url(#vr-grid)"/>
+
+  <!-- Muzzle aura -->
+  <ellipse cx="530" cy="300" rx="160" ry="120" fill="url(#vr-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ VALKYRIE-rifle ] norse-arsenal-corp</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- VALKYRIE RIFLE (horizontal, muzzle right) -->
+  <g>
+    <!-- WINGED STOCK (left, curved like a wing) -->
+    <path d="M 55,280 L 100,275 L 110,310 L 100,340 L 80,345 L 55,335 Z"
+          fill="url(#vr-body)" stroke="url(#vr-bodyEdge)" stroke-width="1.5"/>
+    <!-- Wing feathers on stock -->
+    <path d="M 55 295 C 40 280, 30 270, 45 265 C 58 260, 68 272, 65 280"
+          fill="#3a2a08" stroke="#c8a828" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 55 310 C 35 300, 22 295, 38 288 C 52 282, 63 295, 60 305"
+          fill="#3a2a08" stroke="#c8a828" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 55 325 C 38 320, 26 318, 40 310 C 52 303, 62 315, 60 322"
+          fill="#3a2a08" stroke="#c8a828" stroke-width="1.2" opacity="0.6"/>
+    <!-- Wing top feather sweep -->
+    <path d="M 68 275 C 55 258, 40 250, 30 260 C 22 268, 30 278, 50 278"
+          fill="#4a3808" stroke="#fcee0a" stroke-width="1" opacity="0.7"/>
+    <path d="M 78 272 C 70 252, 50 240, 35 248 C 22 255, 26 265, 45 268"
+          fill="#4a3808" stroke="#fcee0a" stroke-width="1" opacity="0.5"/>
+
+    <!-- Shoulder stock pad -->
+    <rect x="50" y="285" width="8" height="52" rx="3" fill="#3a2808" stroke="#9a8020" stroke-width="1"/>
+
+    <!-- Main receiver body -->
+    <rect x="108" y="278" width="200" height="56" rx="4" fill="url(#vr-body)" stroke="url(#vr-bodyEdge)" stroke-width="1.5"/>
+
+    <!-- Optic sight / scope (Norse cross-reticle) -->
+    <rect x="150" y="252" width="110" height="28" rx="6" fill="#1a1400" stroke="#c8a828" stroke-width="1.5"/>
+    <!-- Scope glass -->
+    <rect x="154" y="255" width="102" height="22" rx="4" fill="#0a0800" stroke="#7a6010" stroke-width="1"/>
+    <!-- Reticle crosshair -->
+    <line x1="205" y1="258" x2="205" y2="274" stroke="#fcee0a" stroke-width="1" opacity="0.8" filter="url(#vr-hardGlow)"/>
+    <line x1="194" y1="266" x2="216" y2="266" stroke="#fcee0a" stroke-width="1" opacity="0.8" filter="url(#vr-hardGlow)"/>
+    <circle cx="205" cy="266" r="5" fill="none" stroke="#fcee0a" stroke-width="0.8" opacity="0.6"/>
+    <!-- WORTHY text in reticle -->
+    <text x="205" y="290" font-family="ui-monospace,'Courier New',monospace" font-size="7" fill="#fcee0a" text-anchor="middle" opacity="0.9" filter="url(#vr-hardGlow)">WORTHY</text>
+    <!-- Scope rail -->
+    <line x1="152" y1="262" x2="256" y2="262" stroke="#c8a828" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Energy cell on receiver -->
+    <rect x="168" y="286" width="80" height="40" rx="2" fill="#0a0800" stroke="#fcee0a" stroke-width="1.5"/>
+    <rect x="171" y="289" width="74" height="34" rx="1" fill="#fcee0a" opacity="0.12" filter="url(#vr-softGlow)"/>
+    <!-- Cell charge LEDs -->
+    <g fill="#fcee0a" filter="url(#vr-hardGlow)">
+      <circle cx="178" cy="306" r="2.5"/>
+      <circle cx="186" cy="306" r="2.5"/>
+      <circle cx="194" cy="306" r="2.5"/>
+      <circle cx="202" cy="306" r="2.5"/>
+      <circle cx="210" cy="306" r="2.5"/>
+    </g>
+
+    <!-- Grip / trigger -->
+    <path d="M 305,278 L 328,278 L 336,305 L 336,345 L 318,352 L 305,350 L 305,332 L 311,308 Z"
+          fill="url(#vr-body)" stroke="#9a8020" stroke-width="1.5"/>
+    <!-- Trigger -->
+    <path d="M 322,316 L 332,314 L 333,328 L 322,330" fill="none" stroke="#fcee0a" stroke-width="1" opacity="0.7"/>
+
+    <!-- Norse wing engraving on grip -->
+    <path d="M 308 295 C 300 288, 295 282, 305 280" fill="none" stroke="#fcee0a" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Forward barrel section -->
+    <rect x="334" y="282" width="100" height="48" rx="3" fill="url(#vr-body)" stroke="url(#vr-bodyEdge)" stroke-width="1.5"/>
+    <!-- Barrel vent slots -->
+    <g stroke="#fcee0a" stroke-width="0.8" opacity="0.4">
+      <line x1="345" y1="286" x2="345" y2="326"/>
+      <line x1="358" y1="286" x2="358" y2="326"/>
+      <line x1="371" y1="286" x2="371" y2="326"/>
+      <line x1="384" y1="286" x2="384" y2="326"/>
+      <line x1="397" y1="286" x2="397" y2="326"/>
+      <line x1="410" y1="286" x2="410" y2="326"/>
+    </g>
+
+    <!-- Barrel ring join -->
+    <rect x="432" y="280" width="10" height="52" fill="#fcee0a" opacity="0.5" rx="2"/>
+
+    <!-- Muzzle taper -->
+    <path d="M 440,285 L 530,290 L 532,318 L 440,322 Z" fill="url(#vr-body)" stroke="url(#vr-bodyEdge)" stroke-width="1.5"/>
+
+    <!-- Muzzle glow (yellow, massive) -->
+    <circle cx="530" cy="304" r="35" fill="#fcee0a" opacity="0.1" filter="url(#vr-softGlow)"/>
+    <circle cx="530" cy="304" r="22" fill="url(#vr-muzzleGlow)" filter="url(#vr-softGlow)" opacity="0.8"/>
+    <circle cx="530" cy="304" r="14" fill="none" stroke="#fcee0a" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="530" cy="304" r="8" fill="none" stroke="#fcee0a" stroke-width="2" opacity="0.9"/>
+    <circle cx="530" cy="304" r="5" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Under-barrel grip -->
+    <path d="M 355,330 L 375,330 L 375,365 L 360,370 L 350,365 L 350,342 Z" fill="#2a1e00" stroke="#9a8020" stroke-width="1"/>
+
+    <!-- Circuit traces on receiver -->
+    <g stroke="#fcee0a" stroke-width="0.8" fill="none" opacity="0.4">
+      <line x1="115" y1="282" x2="115" y2="328"/>
+      <circle cx="115" cy="305" r="2" fill="#fcee0a"/>
+      <line x1="455" y1="288" x2="455" y2="318"/>
+      <circle cx="455" cy="303" r="1.5" fill="#fcee0a"/>
+    </g>
+  </g>
+
+  <!-- Target indicator "WORTHY" floating -->
+  <g font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#fcee0a" text-anchor="middle" filter="url(#vr-hardGlow)" opacity="0.8">
+    <text x="530" y="255">[ TARGET: WORTHY ]</text>
+    <line x1="505" y1="258" x2="515" y2="268" stroke="#fcee0a" stroke-width="0.8"/>
+    <line x1="555" y1="258" x2="545" y2="268" stroke="#fcee0a" stroke-width="0.8"/>
+  </g>
+
+  <!-- Particles -->
+  <g fill="#fcee0a" opacity="0.5" filter="url(#vr-hardGlow)">
+    <circle cx="120" cy="200" r="2"/>
+    <circle cx="480" cy="160" r="1.5"/>
+    <circle cx="100" cy="430" r="1"/>
+    <circle cx="450" cy="440" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#vr-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// AUTH: WORTHY-VERIFIED · ROUND CHAMBERED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 5.4K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#vr-vignette)"/>
+</svg>

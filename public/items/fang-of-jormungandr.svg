@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fj-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080500"/>
+      <stop offset="60%" stop-color="#1c1200"/>
+      <stop offset="100%" stop-color="#342808"/>
+    </linearGradient>
+    <radialGradient id="fj-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#fcee0a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fj-blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1600"/>
+      <stop offset="35%" stop-color="#6a5a18"/>
+      <stop offset="65%" stop-color="#e8d87a"/>
+      <stop offset="100%" stop-color="#0a0800"/>
+    </linearGradient>
+    <linearGradient id="fj-haft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1208"/>
+      <stop offset="50%" stop-color="#2a2010"/>
+      <stop offset="100%" stop-color="#0e0c04"/>
+    </linearGradient>
+    <radialGradient id="fj-venomDrip" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#c8a800" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="fj-scales" x="0" y="0" width="12" height="10" patternUnits="userSpaceOnUse">
+      <ellipse cx="6" cy="5" rx="5" ry="4" fill="none" stroke="#fcee0a" stroke-opacity="0.2" stroke-width="0.8"/>
+    </pattern>
+    <pattern id="fj-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="fj-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="fj-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="fj-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="fj-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#fj-bg)"/>
+  <rect width="600" height="600" fill="url(#fj-grid)"/>
+
+  <!-- Yellow aura -->
+  <ellipse cx="300" cy="300" rx="220" ry="220" fill="url(#fj-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ FANG-of-JORMUNGANDR ] wolf-iron-works</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- FANG DAGGER diagonal (bottom-left to top-right) -->
+  <g transform="rotate(-35, 300, 300)">
+    <!-- Serpent-skin haft -->
+    <rect x="210" y="270" width="140" height="60" rx="8" fill="url(#fj-haft)" stroke="#7a6010" stroke-width="2"/>
+    <rect x="210" y="270" width="140" height="60" rx="8" fill="url(#fj-scales)" opacity="0.8"/>
+    <!-- Scale texture overlay -->
+    <g stroke="#fcee0a" stroke-width="0.6" fill="none" opacity="0.3">
+      <line x1="222" y1="270" x2="222" y2="330"/>
+      <line x1="234" y1="270" x2="234" y2="330"/>
+      <line x1="246" y1="270" x2="246" y2="330"/>
+      <line x1="258" y1="270" x2="258" y2="330"/>
+      <line x1="270" y1="270" x2="270" y2="330"/>
+      <line x1="282" y1="270" x2="282" y2="330"/>
+      <line x1="294" y1="270" x2="294" y2="330"/>
+      <line x1="306" y1="270" x2="306" y2="330"/>
+      <line x1="318" y1="270" x2="318" y2="330"/>
+      <line x1="330" y1="270" x2="330" y2="330"/>
+      <line x1="342" y1="270" x2="342" y2="330"/>
+    </g>
+    <!-- Haft pommel (serpent eye) -->
+    <circle cx="222" cy="300" r="14" fill="#1a1208" stroke="#7a6010" stroke-width="2"/>
+    <circle cx="222" cy="300" r="8" fill="#fcee0a" opacity="0.4" filter="url(#fj-softGlow)"/>
+    <ellipse cx="222" cy="300" rx="3" ry="7" fill="#000"/>
+
+    <!-- Fang blade (curved, single fang shape) -->
+    <path d="M 350 265 C 380 255, 410 250, 430 240 C 455 228, 470 210, 468 190 C 466 175, 455 168, 445 172 C 432 178, 425 195, 420 215 C 415 235, 410 255, 405 270 L 350 295 Z"
+          fill="url(#fj-blade)" stroke="#c8a800" stroke-width="1.5"/>
+    <!-- Blade inner highlight -->
+    <path d="M 360 270 C 385 260, 410 255, 425 245 C 440 235, 448 220, 446 205"
+          fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+    <!-- Fang tip -->
+    <circle cx="466" cy="182" r="6" fill="#ffffff" opacity="0.9" filter="url(#fj-softGlow)"/>
+
+    <!-- Venom drip from blade tip -->
+    <g filter="url(#fj-softGlow)" opacity="0.9">
+      <path d="M 460 190 C 462 205, 458 215, 456 230 C 454 245, 458 255, 455 265" stroke="#fcee0a" stroke-width="2" fill="none"/>
+      <circle cx="455" cy="268" r="5" fill="#fcee0a"/>
+      <path d="M 452 270 C 452 278, 450 285, 448 292" stroke="#fcee0a" stroke-width="1.5" fill="none"/>
+      <circle cx="447" cy="295" r="3" fill="#fcee0a"/>
+    </g>
+
+    <!-- Bite-mark runes along blade -->
+    <g font-family="serif" font-size="11" fill="#fcee0a" opacity="0.8" filter="url(#fj-hardGlow)">
+      <text x="380" y="268">ᛜ</text>
+      <text x="398" y="262">ᛝ</text>
+      <text x="415" y="256">ᚾ</text>
+    </g>
+
+    <!-- Blade guard -->
+    <rect x="344" y="258" width="16" height="44" rx="4" fill="#3a2808" stroke="#c8a800" stroke-width="2"/>
+    <line x1="344" y1="280" x2="360" y2="280" stroke="#fcee0a" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- Venom particles -->
+  <g fill="#fcee0a" opacity="0.7" filter="url(#fj-softGlow)">
+    <circle cx="430" cy="160" r="4"/>
+    <circle cx="420" cy="175" r="3"/>
+    <circle cx="440" cy="180" r="2.5"/>
+    <circle cx="415" cy="195" r="2"/>
+  </g>
+
+  <!-- Ambient particles -->
+  <g fill="#fcee0a" opacity="0.5" filter="url(#fj-hardGlow)">
+    <circle cx="120" cy="180" r="2"/>
+    <circle cx="480" cy="430" r="1.5"/>
+    <circle cx="100" cy="420" r="1"/>
+    <circle cx="500" cy="170" r="1.5"/>
+    <circle cx="150" cy="500" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#fj-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// VENOM: STACK x4 · ARMOUR DECAY ACTIVE</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 4.9K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#fj-vignette)"/>
+</svg>

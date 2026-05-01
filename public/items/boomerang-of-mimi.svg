@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#010a04"/>
+      <stop offset="60%" stop-color="#041208"/>
+      <stop offset="100%" stop-color="#0a2010"/>
+    </linearGradient>
+    <radialGradient id="bm-aura" cx="0.45" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#39ff14" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bm-wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a10"/>
+      <stop offset="50%" stop-color="#6a4a20"/>
+      <stop offset="100%" stop-color="#2a1e0a"/>
+    </linearGradient>
+    <pattern id="bm-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#39ff14" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="bm-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="bm-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bm-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="bm-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#bm-bg)"/>
+  <rect width="600" height="600" fill="url(#bm-grid)"/>
+
+  <!-- Aura -->
+  <ellipse cx="290" cy="300" rx="200" ry="160" fill="url(#bm-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#39ff14" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ BOOMERANG-of-MIMI ] dreamtime-arms</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">▲ RARE</text>
+  </g>
+
+  <!-- BOOMERANG at 30° angle (V-shape, curved arms) -->
+  <g transform="rotate(30, 300, 300)">
+    <!-- Left arm of boomerang -->
+    <path d="M 300 300 C 260 280, 210 260, 175 250 C 155 244, 142 248, 140 260 C 138 272, 152 282, 172 288 C 200 296, 250 305, 295 315"
+          fill="url(#bm-wood)" stroke="#4a3a18" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right arm of boomerang -->
+    <path d="M 300 300 C 320 260, 340 220, 355 190 C 364 172, 364 158, 354 152 C 344 146, 330 154, 320 172 C 308 194, 295 240, 290 285"
+          fill="url(#bm-wood)" stroke="#4a3a18" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Dot painting decoration (Aboriginal style) - Left arm -->
+    <g fill="#39ff14" opacity="0.8" filter="url(#bm-hardGlow)">
+      <!-- Row of dots along left arm -->
+      <circle cx="270" cy="274" r="4"/>
+      <circle cx="248" cy="268" r="3.5"/>
+      <circle cx="226" cy="264" r="4"/>
+      <circle cx="204" cy="261" r="3.5"/>
+      <circle cx="183" cy="260" r="4"/>
+      <circle cx="163" cy="262" r="3.5"/>
+      <!-- Second dot row -->
+      <circle cx="260" cy="286" r="3"/>
+      <circle cx="238" cy="282" r="2.5"/>
+      <circle cx="218" cy="278" r="3"/>
+      <circle cx="196" cy="275" r="2.5"/>
+    </g>
+
+    <!-- Dot painting - Right arm -->
+    <g fill="#39ff14" opacity="0.8" filter="url(#bm-hardGlow)">
+      <circle cx="318" cy="278" r="4"/>
+      <circle cx="328" cy="258" r="3.5"/>
+      <circle cx="338" cy="236" r="4"/>
+      <circle cx="346" cy="214" r="3.5"/>
+      <circle cx="353" cy="192" r="4"/>
+      <circle cx="356" cy="170" r="3.5"/>
+      <circle cx="312" cy="290" r="3"/>
+      <circle cx="322" cy="270" r="2.5"/>
+      <circle cx="332" cy="248" r="3"/>
+    </g>
+
+    <!-- U-shape concentric circles (traditional dot-art motif) -->
+    <g fill="none" stroke="#39ff14" stroke-width="1.5" opacity="0.6">
+      <circle cx="300" cy="300" r="12"/>
+      <circle cx="300" cy="300" r="20"/>
+      <circle cx="300" cy="300" r="28"/>
+    </g>
+    <circle cx="300" cy="300" r="5" fill="#39ff14" opacity="0.9" filter="url(#bm-softGlow)"/>
+
+    <!-- Indigenous glyph marks along arms -->
+    <g font-family="serif" font-size="12" fill="#39ff14" opacity="0.6" filter="url(#bm-hardGlow)">
+      <text x="218" y="256">⌗</text>
+      <text x="345" y="213">⌗</text>
+    </g>
+  </g>
+
+  <!-- MOTION TRAIL showing return arc (dashed curved line) -->
+  <g fill="none" stroke="#39ff14" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.6" filter="url(#bm-softGlow)">
+    <path d="M 435 230 C 480 300, 460 380, 400 400 C 350 415, 290 390, 270 350 C 258 325, 268 305, 290 300"/>
+  </g>
+  <!-- Trail arrow heads -->
+  <g fill="#39ff14" opacity="0.6">
+    <polygon points="290,300 280,290 280,310"/>
+  </g>
+
+  <!-- Motion blur particles along trail -->
+  <g fill="#39ff14" opacity="0.4" filter="url(#bm-hardGlow)">
+    <circle cx="440" cy="240" r="3"/>
+    <circle cx="465" cy="290" r="2.5"/>
+    <circle cx="455" cy="350" r="2"/>
+    <circle cx="420" cy="390" r="2.5"/>
+    <circle cx="370" cy="410" r="3"/>
+    <circle cx="320" cy="400" r="2"/>
+  </g>
+
+  <!-- Ambient particles -->
+  <g fill="#39ff14" opacity="0.5" filter="url(#bm-hardGlow)">
+    <circle cx="100" cy="180" r="2"/>
+    <circle cx="500" cy="160" r="1.5"/>
+    <circle cx="110" cy="460" r="1"/>
+    <circle cx="490" cy="450" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#bm-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// RETURN-ARC: TRACKED · BOUNCES: 2</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 0.88K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#bm-vignette)"/>
+</svg>

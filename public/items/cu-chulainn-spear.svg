@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="cc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05010d"/>
+      <stop offset="60%" stop-color="#120820"/>
+      <stop offset="100%" stop-color="#1e0535"/>
+    </linearGradient>
+    <radialGradient id="cc-aura" cx="0.6" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#bd00ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cc-shaft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e0e2e"/>
+      <stop offset="50%" stop-color="#3e2050"/>
+      <stop offset="100%" stop-color="#0e0618"/>
+    </linearGradient>
+    <linearGradient id="cc-tip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a3a7a"/>
+      <stop offset="50%" stop-color="#cca0ee"/>
+      <stop offset="100%" stop-color="#2a1040"/>
+    </linearGradient>
+    <radialGradient id="cc-coreGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#bd00ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="cc-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#bd00ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="cc-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="cc-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cc-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="cc-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#cc-bg)"/>
+  <rect width="600" height="600" fill="url(#cc-grid)"/>
+
+  <!-- Purple aura around tip region -->
+  <ellipse cx="490" cy="300" rx="160" ry="140" fill="url(#cc-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#bd00ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ CU-CHULAINN-spear ] ulster-tactical</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">◇ EPIC</text>
+  </g>
+
+  <!-- SPEAR SHAFT (horizontal) -->
+  <g>
+    <!-- Shadow -->
+    <rect x="40" y="302" width="500" height="22" rx="4" fill="#000" opacity="0.4"/>
+    <!-- Main shaft -->
+    <rect x="42" y="284" width="495" height="32" rx="5" fill="url(#cc-shaft)" stroke="#5a30aa" stroke-width="1.5"/>
+    <!-- Shaft highlight edge -->
+    <rect x="42" y="284" width="495" height="3" rx="2" fill="#6a40aa" opacity="0.5"/>
+    <!-- Shaft energy core (glowing center line) -->
+    <rect x="50" y="298" width="478" height="6" rx="3" fill="#bd00ff" opacity="0.25" filter="url(#cc-softGlow)"/>
+    <!-- Energy pulse line -->
+    <line x1="50" y1="300" x2="465" y2="300" stroke="#bd00ff" stroke-width="1.5" opacity="0.7" filter="url(#cc-softGlow)"/>
+
+    <!-- 30 BARBS along shaft (15 per side, each side) -->
+    <g stroke="#9a60cc" stroke-width="1.5" fill="none">
+      <!-- Top barbs -->
+      <line x1="80"  y1="284" x2="73"  y2="272"/>
+      <line x1="96"  y1="284" x2="89"  y2="272"/>
+      <line x1="112" y1="284" x2="105" y2="272"/>
+      <line x1="128" y1="284" x2="121" y2="272"/>
+      <line x1="144" y1="284" x2="137" y2="272"/>
+      <line x1="160" y1="284" x2="153" y2="272"/>
+      <line x1="176" y1="284" x2="169" y2="272"/>
+      <line x1="192" y1="284" x2="185" y2="272"/>
+      <line x1="208" y1="284" x2="201" y2="272"/>
+      <line x1="224" y1="284" x2="217" y2="272"/>
+      <line x1="240" y1="284" x2="233" y2="272"/>
+      <line x1="256" y1="284" x2="249" y2="272"/>
+      <line x1="272" y1="284" x2="265" y2="272"/>
+      <line x1="288" y1="284" x2="281" y2="272"/>
+      <line x1="304" y1="284" x2="297" y2="272"/>
+      <!-- Bottom barbs -->
+      <line x1="80"  y1="316" x2="73"  y2="328"/>
+      <line x1="96"  y1="316" x2="89"  y2="328"/>
+      <line x1="112" y1="316" x2="105" y2="328"/>
+      <line x1="128" y1="316" x2="121" y2="328"/>
+      <line x1="144" y1="316" x2="137" y2="328"/>
+      <line x1="160" y1="316" x2="153" y2="328"/>
+      <line x1="176" y1="316" x2="169" y2="328"/>
+      <line x1="192" y1="316" x2="185" y2="328"/>
+      <line x1="208" y1="316" x2="201" y2="328"/>
+      <line x1="224" y1="316" x2="217" y2="328"/>
+      <line x1="240" y1="316" x2="233" y2="328"/>
+      <line x1="256" y1="316" x2="249" y2="328"/>
+      <line x1="272" y1="316" x2="265" y2="328"/>
+      <line x1="288" y1="316" x2="281" y2="328"/>
+      <line x1="304" y1="316" x2="297" y2="328"/>
+    </g>
+
+    <!-- Celtic knot at butt end -->
+    <g transform="translate(52, 300)">
+      <circle r="22" fill="#1e0e2e" stroke="#9a60cc" stroke-width="2"/>
+      <path d="M -15 0 C -15 -10, 0 -18, 0 -10 C 0 -2, 10 -8, 10 0 C 10 8, 0 2, 0 10 C 0 18, -15 10, -15 0 Z"
+            fill="none" stroke="#bd00ff" stroke-width="1.5" opacity="0.8"/>
+      <path d="M -8 -15 C 0 -15, 8 -8, 8 0 C 8 8, 0 15, -8 15 C -12 15, -15 8, -15 0 C -15 -8, -12 -15, -8 -15"
+            fill="none" stroke="#9a40cc" stroke-width="1" opacity="0.6"/>
+      <circle r="5" fill="#bd00ff" opacity="0.6" filter="url(#cc-softGlow)"/>
+    </g>
+
+    <!-- SPEAR TIP with energy core -->
+    <g>
+      <!-- Tip body -->
+      <polygon points="538,276 538,324 575,300" fill="url(#cc-tip)" stroke="#9a50cc" stroke-width="2"/>
+      <!-- Core glow in tip -->
+      <circle cx="555" cy="300" r="16" fill="url(#cc-coreGlow)" filter="url(#cc-softGlow)" opacity="0.8"/>
+      <circle cx="558" cy="300" r="6" fill="#ffffff" opacity="0.9"/>
+      <!-- Tip edge highlight -->
+      <line x1="540" y1="280" x2="572" y2="298" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    </g>
+
+    <!-- Celtic knotwork rings along shaft -->
+    <g stroke="#9a60cc" stroke-width="1" fill="none" opacity="0.5">
+      <rect x="328" y="284" width="8" height="32" rx="2"/>
+      <rect x="360" y="284" width="8" height="32" rx="2"/>
+      <rect x="392" y="284" width="8" height="32" rx="2"/>
+      <rect x="424" y="284" width="8" height="32" rx="2"/>
+      <rect x="456" y="284" width="8" height="32" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Purple energy sparks at tip -->
+  <g fill="#bd00ff" opacity="0.7" filter="url(#cc-softGlow)">
+    <circle cx="565" cy="280" r="3"/>
+    <circle cx="575" cy="295" r="2"/>
+    <circle cx="570" cy="315" r="2.5"/>
+    <circle cx="560" cy="272" r="1.5"/>
+  </g>
+
+  <!-- Ambient particles -->
+  <g fill="#bd00ff" opacity="0.5" filter="url(#cc-hardGlow)">
+    <circle cx="100" cy="200" r="2"/>
+    <circle cx="480" cy="160" r="1.5"/>
+    <circle cx="120" cy="450" r="1"/>
+    <circle cx="450" cy="440" r="1.5"/>
+    <circle cx="80" cy="380" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#cc-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// BARBS: 30 · GÁE-BOLG PROTOCOL · READY</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 3.4K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#cc-vignette)"/>
+</svg>

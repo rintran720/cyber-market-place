@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="vm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05010d"/>
+      <stop offset="60%" stop-color="#120820"/>
+      <stop offset="100%" stop-color="#1e0535"/>
+    </linearGradient>
+    <radialGradient id="vm-aura" cx="0.5" cy="0.35" r="0.55">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#bd00ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vm-shaft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e0618"/>
+      <stop offset="50%" stop-color="#2e1a3e"/>
+      <stop offset="100%" stop-color="#0e0618"/>
+    </linearGradient>
+    <linearGradient id="vm-head" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a1a50"/>
+      <stop offset="50%" stop-color="#7a3a9a"/>
+      <stop offset="100%" stop-color="#1e0a28"/>
+    </linearGradient>
+    <radialGradient id="vm-thunderCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#bd00ff" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#6600aa" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vm-lotus" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a1a70"/>
+      <stop offset="100%" stop-color="#1a0828"/>
+    </linearGradient>
+    <pattern id="vm-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#bd00ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="vm-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="vm-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="vm-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="vm-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#vm-bg)"/>
+  <rect width="600" height="600" fill="url(#vm-grid)"/>
+
+  <!-- Purple aura at top -->
+  <ellipse cx="300" cy="220" rx="200" ry="220" fill="url(#vm-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#bd00ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ VAJRA.mace ] indra-cyberworks</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">◇ EPIC</text>
+  </g>
+
+  <!-- VAJRA MACE (vertical) -->
+  <g>
+    <!-- SHAFT -->
+    <rect x="288" y="280" width="24" height="280" rx="5" fill="url(#vm-shaft)" stroke="#6a30a0" stroke-width="1.5"/>
+    <!-- Shaft edge highlight -->
+    <rect x="288" y="280" width="3" height="280" fill="#bd00ff" opacity="0.3"/>
+
+    <!-- Pommel at bottom (small lotus) -->
+    <ellipse cx="300" cy="558" rx="20" ry="12" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1.5"/>
+    <circle cx="300" cy="550" r="8" fill="#bd00ff" opacity="0.5" filter="url(#vm-softGlow)"/>
+
+    <!-- LOTUS BASE (where head meets shaft) -->
+    <g transform="translate(300, 280)">
+      <!-- Lotus petals -->
+      <ellipse cx="-28" cy="0" rx="16" ry="10" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1" transform="rotate(-30)"/>
+      <ellipse cx="0" cy="-32" rx="16" ry="10" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1"/>
+      <ellipse cx="28" cy="0" rx="16" ry="10" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1" transform="rotate(30)"/>
+      <ellipse cx="20" cy="26" rx="16" ry="10" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1" transform="rotate(-15)"/>
+      <ellipse cx="-20" cy="26" rx="16" ry="10" fill="url(#vm-lotus)" stroke="#9a40cc" stroke-width="1" transform="rotate(15)"/>
+      <!-- Lotus center -->
+      <circle cx="0" cy="0" r="16" fill="#1e0a28" stroke="#bd00ff" stroke-width="2"/>
+      <circle cx="0" cy="0" r="8" fill="#bd00ff" opacity="0.4" filter="url(#vm-softGlow)"/>
+    </g>
+
+    <!-- DIAMOND-SHAPED HEAD (main body) -->
+    <!-- Head is a tall diamond with 8 outward spike protrusions -->
+    <!-- Main diamond body -->
+    <polygon points="300,95 350,185 300,275 250,185" fill="url(#vm-head)" stroke="#9a40cc" stroke-width="2"/>
+    <!-- Inner diamond -->
+    <polygon points="300,120 336,185 300,250 264,185" fill="#0e0618" stroke="#6a1a90" stroke-width="1"/>
+
+    <!-- 8 PROTRUSIONS (spikes) around the diamond head -->
+    <!-- Top spike -->
+    <polygon points="294,95 300,60 306,95" fill="#bd00ff" opacity="0.8" filter="url(#vm-softGlow)"/>
+    <!-- Bottom spike -->
+    <polygon points="294,275 300,310 306,275" fill="#bd00ff" opacity="0.8" filter="url(#vm-softGlow)"/>
+    <!-- Left spike -->
+    <polygon points="250,179 215,185 250,191" fill="#bd00ff" opacity="0.8" filter="url(#vm-softGlow)"/>
+    <!-- Right spike -->
+    <polygon points="350,179 385,185 350,191" fill="#bd00ff" opacity="0.8" filter="url(#vm-softGlow)"/>
+    <!-- Upper-left spike -->
+    <polygon points="267,135 242,112 273,149" fill="#9a40cc" opacity="0.9" filter="url(#vm-softGlow)"/>
+    <!-- Upper-right spike -->
+    <polygon points="333,135 358,112 327,149" fill="#9a40cc" opacity="0.9" filter="url(#vm-softGlow)"/>
+    <!-- Lower-left spike -->
+    <polygon points="267,235 242,258 273,221" fill="#9a40cc" opacity="0.9" filter="url(#vm-softGlow)"/>
+    <!-- Lower-right spike -->
+    <polygon points="333,235 358,258 327,221" fill="#9a40cc" opacity="0.9" filter="url(#vm-softGlow)"/>
+
+    <!-- THUNDER CORE (center of diamond) -->
+    <circle cx="300" cy="185" r="55" fill="url(#vm-thunderCore)" filter="url(#vm-softGlow)" opacity="0.6"/>
+    <circle cx="300" cy="185" r="36" fill="url(#vm-thunderCore)" filter="url(#vm-softGlow)"/>
+    <circle cx="300" cy="185" r="20" fill="#ffffff" opacity="0.95"/>
+    <circle cx="300" cy="185" r="20" fill="none" stroke="#bd00ff" stroke-width="2"/>
+    <circle cx="300" cy="185" r="30" fill="none" stroke="#bd00ff" stroke-width="1" opacity="0.6" stroke-dasharray="3 4"/>
+    <!-- Thunder symbol -->
+    <text x="300" y="192" font-family="ui-monospace,monospace" font-size="18" fill="#0e0618" font-weight="700" text-anchor="middle">⚡</text>
+
+    <!-- Purple lightning from spike tips -->
+    <g stroke="#bd00ff" stroke-width="1.5" fill="none" filter="url(#vm-softGlow)" opacity="0.8">
+      <!-- From top -->
+      <path d="M 300 60 L 292 48 L 302 40 L 295 30"/>
+      <!-- From right -->
+      <path d="M 385 185 L 400 178 L 395 165 L 408 160"/>
+      <!-- From left -->
+      <path d="M 215 185 L 200 178 L 205 165 L 192 160"/>
+      <!-- From bottom -->
+      <path d="M 300 310 L 292 322 L 302 330 L 295 340"/>
+    </g>
+  </g>
+
+  <!-- Purple energy particles -->
+  <g fill="#bd00ff" opacity="0.6" filter="url(#vm-hardGlow)">
+    <circle cx="180" cy="130" r="2"/>
+    <circle cx="420" cy="120" r="1.5"/>
+    <circle cx="160" cy="420" r="1"/>
+    <circle cx="440" cy="430" r="1.5"/>
+    <circle cx="120" cy="280" r="1"/>
+    <circle cx="480" cy="270" r="2"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#vm-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// INDRA-CORE: CHARGED · DRONE-DISABLE: READY</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 3.1K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#vm-vignette)"/>
+</svg>

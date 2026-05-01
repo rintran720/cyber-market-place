@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="an-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#010a04"/>
+      <stop offset="60%" stop-color="#041208"/>
+      <stop offset="100%" stop-color="#0a2010"/>
+    </linearGradient>
+    <radialGradient id="an-aura" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#39ff14" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="an-hubGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#39ff14" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#1a8000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="an-bracer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="50%" stop-color="#2a4a2a"/>
+      <stop offset="100%" stop-color="#0a1a0a"/>
+    </linearGradient>
+    <pattern id="an-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#39ff14" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="an-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="an-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="an-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="an-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#an-bg)"/>
+  <rect width="600" height="600" fill="url(#an-grid)"/>
+
+  <!-- Green aura at center -->
+  <ellipse cx="300" cy="290" rx="200" ry="200" fill="url(#an-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#39ff14" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ ANANSI.net ] akan-cyberweb</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">▲ RARE</text>
+  </g>
+
+  <!-- FOREARM BRACER (horizontal at bottom of web) -->
+  <g>
+    <rect x="190" y="420" width="220" height="70" rx="15" fill="url(#an-bracer)" stroke="#39ff14" stroke-width="2"/>
+    <rect x="200" y="430" width="200" height="50" rx="10" fill="#0a1a0a" stroke="#1a4a1a" stroke-width="1"/>
+    <!-- Bracer ridge lines -->
+    <line x1="240" y1="430" x2="240" y2="480" stroke="#39ff14" stroke-width="0.8" opacity="0.4"/>
+    <line x1="300" y1="430" x2="300" y2="480" stroke="#39ff14" stroke-width="0.8" opacity="0.4"/>
+    <line x1="360" y1="430" x2="360" y2="480" stroke="#39ff14" stroke-width="0.8" opacity="0.4"/>
+    <!-- Buckle -->
+    <rect x="280" y="448" width="40" height="14" rx="4" fill="#1a4a1a" stroke="#39ff14" stroke-width="1.5"/>
+    <circle cx="300" cy="455" r="4" fill="#39ff14" opacity="0.7" filter="url(#an-hardGlow)"/>
+    <!-- Side connectors -->
+    <rect x="180" y="438" width="16" height="34" rx="5" fill="#1a3a1a" stroke="#39ff14" stroke-width="1"/>
+    <rect x="404" y="438" width="16" height="34" rx="5" fill="#1a3a1a" stroke="#39ff14" stroke-width="1"/>
+  </g>
+
+  <!-- WEB PATTERN with 8 nodes -->
+  <!-- Hub center -->
+  <g>
+    <!-- Hub glow -->
+    <circle cx="300" cy="290" r="40" fill="url(#an-hubGlow)" filter="url(#an-softGlow)" opacity="0.7"/>
+    <circle cx="300" cy="290" r="28" fill="#0a1a0a" stroke="#39ff14" stroke-width="2"/>
+    <circle cx="300" cy="290" r="18" fill="#39ff14" opacity="0.2" filter="url(#an-softGlow)"/>
+    <!-- Spider emblem in hub -->
+    <g transform="translate(300, 290)" filter="url(#an-hardGlow)">
+      <!-- Spider body -->
+      <ellipse cx="0" cy="2" rx="7" ry="9" fill="#39ff14" opacity="0.9"/>
+      <ellipse cx="0" cy="-8" rx="5" ry="5" fill="#39ff14" opacity="0.9"/>
+      <!-- 8 legs (4 per side) -->
+      <line x1="-7" y1="-2" x2="-18" y2="-12" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="-7" y1="2" x2="-19" y2="2" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="-7" y1="6" x2="-18" y2="14" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="-5" y1="10" x2="-14" y2="20" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="7" y1="-2" x2="18" y2="-12" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="7" y1="2" x2="19" y2="2" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="7" y1="6" x2="18" y2="14" stroke="#39ff14" stroke-width="1.2"/>
+      <line x1="5" y1="10" x2="14" y2="20" stroke="#39ff14" stroke-width="1.2"/>
+      <!-- Eyes -->
+      <circle cx="-3" cy="-10" r="2" fill="#000"/>
+      <circle cx="3" cy="-10" r="2" fill="#000"/>
+    </g>
+    <circle cx="300" cy="290" r="10" fill="none" stroke="#39ff14" stroke-width="1.5" opacity="0.8"/>
+  </g>
+
+  <!-- 8 NODE POSITIONS (connected by web) -->
+  <!-- Nodes: N, NE, E, SE, S, SW, W, NW at radius ~130 from center -->
+  <!-- Silk lines from hub to each node -->
+  <g stroke="#39ff14" stroke-width="1.2" opacity="0.7" filter="url(#an-softGlow)">
+    <!-- N -->
+    <line x1="300" y1="262" x2="300" y2="155"/>
+    <!-- NE -->
+    <line x1="320" y1="268" x2="388" y2="198"/>
+    <!-- E -->
+    <line x1="328" y1="290" x2="435" y2="290"/>
+    <!-- SE -->
+    <line x1="320" y1="312" x2="388" y2="382"/>
+    <!-- S -->
+    <line x1="300" y1="318" x2="300" y2="420"/>
+    <!-- SW -->
+    <line x1="280" y1="312" x2="212" y2="382"/>
+    <!-- W -->
+    <line x1="272" y1="290" x2="165" y2="290"/>
+    <!-- NW -->
+    <line x1="280" y1="268" x2="212" y2="198"/>
+  </g>
+
+  <!-- Concentric web rings -->
+  <g stroke="#39ff14" stroke-width="0.8" fill="none" opacity="0.5">
+    <!-- Ring 1 (inner) -->
+    <polygon points="300,228 350,252 370,290 350,328 300,352 250,328 230,290 250,252"/>
+    <!-- Ring 2 (mid) -->
+    <polygon points="300,188 366,218 392,290 366,362 300,392 234,362 208,290 234,218"/>
+  </g>
+
+  <!-- Node circles (8 nodes) -->
+  <g fill="#39ff14" filter="url(#an-hardGlow)">
+    <circle cx="300" cy="155" r="8" opacity="0.9"/>
+    <circle cx="388" cy="198" r="8" opacity="0.9"/>
+    <circle cx="435" cy="290" r="8" opacity="0.9"/>
+    <circle cx="388" cy="382" r="8" opacity="0.9"/>
+    <circle cx="300" cy="420" r="8" opacity="0.5"/>
+    <circle cx="212" cy="382" r="8" opacity="0.9"/>
+    <circle cx="165" cy="290" r="8" opacity="0.9"/>
+    <circle cx="212" cy="198" r="8" opacity="0.9"/>
+  </g>
+  <!-- Node inner highlights -->
+  <g fill="#ffffff" opacity="0.5">
+    <circle cx="300" cy="155" r="3"/>
+    <circle cx="388" cy="198" r="3"/>
+    <circle cx="435" cy="290" r="3"/>
+    <circle cx="388" cy="382" r="3"/>
+    <circle cx="212" cy="382" r="3"/>
+    <circle cx="165" cy="290" r="3"/>
+    <circle cx="212" cy="198" r="3"/>
+  </g>
+
+  <!-- Web connection lines from bracer to bottom nodes -->
+  <g stroke="#39ff14" stroke-width="0.8" opacity="0.4">
+    <line x1="212" y1="382" x2="232" y2="430"/>
+    <line x1="388" y1="382" x2="368" y2="430"/>
+  </g>
+
+  <!-- Green energy particles -->
+  <g fill="#39ff14" opacity="0.5" filter="url(#an-hardGlow)">
+    <circle cx="120" cy="160" r="2"/>
+    <circle cx="480" cy="170" r="1.5"/>
+    <circle cx="100" cy="430" r="1"/>
+    <circle cx="490" cy="420" r="1.5"/>
+    <circle cx="80" cy="300" r="1"/>
+    <circle cx="510" cy="290" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#an-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// NET: ARMED · ROOT DURATION: 4s</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 0.64K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#an-vignette)"/>
+</svg>

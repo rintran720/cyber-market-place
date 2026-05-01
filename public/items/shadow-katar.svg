@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sk-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#010a04"/>
+      <stop offset="60%" stop-color="#041208"/>
+      <stop offset="100%" stop-color="#0a2010"/>
+    </linearGradient>
+    <radialGradient id="sk-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#39ff14" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sk-blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="40%" stop-color="#6a8a6a"/>
+      <stop offset="60%" stop-color="#ccdacc"/>
+      <stop offset="100%" stop-color="#0a180a"/>
+    </linearGradient>
+    <linearGradient id="sk-grip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="50%" stop-color="#2a3e2a"/>
+      <stop offset="100%" stop-color="#0a140a"/>
+    </linearGradient>
+    <radialGradient id="sk-tipglow" cx="1" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#39ff14" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="sk-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#39ff14" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="sk-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="sk-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sk-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="sk-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#sk-bg)"/>
+  <rect width="600" height="600" fill="url(#sk-grid)"/>
+
+  <!-- Aura -->
+  <ellipse cx="370" cy="300" rx="220" ry="120" fill="url(#sk-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#39ff14" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ SHADOW-katar ] dharma-blade-co</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">▲ RARE</text>
+  </g>
+
+  <!-- KATAR - pointing right, H-grip system -->
+  <g>
+    <!-- Ghost trail particles (stealth shimmer) -->
+    <g opacity="0.4" filter="url(#sk-softGlow)">
+      <ellipse cx="430" cy="296" rx="80" ry="6" fill="#39ff14" opacity="0.15"/>
+      <ellipse cx="445" cy="300" rx="60" ry="4" fill="#39ff14" opacity="0.2"/>
+      <ellipse cx="460" cy="304" rx="40" ry="3" fill="#39ff14" opacity="0.25"/>
+    </g>
+
+    <!-- Blade body (horizontal, pointing right) -->
+    <polygon points="160,280 490,295 490,305 160,320"
+             fill="url(#sk-blade)" stroke="#39ff14" stroke-width="1" stroke-opacity="0.4"/>
+    <!-- Blade tip taper -->
+    <polygon points="480,288 530,300 480,312" fill="#ccddcc" opacity="0.9"/>
+    <!-- Blade edge highlight -->
+    <line x1="165" y1="281" x2="525" y2="296" stroke="#39ff14" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- H-GRIP: triple horizontal crossbars -->
+    <!-- Grip bar 1 (rear) -->
+    <rect x="155" y="258" width="18" height="84" rx="3" fill="url(#sk-grip)" stroke="#39ff14" stroke-width="1.5"/>
+    <!-- Grip bar 2 (mid) -->
+    <rect x="195" y="265" width="18" height="70" rx="3" fill="url(#sk-grip)" stroke="#39ff14" stroke-width="1.5"/>
+    <!-- Grip bar 3 (forward) -->
+    <rect x="235" y="270" width="18" height="60" rx="3" fill="url(#sk-grip)" stroke="#39ff14" stroke-width="1.5"/>
+
+    <!-- H-crossbars connecting bars -->
+    <rect x="155" y="272" width="98" height="8" rx="2" fill="#1a2a1a" stroke="#39ff14" stroke-width="1" opacity="0.8"/>
+    <rect x="155" y="318" width="98" height="8" rx="2" fill="#1a2a1a" stroke="#39ff14" stroke-width="1" opacity="0.8"/>
+    <!-- Center horizontal grip bar -->
+    <rect x="155" y="296" width="98" height="8" rx="2" fill="#39ff14" opacity="0.2" filter="url(#sk-softGlow)"/>
+
+    <!-- Grip circuit traces -->
+    <g stroke="#39ff14" stroke-width="0.8" fill="none" opacity="0.6">
+      <line x1="164" y1="262" x2="164" y2="338"/>
+      <line x1="204" y1="268" x2="204" y2="332"/>
+      <circle cx="164" cy="280" r="1.5" fill="#39ff14"/>
+      <circle cx="204" cy="300" r="1.5" fill="#39ff14"/>
+      <circle cx="164" cy="320" r="1.5" fill="#39ff14"/>
+    </g>
+
+    <!-- Blade fuller lines -->
+    <line x1="255" y1="295" x2="475" y2="298" stroke="#39ff14" stroke-width="0.8" opacity="0.4"/>
+    <line x1="255" y1="305" x2="475" y2="302" stroke="#39ff14" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Stealth coating shimmer patches -->
+    <g opacity="0.35" filter="url(#sk-hardGlow)">
+      <ellipse cx="320" cy="300" rx="30" ry="8" fill="#39ff14"/>
+      <ellipse cx="380" cy="298" rx="20" ry="5" fill="#39ff14"/>
+      <ellipse cx="420" cy="301" rx="15" ry="4" fill="#39ff14"/>
+    </g>
+
+    <!-- Tip glow -->
+    <circle cx="528" cy="300" r="18" fill="url(#sk-tipglow)" filter="url(#sk-softGlow)" opacity="0.8"/>
+    <circle cx="528" cy="300" r="4" fill="#39ff14" filter="url(#sk-softGlow)"/>
+  </g>
+
+  <!-- Ghost trail particles floating -->
+  <g fill="#39ff14" opacity="0.65" filter="url(#sk-hardGlow)">
+    <circle cx="490" cy="260" r="2"/>
+    <circle cx="510" cy="245" r="1.5"/>
+    <circle cx="475" cy="248" r="1"/>
+    <circle cx="500" cy="270" r="1.5"/>
+    <circle cx="490" cy="340" r="2"/>
+    <circle cx="510" cy="355" r="1.5"/>
+    <circle cx="475" cy="352" r="1"/>
+    <circle cx="440" cy="260" r="1"/>
+    <circle cx="440" cy="340" r="1"/>
+  </g>
+
+  <!-- Side energy lines -->
+  <g stroke="#39ff14" stroke-width="1" fill="none" opacity="0.4" filter="url(#sk-softGlow)">
+    <path d="M 80 200 L 130 210"/>
+    <path d="M 80 400 L 130 390"/>
+    <path d="M 530 180 L 555 195"/>
+    <path d="M 530 420 L 555 405"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#sk-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// STEALTH: ACTIVE · GHOST-COAT ENABLED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 0.85K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#sk-vignette)"/>
+</svg>

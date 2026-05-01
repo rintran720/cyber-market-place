@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="gl-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#010a04"/>
+      <stop offset="60%" stop-color="#041208"/>
+      <stop offset="100%" stop-color="#0a2010"/>
+    </linearGradient>
+    <radialGradient id="gl-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#39ff14" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gl-chain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="50%" stop-color="#4a6a4a"/>
+      <stop offset="100%" stop-color="#0a1a0a"/>
+    </linearGradient>
+    <linearGradient id="gl-handle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2a1a"/>
+      <stop offset="50%" stop-color="#2a4a2a"/>
+      <stop offset="100%" stop-color="#0a1a0a"/>
+    </linearGradient>
+    <radialGradient id="gl-stamDrain" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#39ff14" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#39ff14" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#39ff14" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="gl-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#39ff14" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="gl-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="gl-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="gl-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="gl-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#gl-bg)"/>
+  <rect width="600" height="600" fill="url(#gl-grid)"/>
+
+  <!-- Green aura -->
+  <ellipse cx="300" cy="300" rx="200" ry="200" fill="url(#gl-aura)"/>
+
+  <!-- HUD corners -->
+  <g stroke="#39ff14" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ GARM.leash ] shadow-trade-net</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">▲ RARE</text>
+  </g>
+
+  <!-- HELLHOUND CHAIN WHIP (S-curve diagonal) -->
+  <g>
+    <!-- HANDLE (upper-left) -->
+    <g transform="translate(140, 160)">
+      <rect x="-15" y="-40" width="30" height="80" rx="8" fill="url(#gl-handle)" stroke="#39ff14" stroke-width="2"/>
+      <!-- Handle grip texture -->
+      <g stroke="#39ff14" stroke-width="1" opacity="0.5">
+        <line x1="-14" y1="-25" x2="14" y2="-23"/>
+        <line x1="-14" y1="-15" x2="14" y2="-13"/>
+        <line x1="-14" y1="-5" x2="14" y2="-3"/>
+        <line x1="-14" y1="5" x2="14" y2="7"/>
+        <line x1="-14" y1="15" x2="14" y2="17"/>
+        <line x1="-14" y1="25" x2="14" y2="27"/>
+      </g>
+      <!-- Handle pommel -->
+      <rect x="-16" y="-44" width="32" height="10" rx="4" fill="#1a3a1a" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Chain attachment ring -->
+      <circle cx="0" cy="40" r="8" fill="none" stroke="#39ff14" stroke-width="2.5"/>
+      <circle cx="0" cy="40" r="4" fill="#39ff14" opacity="0.5" filter="url(#gl-softGlow)"/>
+    </g>
+
+    <!-- CHAIN LINKS (5 large links in S-curve path) -->
+    <!-- Chain path follows an S-curve from upper-left to lower-right -->
+    <!-- Link 1 -->
+    <g transform="translate(185, 220) rotate(-30)">
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="5"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#0a1a0a" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Stamina-drain symbol on link -->
+      <text x="0" y="5" font-family="ui-monospace,monospace" font-size="10" fill="#39ff14" text-anchor="middle" opacity="0.8" filter="url(#gl-hardGlow)">-SP</text>
+    </g>
+    <!-- Link 2 -->
+    <g transform="translate(255, 270) rotate(-15)">
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="5"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#0a1a0a" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <text x="0" y="5" font-family="ui-monospace,monospace" font-size="10" fill="#39ff14" text-anchor="middle" opacity="0.8" filter="url(#gl-hardGlow)">-SP</text>
+    </g>
+    <!-- Link 3 (middle, S inflection) -->
+    <g transform="translate(315, 300) rotate(5)">
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="5"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#0a1a0a" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <text x="0" y="5" font-family="ui-monospace,monospace" font-size="10" fill="#39ff14" text-anchor="middle" opacity="0.8" filter="url(#gl-hardGlow)">-SP</text>
+    </g>
+    <!-- Link 4 -->
+    <g transform="translate(375, 350) rotate(20)">
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="5"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#0a1a0a" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <text x="0" y="5" font-family="ui-monospace,monospace" font-size="10" fill="#39ff14" text-anchor="middle" opacity="0.8" filter="url(#gl-hardGlow)">-SP</text>
+    </g>
+    <!-- Link 5 -->
+    <g transform="translate(435, 410) rotate(35)">
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="5"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#0a1a0a" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="12" fill="none" stroke="#39ff14" stroke-width="1.5"/>
+      <text x="0" y="5" font-family="ui-monospace,monospace" font-size="10" fill="#39ff14" text-anchor="middle" opacity="0.8" filter="url(#gl-hardGlow)">-SP</text>
+    </g>
+
+    <!-- Connecting chain segments between links -->
+    <g stroke="#39ff14" stroke-width="3" opacity="0.7">
+      <line x1="152" y1="200" x2="168" y2="212"/>
+      <line x1="208" y1="232" x2="236" y2="256"/>
+      <line x1="276" y1="282" x2="296" y2="296"/>
+      <line x1="334" y1="310" x2="354" y2="336"/>
+      <line x1="394" y1="365" x2="416" y2="392"/>
+    </g>
+
+    <!-- FRAYED END (chain end, bottom-right) -->
+    <g transform="translate(455, 430)">
+      <!-- Frayed strands -->
+      <g stroke="#39ff14" stroke-width="1.2" opacity="0.7">
+        <line x1="0" y1="0" x2="20" y2="25"/>
+        <line x1="0" y1="0" x2="10" y2="30"/>
+        <line x1="0" y1="0" x2="0" y2="32"/>
+        <line x1="0" y1="0" x2="-10" y2="28"/>
+        <line x1="0" y1="0" x2="28" y2="15"/>
+      </g>
+      <!-- Frayed glow -->
+      <circle cx="0" cy="0" r="12" fill="url(#gl-stamDrain)" filter="url(#gl-softGlow)" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- HELLHOUND PAW PRINTS scattered around -->
+  <g fill="#39ff14" opacity="0.45" filter="url(#gl-hardGlow)">
+    <!-- Paw 1 -->
+    <ellipse cx="200" cy="390" rx="6" ry="5" transform="rotate(-20, 200, 390)"/>
+    <circle cx="191" cy="383" r="3"/>
+    <circle cx="200" cy="381" r="3"/>
+    <circle cx="209" cy="383" r="3"/>
+    <circle cx="213" cy="392" r="2.5"/>
+    <!-- Paw 2 -->
+    <ellipse cx="380" cy="200" rx="6" ry="5" transform="rotate(15, 380, 200)"/>
+    <circle cx="371" cy="193" r="3"/>
+    <circle cx="380" cy="191" r="3"/>
+    <circle cx="389" cy="193" r="3"/>
+    <circle cx="392" cy="202" r="2.5"/>
+    <!-- Paw 3 (small, background) -->
+    <ellipse cx="120" cy="450" rx="5" ry="4"/>
+    <circle cx="113" cy="444" r="2.5"/>
+    <circle cx="120" cy="442" r="2.5"/>
+    <circle cx="127" cy="444" r="2.5"/>
+    <!-- Paw 4 -->
+    <ellipse cx="480" cy="160" rx="5" ry="4"/>
+    <circle cx="473" cy="154" r="2.5"/>
+    <circle cx="480" cy="152" r="2.5"/>
+    <circle cx="487" cy="154" r="2.5"/>
+  </g>
+
+  <!-- Stamina drain glow effects on links -->
+  <g filter="url(#gl-softGlow)" opacity="0.3">
+    <circle cx="315" cy="300" r="35" fill="#39ff14"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#gl-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#39ff14" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// STAMINA-DRAIN: ARMED · HELLHOUND: LINKED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 0.72K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#gl-vignette)"/>
+</svg>
