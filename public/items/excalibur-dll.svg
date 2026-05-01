@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0500"/>
+      <stop offset="60%" stop-color="#1f1500"/>
+      <stop offset="100%" stop-color="#3a1a4a"/>
+    </linearGradient>
+
+    <linearGradient id="bladeBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a4252" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#e8eef5" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3a4252" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="bladeEnergy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#fcee0a" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="80%" stop-color="#fcee0a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="hiltGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#fcee0a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="auraYellow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hiltMetal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a4a1a"/>
+      <stop offset="50%" stop-color="#3a2e10"/>
+      <stop offset="100%" stop-color="#1a1408"/>
+    </linearGradient>
+
+    <linearGradient id="guardMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1408"/>
+      <stop offset="50%" stop-color="#7a6228"/>
+      <stop offset="100%" stop-color="#1a1408"/>
+    </linearGradient>
+
+    <pattern id="grid2" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="scanlines2" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <pattern id="circuitPattern" x="0" y="0" width="20" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 10 20 L 18 20 L 18 40 L 2 40 L 2 60" fill="none"
+            stroke="#fcee0a" stroke-opacity="0.5" stroke-width="0.8"/>
+      <circle cx="10" cy="20" r="1" fill="#fcee0a"/>
+      <circle cx="18" cy="40" r="1" fill="#fcee0a"/>
+    </pattern>
+
+    <filter id="softGlow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="bladeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="hardGlow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#bg2)"/>
+  <rect width="600" height="600" fill="url(#grid2)"/>
+
+  <!-- Magenta atmospheric haze -->
+  <ellipse cx="300" cy="500" rx="400" ry="120" fill="#bd00ff" opacity="0.18"/>
+
+  <!-- Big yellow aura behind blade -->
+  <ellipse cx="300" cy="280" rx="180" ry="280" fill="url(#auraYellow)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD label top -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ EXCALIBUR.dll ] avalon-foundry</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end" fill="#fcee0a">★ LEGENDARY</text>
+  </g>
+
+  <!-- BLADE (vertical, pointing up) -->
+  <g>
+    <!-- Outer glow -->
+    <path d="M 300 80 L 332 320 L 332 440 L 268 440 L 268 320 Z"
+          fill="#fcee0a" opacity="0.35" filter="url(#bladeGlow)"/>
+
+    <!-- Edge metal -->
+    <path d="M 300 80 L 332 320 L 332 440 L 268 440 L 268 320 Z"
+          fill="url(#bladeBody)" stroke="#7a6228" stroke-width="2"/>
+
+    <!-- Energy fuller (groove in middle of blade) -->
+    <path d="M 300 110 L 320 320 L 320 425 L 280 425 L 280 320 Z"
+          fill="url(#bladeEnergy)" filter="url(#softGlow2)"/>
+
+    <!-- Inner energy stripe -->
+    <line x1="300" y1="110" x2="300" y2="425" stroke="#ffffff" stroke-width="2" opacity="0.85" filter="url(#softGlow2)"/>
+    <line x1="300" y1="110" x2="300" y2="425" stroke="#fcee0a" stroke-width="0.8" opacity="0.95"/>
+
+    <!-- Circuit overlay on blade -->
+    <g opacity="0.5">
+      <line x1="290" y1="160" x2="290" y2="380" stroke="#fcee0a" stroke-width="0.6"/>
+      <line x1="310" y1="180" x2="310" y2="400" stroke="#fcee0a" stroke-width="0.6"/>
+      <circle cx="290" cy="200" r="2" fill="#fcee0a"/>
+      <circle cx="310" cy="240" r="2" fill="#fcee0a"/>
+      <circle cx="290" cy="290" r="2" fill="#fcee0a"/>
+      <circle cx="310" cy="350" r="2" fill="#fcee0a"/>
+      <line x1="290" y1="200" x2="285" y2="195" stroke="#fcee0a" stroke-width="0.6"/>
+      <line x1="310" y1="240" x2="315" y2="245" stroke="#fcee0a" stroke-width="0.6"/>
+    </g>
+
+    <!-- Tip highlight -->
+    <circle cx="300" cy="86" r="6" fill="#ffffff" opacity="0.95" filter="url(#bladeGlow)"/>
+  </g>
+
+  <!-- CROSS-GUARD -->
+  <g>
+    <!-- Glow behind guard -->
+    <ellipse cx="300" cy="446" rx="170" ry="22" fill="#fcee0a" opacity="0.2" filter="url(#softGlow2)"/>
+
+    <!-- Main guard bar -->
+    <rect x="170" y="436" width="260" height="22" fill="url(#guardMetal)" stroke="#7a6228" stroke-width="1.5"/>
+
+    <!-- Guard ornaments -->
+    <polygon points="170,447 150,440 145,447 150,454" fill="url(#guardMetal)" stroke="#7a6228" stroke-width="1"/>
+    <polygon points="430,447 450,440 455,447 450,454" fill="url(#guardMetal)" stroke="#7a6228" stroke-width="1"/>
+
+    <!-- Guard runic engravings -->
+    <g fill="#fcee0a" font-family="serif" font-size="14" text-anchor="middle" filter="url(#hardGlow2)" opacity="0.95">
+      <text x="220" y="453">ᚷ</text>
+      <text x="260" y="453">ᚱ</text>
+      <text x="300" y="453">ᚨ</text>
+      <text x="340" y="453">ᛁ</text>
+      <text x="380" y="453">ᛚ</text>
+    </g>
+
+    <!-- Center jewel -->
+    <circle cx="300" cy="447" r="9" fill="url(#hiltGlow)" filter="url(#softGlow2)"/>
+    <circle cx="300" cy="447" r="5" fill="#ffffff" opacity="0.95"/>
+  </g>
+
+  <!-- HILT (handle) -->
+  <g>
+    <!-- Hilt body -->
+    <rect x="288" y="458" width="24" height="78" fill="url(#hiltMetal)"/>
+    <rect x="288" y="458" width="2" height="78" fill="#7a6228" opacity="0.7"/>
+    <rect x="310" y="458" width="2" height="78" fill="#1a1408"/>
+
+    <!-- Wraps -->
+    <g stroke="#7a6228" stroke-width="1.5" fill="none">
+      <path d="M 288 470 L 312 472"/>
+      <path d="M 288 480 L 312 482"/>
+      <path d="M 288 490 L 312 492"/>
+      <path d="M 288 500 L 312 502"/>
+      <path d="M 288 510 L 312 512"/>
+      <path d="M 288 520 L 312 522"/>
+      <path d="M 288 530 L 312 532"/>
+    </g>
+
+    <!-- POMMEL (round end) -->
+    <circle cx="300" cy="546" r="18" fill="url(#hiltMetal)" stroke="#7a6228" stroke-width="2"/>
+    <circle cx="300" cy="546" r="9" fill="url(#hiltGlow)" filter="url(#softGlow2)"/>
+    <text x="300" y="551" font-family="ui-monospace, monospace" font-size="11"
+          font-weight="700" text-anchor="middle" fill="#0a0500">⚜</text>
+  </g>
+
+  <!-- Energy particles rising -->
+  <g fill="#fcee0a" opacity="0.85" filter="url(#hardGlow2)">
+    <circle cx="240" cy="220" r="2"/>
+    <circle cx="360" cy="180" r="1.5"/>
+    <circle cx="220" cy="280" r="1.5"/>
+    <circle cx="380" cy="260" r="2"/>
+    <circle cx="250" cy="350" r="1.5"/>
+    <circle cx="350" cy="320" r="2"/>
+    <circle cx="260" cy="160" r="1"/>
+    <circle cx="340" cy="100" r="1"/>
+  </g>
+
+  <!-- Energy "speed lines" along blade -->
+  <g stroke="#fcee0a" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#softGlow2)">
+    <path d="M 200 200 L 250 220"/>
+    <path d="M 400 200 L 350 220"/>
+    <path d="M 180 320 L 240 320"/>
+    <path d="M 420 320 L 360 320"/>
+    <path d="M 200 400 L 250 410"/>
+    <path d="M 400 400 L 350 410"/>
+  </g>
+
+  <!-- Stone-of-origin ring decoration around hilt -->
+  <g fill="none" stroke="#fcee0a" stroke-width="1" opacity="0.5" stroke-dasharray="3 5">
+    <circle cx="300" cy="447" r="135"/>
+    <circle cx="300" cy="447" r="160"/>
+  </g>
+
+  <!-- SCANLINES OVERLAY -->
+  <rect width="600" height="600" fill="url(#scanlines2)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// AUTH: HEIR-PROCESS · VERIFIED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 6.2K</text>
+  </g>
+
+  <!-- Subtle vignette -->
+  <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.7">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+  </radialGradient>
+  <rect width="600" height="600" fill="url(#vignette)"/>
+</svg>

@@ -7,7 +7,7 @@
     "priceNeon": 4200,
     "seller": "norse-arsenal-corp",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/mjolnir-exe/600/600",
+    "imageUrl": "/items/mjolnir-exe.svg",
     "stats": {
       "damage": 92,
       "speed": 60,
@@ -31,7 +31,7 @@
     "priceNeon": 6200,
     "seller": "avalon-foundry",
     "origin": "Arthurian",
-    "imageUrl": "https://picsum.photos/seed/excalibur-dll/600/600",
+    "imageUrl": "/items/excalibur-dll.svg",
     "stats": {
       "damage": 80,
       "speed": 75,
