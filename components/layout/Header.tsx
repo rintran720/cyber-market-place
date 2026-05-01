@@ -1,13 +1,14 @@
+"use client";
 import Link from "next/link";
 import { formatNeon } from "@/lib/format";
+import { useCart } from "@/lib/client/hooks/useCart";
 
 const HARDCODED_BALANCE = 250_000;
 
 export function Header() {
+  const { count } = useCart();
   return (
-    <header
-      className="sticky top-0 z-40 border-b border-cp-border bg-cp-bg/80 backdrop-blur"
-    >
+    <header className="sticky top-0 z-40 border-b border-cp-border bg-cp-bg/80 backdrop-blur">
       <div className="cp-container flex items-center gap-6 py-3">
         <Link href="/" className="font-cp-display text-cp-cyan-500 text-lg tracking-widest">
           ⌬ NEONMARKET
@@ -18,6 +19,18 @@ export function Header() {
           <Link href="/seller" className="text-cp-fg-muted hover:text-cp-cyan-500">Seller</Link>
         </nav>
         <div className="ml-auto flex items-center gap-3">
+          <Link
+            href="/cart"
+            className="relative cp-chip cp-chip--cyan font-cp-mono text-xs"
+            aria-label={`Cart, ${count} items`}
+          >
+            ⌗ CART
+            {count > 0 && (
+              <span className="absolute -top-2 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-cp-magenta-500 text-cp-bg font-bold text-[10px] flex items-center justify-center shadow-cp-glow-magenta">
+                {count}
+              </span>
+            )}
+          </Link>
           <span className="cp-chip cp-chip--yellow font-cp-mono text-xs">
             {formatNeon(HARDCODED_BALANCE, { compact: true })}
           </span>
