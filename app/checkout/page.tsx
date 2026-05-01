@@ -136,7 +136,7 @@ export default function CheckoutPage() {
           </p>
           <div className="mt-2 font-cp-mono text-2xl text-cp-yellow-500">{formatNeon(done.total, { compact: true })}</div>
           <div className="mt-6 flex gap-3">
-            <Link href="/orders" className="cp-btn cp-btn--neon cp-btn--cyan">VIEW ORDERS ›</Link>
+            <Link href="/orders" className="cp-btn cp-btn--neon cp-btn--cyan text-cp-black-500">VIEW ORDERS ›</Link>
             <Link href="/browse" className="cp-btn cp-btn--ghost">CONTINUE BROWSING</Link>
           </div>
         </section>
