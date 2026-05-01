@@ -22,6 +22,7 @@ function genOrderId(): string {
   return "ord_" + Math.random().toString(36).slice(2, 10);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function POST(_req?: Request): Promise<Response> {
   try {
     await delay(1200, 1800);
