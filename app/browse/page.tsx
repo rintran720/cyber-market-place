@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useItems } from "@/lib/client/hooks/useItems";
 import { defaultFilters, FilterSidebar } from "@/components/filters/FilterSidebar";
@@ -10,7 +10,7 @@ import { ItemGridSkeleton } from "@/components/feedback/Skeleton";
 import { ErrorState } from "@/components/feedback/ErrorState";
 import { NeonHeading } from "@/components/decorative/NeonHeading";
 
-export default function BrowsePage() {
+function BrowseContent() {
   const searchParams = useSearchParams();
   const initialQ = searchParams.get("q") ?? "";
   const [filters, setFilters] = useState({ ...defaultFilters, q: initialQ });
@@ -45,5 +45,13 @@ export default function BrowsePage() {
         />
       </section>
     </div>
+  );
+}
+
+export default function BrowsePage() {
+  return (
+    <Suspense fallback={<ItemGridSkeleton count={8} />}>
+      <BrowseContent />
+    </Suspense>
   );
 }

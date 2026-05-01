@@ -7,6 +7,7 @@ import { useWallet } from "@/lib/client/hooks/useWallet";
 import { ItemCard } from "@/components/item/ItemCard";
 import { EmptyState } from "@/components/feedback/EmptyState";
 import { formatNeon } from "@/lib/format";
+import Link from "next/link";
 import { NeonHeading } from "@/components/decorative/NeonHeading";
 
 export default function ProfilePage() {
@@ -67,7 +68,7 @@ export default function ProfilePage() {
             )
           )}
           {tab === "history" && (
-            <NeonHeading level="md" rarity="cyan">See <a href="/orders" className="underline">/orders</a></NeonHeading>
+            <NeonHeading level="md" rarity="cyan">See <Link href="/orders" className="underline">/orders</Link></NeonHeading>
           )}
         </div>
       </div>
