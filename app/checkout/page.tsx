@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/client/hooks/useCart";
 import { useCheckout } from "@/lib/client/hooks/useCheckout";
 import { useWallet } from "@/lib/client/hooks/useWallet";
 import { CheckoutTerminal } from "@/components/cart/CheckoutTerminal";
 import { EmptyState } from "@/components/feedback/EmptyState";
+import { RarityBadge, rarityColor } from "@/components/item/RarityBadge";
 import { formatNeon, formatTxHash } from "@/lib/format";
 import type { Order } from "@/lib/client/types";
 
@@ -26,6 +28,19 @@ export default function CheckoutPage() {
   const [step, setStep] = useState(0);
   const [signing, setSigning] = useState(false);
   const [done, setDone] = useState<Order | null>(null);
+
+  // Generate a deterministic-feeling draft order ID for visual flair
+  const draftId = useMemo(() => {
+    const seed = cart.lines.map((l) => l.itemSlug + l.qty).join(":");
+    let h = 0;
+    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) | 0;
+    return `DRAFT-${Math.abs(h).toString(16).slice(0, 8).padStart(8, "0").toUpperCase()}`;
+  }, [cart.lines]);
+
+  const itemCount = cart.lines.reduce((n, l) => n + l.qty, 0);
+  // Mock gas estimate: 0.3% of subtotal, capped 50–500 NEON
+  const gasEstimate = Math.max(50, Math.min(500, Math.round(cart.subtotal * 0.003)));
+  const grandTotal = cart.total + gasEstimate;
 
   if (cart.lines.length === 0 && !done) {
     return (
@@ -50,7 +65,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto flex flex-col gap-8">
+    <div className="max-w-5xl mx-auto flex flex-col gap-8">
       {/* Stepper */}
       <ol className="flex items-center gap-3 text-xs font-cp-mono">
         {STEPS.map((s, i) => (
@@ -73,25 +88,179 @@ export default function CheckoutPage() {
 
       {/* Step content */}
       {!done && step === 0 && (
-        <section>
-          <h2 className="cp-heading cp-heading--md">Review your order</h2>
-          <ul className="mt-4 divide-y divide-cp-border">
-            {cart.lines.map((l) => {
-              const w = cart.items.find((x) => x.slug === l.itemSlug);
-              if (!w) return null;
-              return (
-                <li key={l.itemSlug} className="py-3 flex justify-between">
-                  <span>{w.name} <span className="text-cp-fg-muted text-xs">×{l.qty}</span></span>
-                  <span className="font-cp-mono">{formatNeon(w.priceNeon * l.qty, { compact: true })}</span>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="mt-4 text-right">
-            <span className="text-cp-fg-muted text-sm">Total: </span>
-            <span className="font-cp-mono text-cp-yellow-500 text-2xl">{formatNeon(cart.total, { compact: true })}</span>
+        <section className="grid lg:grid-cols-[1fr_360px] gap-6 items-start">
+          {/* LEFT: Order header + items */}
+          <div className="flex flex-col gap-5">
+            {/* Header HUD */}
+            <div className="flex items-end justify-between border-b border-cp-border pb-4">
+              <div>
+                <div className="font-cp-mono text-[10px] tracking-[0.4em] text-cp-cyan-500 mb-1">
+                  // ORDER REVIEW
+                </div>
+                <h2 className="font-cp-display text-2xl text-cp-fg">Confirm your acquisition</h2>
+                <p className="text-cp-fg-muted text-xs mt-1 font-cp-mono">
+                  draft-id: <span className="text-cp-magenta-500">{draftId}</span> · {itemCount}{" "}
+                  unit{itemCount !== 1 ? "s" : ""}
+                </p>
+              </div>
+              <span className="cp-badge cp-badge--cyan cp-badge--dot">PENDING</span>
+            </div>
+
+            {/* Items list */}
+            <div className="border border-cp-border bg-cp-bg-soft">
+              <div className="px-4 py-2 border-b border-cp-border flex items-center justify-between">
+                <div className="font-cp-mono text-[10px] tracking-[0.3em] text-cp-fg-muted">
+                  // ITEMS
+                </div>
+                <Link
+                  href="/cart"
+                  className="font-cp-mono text-[10px] tracking-[0.3em] text-cp-cyan-500 hover:underline"
+                >
+                  ‹ EDIT CART
+                </Link>
+              </div>
+              <ul className="divide-y divide-cp-border">
+                {cart.lines.map((l) => {
+                  const w = cart.items.find((x) => x.slug === l.itemSlug);
+                  if (!w) return null;
+                  const color = rarityColor(w.rarity);
+                  return (
+                    <li
+                      key={l.itemSlug}
+                      className="grid grid-cols-[64px_1fr_auto] items-center gap-4 px-4 py-3 hover:bg-cp-bg-soft/50 transition"
+                    >
+                      <Link
+                        href={`/browse/${w.slug}`}
+                        className={`block w-16 h-16 relative overflow-hidden border border-cp-${color}-500/40`}
+                      >
+                        <Image
+                          src={w.imageUrl}
+                          alt={w.name}
+                          fill
+                          sizes="64px"
+                          style={{ objectFit: "cover" }}
+                        />
+                        <div className="cp-scanlines absolute inset-0 pointer-events-none" />
+                      </Link>
+                      <div className="min-w-0">
+                        <Link
+                          href={`/browse/${w.slug}`}
+                          className="font-cp-display text-base hover:text-cp-cyan-500 truncate block"
+                        >
+                          {w.name}
+                        </Link>
+                        <div className="flex items-center gap-2 mt-1">
+                          <RarityBadge rarity={w.rarity} />
+                          <span className="text-[9px] uppercase tracking-widest text-cp-fg-dim font-cp-mono">
+                            {w.subCategory.replace("-", " ")}
+                          </span>
+                        </div>
+                        <p className="text-cp-fg-muted text-xs mt-1 truncate">
+                          {w.seller} · {w.origin}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <span className="cp-chip cp-chip--cyan font-cp-mono text-[10px]">
+                          ×{l.qty}
+                        </span>
+                        <div className="font-cp-mono text-cp-yellow-500 text-base mt-1">
+                          {formatNeon(w.priceNeon * l.qty, { compact: true })}
+                        </div>
+                        <div className="font-cp-mono text-[9px] text-cp-fg-dim">
+                          @ {formatNeon(w.priceNeon, { compact: true })}/ea
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* Delivery / chain info strip */}
+            <div className="grid grid-cols-3 gap-3">
+              <div className="border border-cp-border p-3">
+                <div className="font-cp-mono text-[9px] tracking-[0.3em] text-cp-fg-muted">
+                  CHAIN
+                </div>
+                <div className="font-cp-mono text-sm text-cp-cyan-500 mt-1">NEON-MAINNET</div>
+              </div>
+              <div className="border border-cp-border p-3">
+                <div className="font-cp-mono text-[9px] tracking-[0.3em] text-cp-fg-muted">
+                  CONFIRM ETA
+                </div>
+                <div className="font-cp-mono text-sm text-cp-green-500 mt-1">~12s</div>
+              </div>
+              <div className="border border-cp-border p-3">
+                <div className="font-cp-mono text-[9px] tracking-[0.3em] text-cp-fg-muted">
+                  DELIVERY
+                </div>
+                <div className="font-cp-mono text-sm text-cp-fg mt-1">INSTANT · INV</div>
+              </div>
+            </div>
           </div>
-          <button onClick={() => setStep(1)} className="mt-6 cp-btn cp-btn--neon cp-btn--cyan">CONTINUE ›</button>
+
+          {/* RIGHT: Summary panel */}
+          <aside className="border border-cp-cyan-500/30 bg-cp-bg-soft shadow-cp-glow-cyan">
+            <div className="px-4 py-3 border-b border-cp-border">
+              <div className="font-cp-mono text-[10px] tracking-[0.4em] text-cp-cyan-500">
+                ⌖ COST BREAKDOWN
+              </div>
+            </div>
+            <div className="px-4 py-4 flex flex-col gap-2 text-sm">
+              <Row label="SUBTOTAL" value={formatNeon(cart.subtotal, { compact: true })} />
+              <Row
+                label="CHAIN FEE · 2%"
+                value={formatNeon(cart.fee, { compact: true })}
+                hint="Protocol fee"
+              />
+              <Row
+                label="GAS · EST"
+                value={formatNeon(gasEstimate, { compact: true })}
+                hint="Refunded if unused"
+                muted
+              />
+              <hr className="cp-divider my-1" />
+              <div className="flex items-end justify-between pt-1">
+                <div>
+                  <div className="font-cp-mono text-[10px] tracking-[0.3em] text-cp-fg-muted">
+                    GRAND TOTAL
+                  </div>
+                  <div className="font-cp-mono text-[9px] text-cp-fg-dim mt-0.5">
+                    debited at signing
+                  </div>
+                </div>
+                <div className="font-cp-mono text-3xl text-cp-yellow-500 font-bold">
+                  {formatNeon(grandTotal, { compact: true })}
+                </div>
+              </div>
+            </div>
+            <div className="px-4 py-3 border-t border-cp-border">
+              <div className="text-cp-fg-muted text-[10px] font-cp-mono">
+                Wallet:{" "}
+                <span className="text-cp-fg">{wallet?.address ?? "—"}</span>
+              </div>
+              <div className="text-cp-fg-muted text-[10px] font-cp-mono mt-0.5">
+                Balance:{" "}
+                <span className="text-cp-yellow-500">
+                  {formatNeon(wallet?.balanceNeon ?? 0, { compact: true })}
+                </span>
+              </div>
+            </div>
+            <div className="px-4 py-4 border-t border-cp-border">
+              <button
+                onClick={() => setStep(1)}
+                className="w-full cp-btn cp-btn--neon cp-btn--cyan cp-btn--block"
+              >
+                CONFIRM &amp; CONTINUE ›
+              </button>
+              <Link
+                href="/cart"
+                className="block mt-2 text-center font-cp-mono text-[10px] tracking-[0.3em] text-cp-fg-muted hover:text-cp-cyan-500"
+              >
+                ‹ BACK TO CART
+              </Link>
+            </div>
+          </aside>
         </section>
       )}
 
@@ -127,6 +296,7 @@ export default function CheckoutPage() {
         </section>
       )}
 
+      {/* helper render below */}
       {done && (
         <section className="border border-cp-green-500/40 bg-cp-bg-soft p-6 shadow-cp-glow-green">
           <h2 className="cp-heading cp-heading--md text-cp-green-500">✓ TRANSACTION CONFIRMED</h2>
@@ -136,11 +306,41 @@ export default function CheckoutPage() {
           </p>
           <div className="mt-2 font-cp-mono text-2xl text-cp-yellow-500">{formatNeon(done.total, { compact: true })}</div>
           <div className="mt-6 flex gap-3">
-            <Link href="/orders" className="cp-btn cp-btn--neon cp-btn--cyan text-cp-black-500">VIEW ORDERS ›</Link>
+            <Link href="/orders" className="cp-btn cp-btn--neon cp-btn--cyan">VIEW ORDERS ›</Link>
             <Link href="/browse" className="cp-btn cp-btn--ghost">CONTINUE BROWSING</Link>
           </div>
         </section>
       )}
+    </div>
+  );
+}
+
+function Row({
+  label,
+  value,
+  hint,
+  muted,
+}: {
+  label: string;
+  value: string;
+  hint?: string;
+  muted?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline justify-between">
+      <div>
+        <div
+          className={`font-cp-mono text-[10px] tracking-[0.3em] ${
+            muted ? "text-cp-fg-dim" : "text-cp-fg-muted"
+          }`}
+        >
+          {label}
+        </div>
+        {hint && (
+          <div className="font-cp-mono text-[9px] text-cp-fg-dim mt-0.5">{hint}</div>
+        )}
+      </div>
+      <span className={`font-cp-mono ${muted ? "text-cp-fg-muted" : "text-cp-fg"}`}>{value}</span>
     </div>
   );
 }
