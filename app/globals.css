@@ -230,13 +230,34 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .cm-card-float,
-  .cm-card-float[data-rarity="mythic"],
-  .cm-card-float[data-rarity="unique"],
+  .cm-card-float[data-rarity],
   .cm-card-image,
   .cm-modal-panel,
   .cm-modal-backdrop,
-  .cm-bg-grid-drift {
+  .cm-bg-grid-drift,
+  .cm-card-glitch-line,
+  .cm-card-shine::before {
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* When user disables glow globally, neutralize app-local glows */
+:root[data-cp-glow="off"] .cm-card-float,
+:root[data-cp-glow="off"] .cm-card-float[data-rarity] {
+  animation: cm-rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both !important;
+  box-shadow: none !important;
+}
+
+:root[data-cp-glow="off"] .cm-card-float:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+:root[data-cp-glow="off"] .cm-modal-panel {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+:root[data-cp-glow="off"] .cm-card-glitch-line,
+:root[data-cp-glow="off"] .cm-card-shine::before {
+  display: none !important;
 }
