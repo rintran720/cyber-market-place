@@ -77,6 +77,8 @@ export const setWalletBalance = (n: number): void => {
 
 // Orders
 export const getOrders = (): Order[] => store.orders.slice();
+export const getOrderById = (id: string): Order | undefined =>
+  store.orders.find((o) => o.id === id);
 export const pushOrder = (order: Order): void => {
   store.orders.unshift(order);
 };

@@ -34,13 +34,23 @@ export default function OrdersPage() {
             <span className="cp-timeline__time font-cp-mono">{formatRelativeTime(o.createdAt)}</span>
             <span className="cp-timeline__marker" />
             <div className="cp-timeline__content">
-              <p className="cp-timeline__title">
-                Order {o.id} ·{" "}
-                <span className="text-cp-fg-muted">tx </span>
+              <p className="cp-timeline__title flex items-center gap-2 flex-wrap">
+                <Link
+                  href={`/orders/${o.id}`}
+                  className="font-cp-display hover:text-cp-cyan-500 inline-flex items-center gap-1"
+                >
+                  Order {o.id}
+                  <span className="text-cp-fg-muted text-xs">›</span>
+                </Link>
+                <span className="text-cp-fg-muted text-xs">·</span>
+                <span className="text-cp-fg-muted text-xs">tx</span>
                 <button
                   type="button"
-                  className="font-cp-mono text-cp-cyan-500 hover:underline"
-                  onClick={() => navigator.clipboard?.writeText(o.txHash)}
+                  className="font-cp-mono text-cp-cyan-500 hover:underline text-xs"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigator.clipboard?.writeText(o.txHash);
+                  }}
                   aria-label="Copy tx hash"
                 >
                   {formatTxHash(o.txHash)}
@@ -60,7 +70,15 @@ export default function OrdersPage() {
                   );
                 })}
               </div>
-              <p className="mt-2 text-cp-yellow-500 font-cp-mono">{formatNeon(o.total, { compact: true })}</p>
+              <div className="flex items-center justify-between mt-2 gap-3">
+                <span className="text-cp-yellow-500 font-cp-mono">{formatNeon(o.total, { compact: true })}</span>
+                <Link
+                  href={`/orders/${o.id}`}
+                  className="font-cp-mono text-[10px] tracking-[0.3em] text-cp-cyan-500 hover:underline"
+                >
+                  VIEW RECEIPT ›
+                </Link>
+              </div>
             </div>
           </li>
         ))}
