@@ -23,12 +23,21 @@ export default function ItemDetailPage() {
 
   if (isLoading) return <Loading />;
   if (error || !item) {
+    const code = (error as { code?: string } | undefined)?.code;
+    const isNotFound = code === "NOT_FOUND";
     return (
-      <ErrorState
-        code={(error as { code?: string } | undefined)?.code}
-        message={error?.message ?? "Weapon not found"}
-        retry={() => mutate()}
-      />
+      <div className="py-16">
+        <ErrorState
+          code={code}
+          message={error?.message ?? "Weapon not found"}
+          retry={isNotFound ? undefined : () => mutate()}
+        />
+        <div className="mt-6 text-center">
+          <Link href="/browse" className="cp-btn cp-btn--ghost cp-btn--cyan">
+            ‹ BACK TO ARSENAL
+          </Link>
+        </div>
+      </div>
     );
   }
 
