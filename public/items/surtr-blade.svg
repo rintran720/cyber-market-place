@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="su-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0200"/>
+      <stop offset="60%" stop-color="#1a0600"/>
+      <stop offset="100%" stop-color="#2a0a00"/>
+    </linearGradient>
+    <!-- Blade body - dark scorched metal -->
+    <linearGradient id="su-blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a0c00"/>
+      <stop offset="35%" stop-color="#4a2c10"/>
+      <stop offset="50%" stop-color="#c0601a"/>
+      <stop offset="65%" stop-color="#4a2c10"/>
+      <stop offset="100%" stop-color="#100800"/>
+    </linearGradient>
+    <!-- Magma vein gradient (yellow-orange lava cracks) -->
+    <linearGradient id="su-lava1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ff6a00" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="su-lava2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff9900" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff4400" stop-opacity="0.8"/>
+    </linearGradient>
+    <!-- Guard gradient -->
+    <linearGradient id="su-guard" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a0800"/>
+      <stop offset="50%" stop-color="#6a3010"/>
+      <stop offset="100%" stop-color="#1a0800"/>
+    </linearGradient>
+    <!-- Hilt -->
+    <linearGradient id="su-hilt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1000"/>
+      <stop offset="50%" stop-color="#3a1a08"/>
+      <stop offset="100%" stop-color="#0a0400"/>
+    </linearGradient>
+    <radialGradient id="su-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff6a00" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#ff2200" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="su-core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ff6a00" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="su-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="50%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+    <pattern id="su-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="su-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <filter id="su-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="su-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="su-blazeGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="su-emberGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#su-bg)"/>
+  <rect width="600" height="600" fill="url(#su-grid)"/>
+
+  <!-- Atmospheric fire haze floor -->
+  <ellipse cx="300" cy="580" rx="350" ry="80" fill="#ff2200" opacity="0.12"/>
+  <ellipse cx="300" cy="560" rx="250" ry="50" fill="#ff6a00" opacity="0.10"/>
+
+  <!-- BIG FIRE AURA behind blade -->
+  <ellipse cx="300" cy="280" rx="190" ry="280" fill="url(#su-aura)"/>
+
+  <!-- HUD corners - yellow legendary -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD label -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ SURTR.blade ] muspelheim-forge</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end" fill="#fcee0a">★ LEGENDARY</text>
+  </g>
+
+  <!-- BLADE (vertical, tip up — broad and imposing) -->
+  <g>
+    <!-- Blaze glow behind blade -->
+    <path d="M 300 95 L 340 310 L 340 440 L 260 440 L 260 310 Z"
+          fill="#ff6a00" opacity="0.25" filter="url(#su-blazeGlow)"/>
+
+    <!-- Blade body (scorched dark metal) -->
+    <path d="M 300 98 L 336 308 L 336 438 L 264 438 L 264 308 Z"
+          fill="url(#su-blade)" stroke="#6a3010" stroke-width="2"/>
+
+    <!-- Inner blade shading (darker center column) -->
+    <path d="M 300 115 L 322 310 L 322 425 L 278 425 L 278 310 Z"
+          fill="#1a0800" opacity="0.5"/>
+
+    <!-- LAVA CRACK veins (molten yellow-orange fissures) -->
+    <!-- Center main vein -->
+    <path d="M 300 110 L 300 200 L 295 220 L 305 250 L 298 290 L 302 340 L 300 420"
+          fill="none" stroke="url(#su-lava1)" stroke-width="3" filter="url(#su-softGlow)" opacity="0.95"/>
+
+    <!-- Left branch veins -->
+    <path d="M 296 180 C 286 190 278 200 272 210" fill="none" stroke="url(#su-lava2)" stroke-width="2" opacity="0.85" filter="url(#su-hardGlow)"/>
+    <path d="M 295 240 C 283 252 276 265 270 278" fill="none" stroke="url(#su-lava1)" stroke-width="1.5" opacity="0.75" filter="url(#su-hardGlow)"/>
+    <path d="M 298 300 C 286 314 280 328 276 345" fill="none" stroke="url(#su-lava2)" stroke-width="2" opacity="0.8" filter="url(#su-hardGlow)"/>
+    <path d="M 296 360 C 285 370 279 385 278 400" fill="none" stroke="url(#su-lava1)" stroke-width="1.5" opacity="0.7" filter="url(#su-hardGlow)"/>
+
+    <!-- Right branch veins -->
+    <path d="M 304 195 C 314 205 322 214 328 224" fill="none" stroke="url(#su-lava1)" stroke-width="2" opacity="0.85" filter="url(#su-hardGlow)"/>
+    <path d="M 305 255 C 316 265 324 278 330 290" fill="none" stroke="url(#su-lava2)" stroke-width="1.5" opacity="0.8" filter="url(#su-hardGlow)"/>
+    <path d="M 302 315 C 314 328 320 342 324 358" fill="none" stroke="url(#su-lava1)" stroke-width="2" opacity="0.75" filter="url(#su-hardGlow)"/>
+    <path d="M 303 375 C 313 386 320 398 322 412" fill="none" stroke="url(#su-lava2)" stroke-width="1.5" opacity="0.7" filter="url(#su-hardGlow)"/>
+
+    <!-- Lava pool nodes at crack junctions -->
+    <g fill="#fcee0a" filter="url(#su-hardGlow)" opacity="0.9">
+      <circle cx="300" cy="180" r="3"/>
+      <circle cx="300" cy="245" r="2.5"/>
+      <circle cx="300" cy="300" r="3"/>
+      <circle cx="300" cy="358" r="2.5"/>
+      <circle cx="274" cy="208" r="2"/>
+      <circle cx="326" cy="222" r="2"/>
+      <circle cx="276" cy="278" r="2"/>
+      <circle cx="330" cy="292" r="2"/>
+    </g>
+
+    <!-- Scorched data-trail (HEX data dissolving from blade edges) -->
+    <g font-family="ui-monospace, monospace" font-size="8" fill="#ff6a00" opacity="0.35">
+      <text x="234" y="200">FE2C</text>
+      <text x="228" y="270">A08B</text>
+      <text x="232" y="340">3F1D</text>
+      <text x="344" y="220">C741</text>
+      <text x="342" y="290">9E2A</text>
+      <text x="340" y="360">4B8F</text>
+    </g>
+
+    <!-- Blade tip (glowing hot) -->
+    <circle cx="300" cy="100" r="8" fill="#fcee0a" opacity="0.95" filter="url(#su-emberGlow)"/>
+    <circle cx="300" cy="100" r="4" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- CROSS-GUARD (wide, fire-giant aesthetic) -->
+  <g>
+    <!-- Guard glow -->
+    <ellipse cx="300" cy="445" rx="160" ry="18" fill="#ff6a00" opacity="0.2" filter="url(#su-softGlow)"/>
+    <!-- Main guard bar (wide and angular) -->
+    <path d="M 155 436 L 445 436 L 440 454 L 160 454 Z" fill="url(#su-guard)" stroke="#8a3a10" stroke-width="2"/>
+    <!-- Guard horns (fire-giant aesthetic, curling outward) -->
+    <path d="M 155 436 C 138 430 125 420 118 408 C 128 415 140 425 160 430 Z" fill="#3a1800" stroke="#8a3a10" stroke-width="1.5"/>
+    <path d="M 445 436 C 462 430 475 420 482 408 C 472 415 460 425 440 430 Z" fill="#3a1800" stroke="#8a3a10" stroke-width="1.5"/>
+    <!-- Guard lava accent line -->
+    <line x1="165" y1="445" x2="435" y2="445" stroke="#fcee0a" stroke-width="1" opacity="0.4" filter="url(#su-hardGlow)"/>
+    <!-- Guard center rune (Surtr's mark) -->
+    <g font-family="serif" fill="#fcee0a" font-size="18" text-anchor="middle" filter="url(#su-hardGlow)" opacity="0.85">
+      <text x="300" y="450">ᛋ</text>
+    </g>
+  </g>
+
+  <!-- HILT -->
+  <g>
+    <rect x="284" y="454" width="32" height="80" rx="6" fill="url(#su-hilt)" stroke="#6a3010" stroke-width="2"/>
+    <!-- Hilt binding wraps (charred look) -->
+    <g stroke="#8a4010" stroke-width="2" opacity="0.6">
+      <line x1="284" y1="468" x2="316" y2="470"/>
+      <line x1="284" y1="482" x2="316" y2="484"/>
+      <line x1="284" y1="496" x2="316" y2="498"/>
+      <line x1="284" y1="510" x2="316" y2="512"/>
+    </g>
+    <!-- Lava accents on hilt -->
+    <line x1="300" y1="458" x2="300" y2="530" stroke="#ff4400" stroke-width="0.8" opacity="0.4" filter="url(#su-hardGlow)"/>
+
+    <!-- POMMEL (volcanic rock orb) -->
+    <circle cx="300" cy="548" r="20" fill="#1a0800" stroke="#8a3a10" stroke-width="2"/>
+    <circle cx="300" cy="548" r="12" fill="url(#su-core)" filter="url(#su-softGlow)"/>
+    <circle cx="300" cy="548" r="6" fill="#fcee0a" opacity="0.9" filter="url(#su-hardGlow)"/>
+    <!-- Pommel lava cracks -->
+    <g stroke="#ff6a00" stroke-width="1" fill="none" opacity="0.7" filter="url(#su-hardGlow)">
+      <path d="M 292 542 L 296 548 L 290 554"/>
+      <path d="M 308 542 L 304 548 L 310 554"/>
+    </g>
+  </g>
+
+  <!-- FLAME PARTICLES rising from blade -->
+  <!-- Large flame plumes -->
+  <g fill="#ff4400" opacity="0.5" filter="url(#su-emberGlow)">
+    <path d="M 280 130 C 272 115 268 100 275 88 C 270 98 266 112 274 124 C 262 110 260 95 268 82 C 256 96 258 115 268 130 Z"/>
+    <path d="M 320 120 C 328 105 332 90 325 78 C 330 88 334 102 326 114 C 338 100 340 85 332 72 C 344 86 342 105 332 120 Z"/>
+    <path d="M 300 108 C 295 92 294 76 300 65 C 306 76 305 92 300 108 Z"/>
+  </g>
+
+  <!-- Ember sparks -->
+  <g fill="#fcee0a" opacity="0.75" filter="url(#su-hardGlow)">
+    <circle cx="262" cy="160" r="2.5"/>
+    <circle cx="338" cy="145" r="2"/>
+    <circle cx="248" cy="220" r="1.5"/>
+    <circle cx="352" cy="200" r="2"/>
+    <circle cx="240" cy="300" r="1.5"/>
+    <circle cx="360" cy="280" r="2"/>
+    <circle cx="255" cy="380" r="1.5"/>
+    <circle cx="345" cy="360" r="2"/>
+    <!-- Flying embers further out -->
+    <circle cx="200" cy="180" r="1.5"/>
+    <circle cx="400" cy="160" r="1"/>
+    <circle cx="185" cy="280" r="1"/>
+    <circle cx="415" cy="260" r="1.5"/>
+    <circle cx="195" cy="380" r="1"/>
+    <circle cx="405" cy="360" r="1"/>
+  </g>
+  <!-- Orange embers -->
+  <g fill="#ff6a00" opacity="0.6" filter="url(#su-hardGlow)">
+    <circle cx="225" cy="240" r="1.5"/>
+    <circle cx="375" cy="220" r="1"/>
+    <circle cx="218" cy="340" r="1"/>
+    <circle cx="382" cy="320" r="1.5"/>
+    <circle cx="210" cy="440" r="1"/>
+    <circle cx="390" cy="420" r="1"/>
+  </g>
+
+  <!-- Data-trail effect (corrupted HEX scrolling down from blade edge) -->
+  <g font-family="ui-monospace, monospace" font-size="7" fill="#ff2200" opacity="0.2">
+    <text x="218" y="410" transform="rotate(90, 218, 410)">MUSPELHEIM.OVERFLOW.0x4F2A.BURN</text>
+    <text x="382" y="160" transform="rotate(-90, 382, 160)">SURTR.EXEC.FIRE_GIANT.0xFFAA00</text>
+  </g>
+
+  <!-- SCANLINES OVERLAY -->
+  <rect width="600" height="600" fill="url(#su-scanlines)" opacity="0.4"/>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#su-vignette)"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// HEAT: 9000K · RAGNAROK-CLEARED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 5.8K</text>
+  </g>
+</svg>

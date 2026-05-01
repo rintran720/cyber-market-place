@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="lc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080706"/>
+      <stop offset="60%" stop-color="#100e0a"/>
+      <stop offset="100%" stop-color="#1c1410"/>
+    </linearGradient>
+    <linearGradient id="lc-glove" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3530"/>
+      <stop offset="40%" stop-color="#2a2520"/>
+      <stop offset="100%" stop-color="#181410"/>
+    </linearGradient>
+    <linearGradient id="lc-plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a5550"/>
+      <stop offset="50%" stop-color="#3a3530"/>
+      <stop offset="100%" stop-color="#1e1c18"/>
+    </linearGradient>
+    <linearGradient id="lc-wrap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2a2520"/>
+      <stop offset="50%" stop-color="#3a3530"/>
+      <stop offset="100%" stop-color="#2a2520"/>
+    </linearGradient>
+    <radialGradient id="lc-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#c87040" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#c87040" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#c87040" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lc-lotus-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f0a060" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#c87040" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c87040" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lc-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+    <pattern id="lc-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#8a92a3" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="lc-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+    <!-- Fabric texture lines pattern -->
+    <pattern id="lc-fabric" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="4" x2="8" y2="4" stroke="#5a5040" stroke-width="0.6" stroke-opacity="0.5"/>
+      <line x1="4" y1="0" x2="4" y2="8" stroke="#4a4030" stroke-width="0.4" stroke-opacity="0.3"/>
+    </pattern>
+    <filter id="lc-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="lc-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#lc-bg)"/>
+  <rect width="600" height="600" fill="url(#lc-grid)"/>
+
+  <!-- Warm orange aura (faint) -->
+  <ellipse cx="300" cy="300" rx="200" ry="180" fill="url(#lc-aura)"/>
+
+  <!-- HUD corners - gray common -->
+  <g stroke="#8a92a3" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD label -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#8a92a3" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ LOTUS-cestus ] starter-grade</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end" fill="#8a92a3">COMMON</text>
+  </g>
+
+  <!-- BOXING GLOVE / CESTUS SHAPE (frontal, slightly angled) -->
+  <!-- Main glove body (rounded rectangle form) -->
+  <g>
+    <!-- Glove outer glow -->
+    <rect x="210" y="200" width="180" height="220" rx="28" fill="#c87040" opacity="0.08" filter="url(#lc-softGlow)"/>
+
+    <!-- Glove body -->
+    <rect x="215" y="205" width="170" height="215" rx="26" fill="url(#lc-glove)"/>
+    <!-- Fabric texture overlay -->
+    <rect x="215" y="205" width="170" height="215" rx="26" fill="url(#lc-fabric)" opacity="0.7"/>
+    <!-- Glove edge highlight left -->
+    <line x1="217" y1="230" x2="217" y2="400" stroke="#6a6060" stroke-width="1.5" opacity="0.5"/>
+    <!-- Glove edge highlight right -->
+    <line x1="383" y1="230" x2="383" y2="400" stroke="#1a1814" stroke-width="2" opacity="0.8"/>
+
+    <!-- Knuckle plate (metal plate at front) -->
+    <rect x="225" y="210" width="150" height="60" rx="14" fill="url(#lc-plate)" stroke="#6a6050" stroke-width="1.5"/>
+    <!-- Knuckle ridges (4 knuckle bumps) -->
+    <g fill="#4a4540" stroke="#6a6050" stroke-width="1">
+      <rect x="230" y="216" width="28" height="40" rx="10"/>
+      <rect x="266" y="216" width="28" height="40" rx="10"/>
+      <rect x="302" y="216" width="28" height="40" rx="10"/>
+      <rect x="338" y="216" width="28" height="40" rx="10"/>
+    </g>
+    <!-- Knuckle shine highlight -->
+    <g fill="#8a8070" opacity="0.4">
+      <ellipse cx="244" cy="228" rx="8" ry="5"/>
+      <ellipse cx="280" cy="228" rx="8" ry="5"/>
+      <ellipse cx="316" cy="228" rx="8" ry="5"/>
+      <ellipse cx="352" cy="228" rx="8" ry="5"/>
+    </g>
+
+    <!-- LOTUS EMBLEM on center of knuckle plate -->
+    <g transform="translate(300, 237)" filter="url(#lc-hardGlow)">
+      <!-- Lotus petals -->
+      <ellipse cx="0" cy="-10" rx="5" ry="9" fill="#f0a060" opacity="0.85" transform="rotate(-30)"/>
+      <ellipse cx="0" cy="-10" rx="5" ry="9" fill="#f0a060" opacity="0.85" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-10" rx="5" ry="9" fill="#f0a060" opacity="0.85" transform="rotate(30)"/>
+      <ellipse cx="0" cy="-10" rx="5" ry="9" fill="#e89050" opacity="0.7" transform="rotate(-60)"/>
+      <ellipse cx="0" cy="-10" rx="5" ry="9" fill="#e89050" opacity="0.7" transform="rotate(60)"/>
+      <!-- Center -->
+      <circle cx="0" cy="0" r="4" fill="#fcb870" opacity="0.9" filter="url(#lc-softGlow)"/>
+      <circle cx="0" cy="0" r="2" fill="#fff" opacity="0.7"/>
+    </g>
+
+    <!-- Wrist wrap area -->
+    <rect x="225" y="350" width="150" height="58" rx="8" fill="#1e1c18" opacity="0.8"/>
+    <!-- Wrap lines (horizontal bands) -->
+    <g stroke="#6a6050" stroke-width="2" opacity="0.5">
+      <line x1="228" y1="362" x2="372" y2="362"/>
+      <line x1="228" y1="374" x2="372" y2="374"/>
+      <line x1="228" y1="386" x2="372" y2="386"/>
+      <line x1="228" y1="398" x2="372" y2="398"/>
+    </g>
+    <!-- Diagonal cross-wrap lines -->
+    <g stroke="#5a5040" stroke-width="1" opacity="0.35">
+      <line x1="225" y1="350" x2="375" y2="408"/>
+      <line x1="255" y1="350" x2="375" y2="382"/>
+      <line x1="225" y1="375" x2="310" y2="408"/>
+    </g>
+
+    <!-- Wrist buckle/clasp -->
+    <rect x="280" y="406" width="40" height="12" rx="3" fill="#5a5040" stroke="#8a8060" stroke-width="1"/>
+    <rect x="296" y="409" width="8" height="6" rx="1" fill="#3a3020"/>
+
+    <!-- "STARTER GRADE" label on glove side -->
+    <g opacity="0.35">
+      <text x="300" y="320" font-family="ui-monospace, 'Courier New', monospace" font-size="9"
+            letter-spacing="2.5" text-anchor="middle" fill="#8a92a3">STARTER GRADE</text>
+    </g>
+
+    <!-- Warm glow on lotus emblem -->
+    <ellipse cx="300" cy="237" rx="30" ry="20" fill="url(#lc-lotus-glow)" opacity="0.4"/>
+  </g>
+
+  <!-- Faint dust/sand particles (warm haze) -->
+  <g fill="#c87040" opacity="0.25" filter="url(#lc-hardGlow)">
+    <circle cx="170" cy="240" r="1.5"/>
+    <circle cx="430" cy="260" r="1"/>
+    <circle cx="160" cy="350" r="1"/>
+    <circle cx="440" cy="320" r="1.5"/>
+    <circle cx="200" cy="420" r="1"/>
+    <circle cx="400" cy="410" r="1"/>
+    <circle cx="185" cy="290" r="1"/>
+    <circle cx="415" cy="380" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#lc-scanlines)" opacity="0.4"/>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#lc-vignette)"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#8a92a3" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// ATMA: LOTUS · UNARMED-READY</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 0.3K</text>
+  </g>
+</svg>

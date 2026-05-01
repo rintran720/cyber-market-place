@@ -244,7 +244,7 @@
     "priceNeon": 720,
     "seller": "midgard-fab",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/rune-knuckles/600/600",
+    "imageUrl": "/items/rune-knuckles.svg",
     "stats": {
       "damage": 50,
       "speed": 85,
@@ -290,7 +290,7 @@
     "priceNeon": 220,
     "seller": "varanasi-light",
     "origin": "Indian",
-    "imageUrl": "https://picsum.photos/seed/lotus-cestus/600/600",
+    "imageUrl": "/items/lotus-cestus.svg",
     "stats": {
       "damage": 35,
       "speed": 68,
@@ -544,7 +544,7 @@
     "priceNeon": 95,
     "seller": "duat-cyberware",
     "origin": "Egyptian",
-    "imageUrl": "https://picsum.photos/seed/feather-of-maat/600/600",
+    "imageUrl": "/items/feather-of-maat.svg",
     "stats": {
       "damage": 18,
       "speed": 88,
@@ -567,7 +567,7 @@
     "priceNeon": 60,
     "seller": "varanasi-light",
     "origin": "Indian",
-    "imageUrl": "https://picsum.photos/seed/sandalwood-sling/600/600",
+    "imageUrl": "/items/sandalwood-sling.svg",
     "stats": {
       "damage": 15,
       "speed": 70,
@@ -681,7 +681,7 @@
     "priceNeon": 950,
     "seller": "duat-cyberware",
     "origin": "Egyptian",
-    "imageUrl": "https://picsum.photos/seed/ankh-blade/600/600",
+    "imageUrl": "/items/ankh-blade.svg",
     "stats": {
       "damage": 56,
       "speed": 72,
@@ -726,7 +726,7 @@
     "priceNeon": 50,
     "seller": "midgard-fab",
     "origin": "Generic",
-    "imageUrl": "https://picsum.photos/seed/starter-blade/600/600",
+    "imageUrl": "/items/starter-blade.svg",
     "stats": {
       "damage": 20,
       "speed": 65,
@@ -842,7 +842,7 @@
     "priceNeon": 540,
     "seller": "akan-cyberweb",
     "origin": "African-cursed",
-    "imageUrl": "https://picsum.photos/seed/trickster-flute/600/600",
+    "imageUrl": "/items/trickster-flute.svg",
     "stats": {
       "damage": 25,
       "speed": 80,
@@ -911,7 +911,7 @@
     "priceNeon": 5600,
     "seller": "muspelheim-forge",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/surtr-blade/600/600",
+    "imageUrl": "/items/surtr-blade.svg",
     "stats": {
       "damage": 83,
       "speed": 62,
