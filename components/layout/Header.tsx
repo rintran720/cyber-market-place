@@ -1,12 +1,14 @@
 "use client";
+
 import Link from "next/link";
 import { formatNeon } from "@/lib/format";
 import { useCart } from "@/lib/client/hooks/useCart";
-
-const HARDCODED_BALANCE = 250_000;
+import { useWallet } from "@/lib/client/hooks/useWallet";
 
 export function Header() {
   const { count } = useCart();
+  const { wallet, isLoading } = useWallet();
+
   return (
     <header className="sticky top-0 z-40 border-b border-cp-border bg-cp-bg/80 backdrop-blur">
       <div className="cp-container flex items-center gap-6 py-3">
@@ -31,12 +33,20 @@ export function Header() {
               </span>
             )}
           </Link>
-          <span className="cp-chip cp-chip--yellow font-cp-mono text-xs">
-            {formatNeon(HARDCODED_BALANCE, { compact: true })}
-          </span>
-          <span className="cp-avatar cp-avatar--ring cp-avatar--magenta cp-avatar--sm" aria-label="John Tran">
+          <Link
+            href="/profile"
+            className="cp-chip cp-chip--yellow font-cp-mono text-xs"
+            aria-label={`Wallet balance ${wallet?.balanceNeon ?? 0} NEON`}
+          >
+            {isLoading ? "⟁ ···" : formatNeon(wallet?.balanceNeon ?? 0, { compact: true })}
+          </Link>
+          <Link
+            href="/profile"
+            className="cp-avatar cp-avatar--ring cp-avatar--magenta cp-avatar--sm"
+            aria-label="John Tran profile"
+          >
             <span className="cp-avatar__initials">JT</span>
-          </span>
+          </Link>
         </div>
       </div>
     </header>
