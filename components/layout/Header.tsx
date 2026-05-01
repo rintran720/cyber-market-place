@@ -9,7 +9,7 @@ export function Header() {
       className="sticky top-0 z-40 border-b border-cp-border bg-cp-bg/80 backdrop-blur"
     >
       <div className="cp-container flex items-center gap-6 py-3">
-        <Link href="/browse" className="font-cp-display text-cp-cyan-500 text-lg tracking-widest">
+        <Link href="/" className="font-cp-display text-cp-cyan-500 text-lg tracking-widest">
           ⌬ NEONMARKET
         </Link>
         <nav className="flex gap-4 text-sm uppercase tracking-wider">
