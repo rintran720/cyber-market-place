@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="ss-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0218"/>
+      <stop offset="55%" stop-color="#1a0430"/>
+      <stop offset="100%" stop-color="#3a0529"/>
+    </linearGradient>
+
+    <radialGradient id="ss-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff00ea" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#ff00ea" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ss-stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3040"/>
+      <stop offset="40%" stop-color="#5a4870"/>
+      <stop offset="70%" stop-color="#4a3860"/>
+      <stop offset="100%" stop-color="#2a2035"/>
+    </linearGradient>
+
+    <linearGradient id="ss-stoneFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a4870"/>
+      <stop offset="50%" stop-color="#3a2850"/>
+      <stop offset="100%" stop-color="#2a1a38"/>
+    </linearGradient>
+
+    <radialGradient id="ss-glyphGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff00ea" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="ss-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ff00ea" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="ss-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="ss-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="ss-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="ss-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#ss-bg)"/>
+  <rect width="600" height="600" fill="url(#ss-grid)"/>
+
+  <!-- Aura behind stone -->
+  <ellipse cx="300" cy="310" rx="200" ry="160" fill="url(#ss-aura)"/>
+
+  <!-- Force-field levitation rings - large outer -->
+  <ellipse cx="300" cy="380" rx="160" ry="26" fill="none" stroke="#ff00ea" stroke-width="2.5" stroke-dasharray="10 6" opacity="0.75" filter="url(#ss-hardGlow)"/>
+  <ellipse cx="300" cy="380" rx="160" ry="26" fill="none" stroke="#ff88ff" stroke-width="1" opacity="0.35"/>
+  <!-- mid ring -->
+  <ellipse cx="300" cy="374" rx="120" ry="18" fill="none" stroke="#ff00ea" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.6" filter="url(#ss-hardGlow)"/>
+  <!-- inner ring -->
+  <ellipse cx="300" cy="368" rx="80" ry="12" fill="none" stroke="#ff00ea" stroke-width="1" stroke-dasharray="4 6" opacity="0.5"/>
+  <!-- Vertical rings for 3D effect -->
+  <ellipse cx="300" cy="310" rx="26" ry="160" fill="none" stroke="#ff00ea" stroke-width="1" stroke-dasharray="6 8" opacity="0.3"/>
+  <ellipse cx="300" cy="310" rx="18" ry="120" fill="none" stroke="#ff00ea" stroke-width="0.8" stroke-dasharray="4 8" opacity="0.25"/>
+
+  <!-- Shadow under floating stone -->
+  <ellipse cx="300" cy="382" rx="100" ry="14" fill="#ff00ea" opacity="0.12" filter="url(#ss-softGlow)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#ff00ea" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ STONE-of-SCONE ] coronation</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">⬢ 1/1 UNIQUE</text>
+  </g>
+
+  <!-- STONE BLOCK - floating -->
+  <g>
+    <!-- Stone block - top face (isometric hint) -->
+    <path d="M 190,230 L 410,230 L 410,360 L 190,360 Z" fill="url(#ss-stoneFace)" stroke="#7a5080" stroke-width="2"/>
+
+    <!-- Stone left face -->
+    <path d="M 190,230 L 175,248 L 175,378 L 190,360 Z" fill="#2a1a38" stroke="#5a3060" stroke-width="1"/>
+
+    <!-- Stone bottom face -->
+    <path d="M 175,378 L 190,360 L 410,360 L 425,378 Z" fill="#2a1838" stroke="#5a3060" stroke-width="1"/>
+
+    <!-- Stone right face -->
+    <path d="M 410,230 L 425,248 L 425,378 L 410,360 Z" fill="#2a1838" stroke="#5a3060" stroke-width="1"/>
+
+    <!-- Glyph carvings on front face -->
+    <!-- Large central glyph -->
+    <g fill="none" stroke="#ff00ea" stroke-width="2" filter="url(#ss-hardGlow)" opacity="0.9">
+      <!-- Center crown/rune glyph -->
+      <path d="M 280,260 L 280,330 M 320,260 L 320,330 M 270,290 L 280,280 L 300,270 L 320,280 L 330,290"/>
+      <line x1="270" y1="330" x2="330" y2="330"/>
+    </g>
+
+    <!-- Glowing glyph fill -->
+    <g fill="#ff00ea" opacity="0.15" filter="url(#ss-softGlow)">
+      <path d="M 280,260 L 280,330 M 320,260 L 320,330"/>
+    </g>
+
+    <!-- Side rune marks -->
+    <g font-family="serif" fill="#ff88ff" opacity="0.85" filter="url(#ss-hardGlow)" font-size="18" text-anchor="middle">
+      <text x="230" y="305">ᚲ</text>
+      <text x="370" y="305">ᚱ</text>
+    </g>
+
+    <!-- Top edge glyph dots -->
+    <g fill="#ff00ea" opacity="0.8" filter="url(#ss-hardGlow)">
+      <circle cx="220" cy="248" r="3"/>
+      <circle cx="260" cy="241" r="3"/>
+      <circle cx="300" cy="238" r="4"/>
+      <circle cx="340" cy="241" r="3"/>
+      <circle cx="380" cy="248" r="3"/>
+    </g>
+
+    <!-- Surface circuit traces -->
+    <g stroke="#ff00ea" stroke-width="0.8" fill="none" opacity="0.5">
+      <path d="M 210,260 L 210,340 L 230,340"/>
+      <path d="M 390,260 L 390,340 L 370,340"/>
+      <circle cx="210" cy="300" r="2" fill="#ff00ea"/>
+      <circle cx="390" cy="300" r="2" fill="#ff00ea"/>
+    </g>
+
+    <!-- Stone corner chips (weathering) -->
+    <g fill="#1a0d22" opacity="0.7">
+      <polygon points="190,230 200,230 190,245"/>
+      <polygon points="410,230 400,230 410,245"/>
+      <polygon points="190,360 200,360 190,345"/>
+      <polygon points="410,360 400,360 410,345"/>
+    </g>
+
+    <!-- Ambient glow underneath stone -->
+    <ellipse cx="300" cy="364" rx="115" ry="8" fill="#ff00ea" opacity="0.2" filter="url(#ss-softGlow)"/>
+  </g>
+
+  <!-- Mystic particles floating -->
+  <g fill="#ff00ea" opacity="0.7" filter="url(#ss-hardGlow)">
+    <circle cx="165" cy="240" r="2"/>
+    <circle cx="435" cy="220" r="1.5"/>
+    <circle cx="155" cy="310" r="1.5"/>
+    <circle cx="445" cy="300" r="2"/>
+    <circle cx="170" cy="380" r="1"/>
+    <circle cx="430" cy="370" r="1.5"/>
+    <circle cx="220" cy="190" r="1.5"/>
+    <circle cx="380" cy="195" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#ss-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// AUTHORITY: CROWN-CLASS · LEVITATING</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 980K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#ss-vignette)"/>
+</svg>

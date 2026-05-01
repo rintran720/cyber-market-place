@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="ms-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0500"/>
+      <stop offset="60%" stop-color="#1a1000"/>
+      <stop offset="100%" stop-color="#2a1a00"/>
+    </linearGradient>
+
+    <radialGradient id="ms-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#fcee0a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ms-blade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a4252" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#e0e8f5"/>
+      <stop offset="100%" stop-color="#3a4252" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="ms-bladeEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="75%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="ms-shaft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1408"/>
+      <stop offset="50%" stop-color="#3a2e10"/>
+      <stop offset="100%" stop-color="#0a0a10"/>
+    </linearGradient>
+
+    <radialGradient id="ms-bladeTipGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#fcee0a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="ms-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="ms-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="ms-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="ms-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="ms-bladeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="ms-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#ms-bg)"/>
+  <rect width="600" height="600" fill="url(#ms-grid)"/>
+
+  <!-- Yellow aura -->
+  <ellipse cx="320" cy="280" rx="260" ry="200" fill="url(#ms-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ MORRIGAN.scythe ] raven-ordnance</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- SCYTHE - diagonal across canvas -->
+  <g>
+    <!-- Shaft shadow -->
+    <line x1="70" y1="530" x2="480" y2="80" stroke="#000" stroke-width="16" opacity="0.4"/>
+
+    <!-- Main shaft -->
+    <line x1="72" y1="528" x2="478" y2="82" stroke="url(#ms-shaft)" stroke-width="12"/>
+    <!-- Shaft left edge highlight -->
+    <line x1="68" y1="525" x2="474" y2="79" stroke="#5a4a1a" stroke-width="2" opacity="0.6"/>
+    <!-- Shaft circuit traces -->
+    <g stroke="#fcee0a" stroke-width="0.8" fill="none" opacity="0.5">
+      <line x1="100" y1="500" x2="130" y2="470"/>
+      <line x1="170" y1="430" x2="200" y2="400"/>
+      <line x1="250" y1="350" x2="280" y2="320"/>
+      <line x1="340" y1="260" x2="370" y2="230"/>
+      <circle cx="115" cy="485" r="2" fill="#fcee0a"/>
+      <circle cx="185" cy="415" r="2" fill="#fcee0a"/>
+      <circle cx="265" cy="335" r="2" fill="#fcee0a"/>
+      <circle cx="355" cy="245" r="2" fill="#fcee0a"/>
+    </g>
+
+    <!-- Rune marks on shaft -->
+    <g font-family="serif" fill="#fcee0a" opacity="0.75" filter="url(#ms-hardGlow)" font-size="13" text-anchor="middle">
+      <text x="160" y="450" transform="rotate(-48,160,450)">ᚾ</text>
+      <text x="240" y="370" transform="rotate(-48,240,370)">ᛗ</text>
+      <text x="320" y="290" transform="rotate(-48,320,290)">ᚱ</text>
+    </g>
+
+    <!-- Raven wing motif on shaft (mid-point) -->
+    <g fill="#2a2010" stroke="#fcee0a" stroke-width="1" opacity="0.8" transform="translate(270,305) rotate(-48)">
+      <path d="M 0,0 C -20,-10 -30,5 -20,15 C -10,25 0,20 0,0 Z"/>
+      <path d="M 0,0 C 20,-10 30,5 20,15 C 10,25 0,20 0,0 Z"/>
+    </g>
+
+    <!-- BLADE section - curved, at top-right -->
+    <!-- Blade glow -->
+    <path d="M 420,120 C 500,80 560,100 560,160 C 560,220 500,200 440,220 L 400,180 Z"
+          fill="#fcee0a" opacity="0.2" filter="url(#ms-bladeGlow)"/>
+
+    <!-- Blade body -->
+    <path d="M 425,118 C 502,80 558,102 556,162 C 554,218 500,198 438,218 L 400,182 Z"
+          fill="url(#ms-blade)" stroke="#7a6228" stroke-width="1.5"/>
+
+    <!-- Blade inner edge line -->
+    <path d="M 440,130 C 510,96 555,118 553,168 C 551,210 508,194 448,210"
+          fill="none" stroke="#fcee0a" stroke-width="2" filter="url(#ms-softGlow)" opacity="0.8"/>
+    <!-- Blade energy gradient overlay -->
+    <path d="M 440,130 C 510,96 555,118 553,168 C 551,210 508,194 448,210 L 425,175 Z"
+          fill="url(#ms-bladeEdge)" opacity="0.5" filter="url(#ms-softGlow)"/>
+
+    <!-- Inner energy line -->
+    <path d="M 440,130 C 510,96 555,118 553,168 C 551,210 508,194 448,210"
+          fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5" filter="url(#ms-hardGlow)"/>
+
+    <!-- Blade tip glow -->
+    <circle cx="556" cy="160" r="14" fill="url(#ms-bladeTipGlow)" filter="url(#ms-softGlow)"/>
+    <circle cx="556" cy="160" r="5" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Curse runes along blade edge -->
+    <g font-family="serif" fill="#fcee0a" opacity="0.8" filter="url(#ms-hardGlow)" font-size="12">
+      <text x="470" y="122" transform="rotate(-10,470,122)">ᚦ</text>
+      <text x="520" y="110" transform="rotate(-5,520,110)">ᛉ</text>
+    </g>
+
+    <!-- Crow-feather guard at blade-shaft junction -->
+    <!-- Feather shapes radiating from junction -->
+    <g fill="#1a1408" stroke="#fcee0a" stroke-width="1" opacity="0.85" filter="url(#ms-hardGlow)">
+      <path d="M 415,175 C 400,160 390,150 410,145 C 430,140 435,158 415,175 Z"/>
+      <path d="M 415,175 C 395,170 382,165 395,155 C 408,145 420,162 415,175 Z"/>
+      <path d="M 415,175 C 398,180 385,182 392,168 C 399,154 418,165 415,175 Z"/>
+      <path d="M 415,175 C 420,165 435,158 438,172 C 441,186 420,182 415,175 Z"/>
+    </g>
+    <!-- Guard jewel center -->
+    <circle cx="415" cy="175" r="7" fill="#fcee0a" opacity="0.3" filter="url(#ms-softGlow)"/>
+    <circle cx="415" cy="175" r="3" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Butt spike -->
+    <path d="M 72,528 L 55,545 L 65,555 L 82,538 Z" fill="#5a4a1a" stroke="#7a6228" stroke-width="1"/>
+  </g>
+
+  <!-- Raven wing motif large (background) -->
+  <g opacity="0.08" fill="#fcee0a">
+    <path d="M 150,400 C 80,350 60,280 120,260 C 180,240 200,320 150,400 Z"/>
+    <path d="M 450,200 C 520,150 540,80 480,60 C 420,40 400,120 450,200 Z"/>
+  </g>
+
+  <!-- Curse particles -->
+  <g fill="#fcee0a" opacity="0.65" filter="url(#ms-hardGlow)">
+    <circle cx="120" cy="170" r="2"/>
+    <circle cx="490" cy="420" r="2"/>
+    <circle cx="80" cy="320" r="1.5"/>
+    <circle cx="520" cy="290" r="1.5"/>
+    <circle cx="200" cy="100" r="1"/>
+    <circle cx="440" cy="500" r="1"/>
+    <circle cx="380" cy="80" r="1.5"/>
+    <circle cx="150" cy="520" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#ms-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// KILLS: 10,441 · TRIBUTE OWED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 6.8K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#ms-vignette)"/>
+</svg>

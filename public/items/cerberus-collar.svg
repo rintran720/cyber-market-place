@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="cc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#02030d"/>
+      <stop offset="55%" stop-color="#080520"/>
+      <stop offset="100%" stop-color="#170836"/>
+    </linearGradient>
+
+    <radialGradient id="cc-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#bd00ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="cc-ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a1a3a"/>
+      <stop offset="50%" stop-color="#5a3080"/>
+      <stop offset="100%" stop-color="#1a0a28"/>
+    </linearGradient>
+
+    <radialGradient id="cc-spike" cx="0.5" cy="0" r="0.8">
+      <stop offset="0%" stop-color="#9a50c0"/>
+      <stop offset="60%" stop-color="#3a1a50"/>
+      <stop offset="100%" stop-color="#1a0a20"/>
+    </radialGradient>
+
+    <radialGradient id="cc-eyeRed" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#ff2020" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#aa0000" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cc-centerGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="cc-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#bd00ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="cc-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="cc-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="cc-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="cc-arcGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="cc-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#cc-bg)"/>
+  <rect width="600" height="600" fill="url(#cc-grid)"/>
+
+  <!-- Purple aura center -->
+  <ellipse cx="300" cy="300" rx="200" ry="200" fill="url(#cc-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#bd00ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ CERBERUS.collar ] tartarus-trade</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">◇ EPIC</text>
+  </g>
+
+  <!-- 3-PRONG SHOCK COLLAR -->
+  <g>
+    <!-- Main ring body (thick torus-like ring) -->
+    <!-- Outer ring -->
+    <circle cx="300" cy="300" r="130" fill="none" stroke="url(#cc-ring)" stroke-width="28"/>
+    <!-- Ring edge highlights -->
+    <circle cx="300" cy="300" r="143" fill="none" stroke="#8040b0" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="300" cy="300" r="117" fill="none" stroke="#3a1a50" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- Purple glow ring -->
+    <circle cx="300" cy="300" r="130" fill="none" stroke="#bd00ff" stroke-width="4" opacity="0.3" filter="url(#cc-softGlow)"/>
+
+    <!-- Circuit pattern around ring -->
+    <circle cx="300" cy="300" r="130" fill="none" stroke="#bd00ff" stroke-width="1"
+            stroke-dasharray="8 6 2 6" opacity="0.5"/>
+
+    <!-- Center glow hole -->
+    <circle cx="300" cy="300" r="102" fill="url(#cc-centerGlow)" filter="url(#cc-softGlow)"/>
+
+    <!-- Rivets/bolts around ring -->
+    <g fill="#6a30a0" stroke="#9a60c0" stroke-width="1">
+      <circle cx="300" cy="172" r="5"/>
+      <circle cx="300" cy="428" r="5"/>
+      <circle cx="428" cy="300" r="5"/>
+      <circle cx="172" cy="300" r="5"/>
+      <circle cx="392" cy="208" r="4"/>
+      <circle cx="208" cy="392" r="4"/>
+      <circle cx="208" cy="208" r="4"/>
+      <circle cx="392" cy="392" r="4"/>
+    </g>
+
+    <!-- SPIKE 1 - top (pointing up) -->
+    <g>
+      <!-- Spike shaft -->
+      <polygon points="292,130 308,130 310,90 300,78 290,90" fill="url(#cc-spike)" stroke="#8040b0" stroke-width="1.5"/>
+      <!-- Spike inner line -->
+      <line x1="300" y1="130" x2="300" y2="82" stroke="#bd00ff" stroke-width="1" opacity="0.6" filter="url(#cc-hardGlow)"/>
+      <!-- Spike barb -->
+      <polygon points="292,110 280,106 290,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <polygon points="308,110 320,106 310,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <!-- RED EYE LED at spike tip -->
+      <circle cx="300" cy="82" r="12" fill="url(#cc-eyeRed)" filter="url(#cc-softGlow)"/>
+      <circle cx="300" cy="82" r="5" fill="#ff2020" filter="url(#cc-hardGlow)"/>
+      <circle cx="300" cy="82" r="2" fill="#ffffff" opacity="0.9"/>
+      <!-- Pupil slit -->
+      <line x1="300" y1="78" x2="300" y2="86" stroke="#000" stroke-width="1.5" opacity="0.8"/>
+    </g>
+
+    <!-- SPIKE 2 - lower right (pointing down-right, 120deg from top) -->
+    <g transform="rotate(120, 300, 300)">
+      <polygon points="292,130 308,130 310,90 300,78 290,90" fill="url(#cc-spike)" stroke="#8040b0" stroke-width="1.5"/>
+      <line x1="300" y1="130" x2="300" y2="82" stroke="#bd00ff" stroke-width="1" opacity="0.6" filter="url(#cc-hardGlow)"/>
+      <polygon points="292,110 280,106 290,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <polygon points="308,110 320,106 310,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <circle cx="300" cy="82" r="12" fill="url(#cc-eyeRed)" filter="url(#cc-softGlow)"/>
+      <circle cx="300" cy="82" r="5" fill="#ff2020" filter="url(#cc-hardGlow)"/>
+      <circle cx="300" cy="82" r="2" fill="#ffffff" opacity="0.9"/>
+      <line x1="300" y1="78" x2="300" y2="86" stroke="#000" stroke-width="1.5" opacity="0.8"/>
+    </g>
+
+    <!-- SPIKE 3 - lower left (pointing down-left, 240deg from top) -->
+    <g transform="rotate(240, 300, 300)">
+      <polygon points="292,130 308,130 310,90 300,78 290,90" fill="url(#cc-spike)" stroke="#8040b0" stroke-width="1.5"/>
+      <line x1="300" y1="130" x2="300" y2="82" stroke="#bd00ff" stroke-width="1" opacity="0.6" filter="url(#cc-hardGlow)"/>
+      <polygon points="292,110 280,106 290,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <polygon points="308,110 320,106 310,118" fill="#5a2a80" stroke="#8040b0" stroke-width="1"/>
+      <circle cx="300" cy="82" r="12" fill="url(#cc-eyeRed)" filter="url(#cc-softGlow)"/>
+      <circle cx="300" cy="82" r="5" fill="#ff2020" filter="url(#cc-hardGlow)"/>
+      <circle cx="300" cy="82" r="2" fill="#ffffff" opacity="0.9"/>
+      <line x1="300" y1="78" x2="300" y2="86" stroke="#000" stroke-width="1.5" opacity="0.8"/>
+    </g>
+
+    <!-- ELECTRIC ARCS between spikes -->
+    <!-- Arc spike1 to spike2 (top to lower-right: 300,82 to ~413,381) -->
+    <path d="M 300,82 C 340,160 390,240 413,381" fill="none" stroke="#bd00ff" stroke-width="1.5"
+          opacity="0.7" stroke-dasharray="4 3" filter="url(#cc-arcGlow)"/>
+    <path d="M 300,82 C 310,180 380,250 413,381" fill="none" stroke="#ffffff" stroke-width="0.8"
+          opacity="0.4" stroke-dasharray="2 5"/>
+
+    <!-- Arc spike2 to spike3 (lower-right to lower-left: ~413,381 to ~187,381) -->
+    <path d="M 413,381 C 380,420 310,430 187,381" fill="none" stroke="#bd00ff" stroke-width="1.5"
+          opacity="0.7" stroke-dasharray="4 3" filter="url(#cc-arcGlow)"/>
+    <path d="M 413,381 C 370,440 300,440 187,381" fill="none" stroke="#ffffff" stroke-width="0.8"
+          opacity="0.4" stroke-dasharray="2 5"/>
+
+    <!-- Arc spike3 to spike1 (lower-left to top: ~187,381 to 300,82) -->
+    <path d="M 187,381 C 210,240 220,160 300,82" fill="none" stroke="#bd00ff" stroke-width="1.5"
+          opacity="0.7" stroke-dasharray="4 3" filter="url(#cc-arcGlow)"/>
+    <path d="M 187,381 C 220,250 260,180 300,82" fill="none" stroke="#ffffff" stroke-width="0.8"
+          opacity="0.4" stroke-dasharray="2 5"/>
+
+    <!-- Center charge orb -->
+    <circle cx="300" cy="300" r="20" fill="#bd00ff" opacity="0.15" filter="url(#cc-softGlow)"/>
+    <circle cx="300" cy="300" r="10" fill="#bd00ff" opacity="0.3" filter="url(#cc-hardGlow)"/>
+    <circle cx="300" cy="300" r="5" fill="#ffffff" opacity="0.8"/>
+  </g>
+
+  <!-- Purple spark particles -->
+  <g fill="#bd00ff" opacity="0.65" filter="url(#cc-hardGlow)">
+    <circle cx="140" cy="160" r="2"/>
+    <circle cx="460" cy="155" r="1.5"/>
+    <circle cx="130" cy="440" r="2"/>
+    <circle cx="470" cy="445" r="1.5"/>
+    <circle cx="100" cy="290" r="1"/>
+    <circle cx="500" cy="310" r="1.5"/>
+    <circle cx="280" cy="110" r="1"/>
+    <circle cx="320" cy="490" r="1"/>
+  </g>
+
+  <!-- Electric spark lines -->
+  <g stroke="#bd00ff" stroke-width="1" fill="none" opacity="0.5" filter="url(#cc-hardGlow)">
+    <path d="M 260,175 L 268,183 L 256,191"/>
+    <path d="M 450,265 L 442,273 L 454,281"/>
+    <path d="M 430,415 L 422,407 L 434,399"/>
+    <path d="M 155,350 L 163,342 L 151,334"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#cc-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// HEADS: 3 · SHOCK: 40kV · CURSED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 2.6K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#cc-vignette)"/>
+</svg>

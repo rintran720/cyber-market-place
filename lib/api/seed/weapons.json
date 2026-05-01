@@ -55,7 +55,7 @@
     "priceNeon": 5800,
     "seller": "norse-arsenal-corp",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/gungnir-lance-v3/600/600",
+    "imageUrl": "/items/gungnir-lance-v3.svg",
     "stats": {
       "damage": 78,
       "speed": 50,
@@ -79,7 +79,7 @@
     "priceNeon": 4800,
     "seller": "ame-no-cyber",
     "origin": "Japanese",
-    "imageUrl": "https://picsum.photos/seed/kusanagi-blade/600/600",
+    "imageUrl": "/items/kusanagi-blade.svg",
     "stats": {
       "damage": 88,
       "speed": 82,
@@ -103,7 +103,7 @@
     "priceNeon": 2400,
     "seller": "olympus-armory",
     "origin": "Greek",
-    "imageUrl": "https://picsum.photos/seed/bow-of-artemis/600/600",
+    "imageUrl": "/items/bow-of-artemis.svg",
     "stats": {
       "damage": 65,
       "speed": 70,
@@ -267,7 +267,7 @@
     "priceNeon": 2700,
     "seller": "wolf-iron-works",
     "origin": "Norse",
-    "imageUrl": "https://picsum.photos/seed/fenrir-jaw-pistol/600/600",
+    "imageUrl": "/items/fenrir-jaw-pistol.svg",
     "stats": {
       "damage": 68,
       "speed": 72,
@@ -405,7 +405,7 @@
     "priceNeon": 6800,
     "seller": "raven-ordnance",
     "origin": "Celtic",
-    "imageUrl": "https://picsum.photos/seed/morrigan-scythe/600/600",
+    "imageUrl": "/items/morrigan-scythe.svg",
     "stats": {
       "damage": 90,
       "speed": 52,
@@ -429,7 +429,7 @@
     "priceNeon": 2900,
     "seller": "olympus-armory",
     "origin": "Greek",
-    "imageUrl": "https://picsum.photos/seed/aether-pulse-rifle/600/600",
+    "imageUrl": "/items/aether-pulse-rifle.svg",
     "stats": {
       "damage": 70,
       "speed": 75,
@@ -772,7 +772,7 @@
     "priceNeon": 980000,
     "seller": "vatican-vault-7",
     "origin": "Celtic",
-    "imageUrl": "https://picsum.photos/seed/stone-of-scone/600/600",
+    "imageUrl": "/items/stone-of-scone.svg",
     "stats": {
       "damage": 0,
       "speed": 0,
@@ -795,7 +795,7 @@
     "priceNeon": 1240000,
     "seller": "vatican-vault-7",
     "origin": "Christian",
-    "imageUrl": "https://picsum.photos/seed/spear-of-destiny/600/600",
+    "imageUrl": "/items/spear-of-destiny.svg",
     "stats": {
       "damage": 99,
       "speed": 70,
@@ -819,7 +819,7 @@
     "priceNeon": 1500000,
     "seller": "vatican-vault-7",
     "origin": "Arthurian",
-    "imageUrl": "https://picsum.photos/seed/holy-grail/600/600",
+    "imageUrl": "/items/holy-grail.svg",
     "stats": {
       "damage": 0,
       "speed": 0,
@@ -888,7 +888,7 @@
     "priceNeon": 2600,
     "seller": "tartarus-trade",
     "origin": "Greek-cursed",
-    "imageUrl": "https://picsum.photos/seed/cerberus-collar/600/600",
+    "imageUrl": "/items/cerberus-collar.svg",
     "stats": {
       "damage": 50,
       "speed": 60,

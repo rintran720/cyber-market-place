@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sd-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0218"/>
+      <stop offset="55%" stop-color="#1f0520"/>
+      <stop offset="100%" stop-color="#3a0529"/>
+    </linearGradient>
+
+    <radialGradient id="sd-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff0040" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#ff00ea" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="sd-bladeCore" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2a0a0a"/>
+      <stop offset="30%" stop-color="#cc2040"/>
+      <stop offset="50%" stop-color="#ff8880"/>
+      <stop offset="70%" stop-color="#cc2040"/>
+      <stop offset="100%" stop-color="#2a0a0a"/>
+    </linearGradient>
+
+    <linearGradient id="sd-energy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff0040" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#ff0040" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#ff0040" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff0040" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="sd-haft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d0810"/>
+      <stop offset="50%" stop-color="#3a2840"/>
+      <stop offset="100%" stop-color="#0d0810"/>
+    </linearGradient>
+
+    <radialGradient id="sd-tipGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ff0040" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="sd-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ff00ea" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="sd-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="sd-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="sd-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="sd-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#sd-bg)"/>
+  <rect width="600" height="600" fill="url(#sd-grid)"/>
+
+  <!-- Atmospheric haze -->
+  <ellipse cx="300" cy="300" rx="200" ry="280" fill="url(#sd-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#ff00ea" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ SPEAR-of-DESTINY ] v.vault-7</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">⬢ 1/1 UNIQUE</text>
+  </g>
+
+  <!-- SPEAR - vertical, pointing up -->
+  <g>
+    <!-- Glow behind spear -->
+    <rect x="290" y="90" width="20" height="440" fill="#ff0040" opacity="0.3" filter="url(#sd-softGlow)"/>
+
+    <!-- HAFT with ribbing -->
+    <rect x="294" y="180" width="12" height="380" fill="url(#sd-haft)"/>
+    <!-- Ribs on haft -->
+    <g stroke="#6a3050" stroke-width="3" fill="none">
+      <line x1="294" y1="200" x2="306" y2="200"/>
+      <line x1="294" y1="220" x2="306" y2="220"/>
+      <line x1="294" y1="240" x2="306" y2="240"/>
+      <line x1="294" y1="260" x2="306" y2="260"/>
+      <line x1="294" y1="280" x2="306" y2="280"/>
+      <line x1="294" y1="300" x2="306" y2="300"/>
+      <line x1="294" y1="320" x2="306" y2="320"/>
+      <line x1="294" y1="340" x2="306" y2="340"/>
+      <line x1="294" y1="360" x2="306" y2="360"/>
+      <line x1="294" y1="380" x2="306" y2="380"/>
+      <line x1="294" y1="400" x2="306" y2="400"/>
+      <line x1="294" y1="420" x2="306" y2="420"/>
+      <line x1="294" y1="440" x2="306" y2="440"/>
+      <line x1="294" y1="460" x2="306" y2="460"/>
+      <line x1="294" y1="480" x2="306" y2="480"/>
+      <line x1="294" y1="500" x2="306" y2="500"/>
+      <line x1="294" y1="520" x2="306" y2="520"/>
+    </g>
+    <!-- Haft edge highlights -->
+    <rect x="294" y="180" width="1.5" height="380" fill="#aa6080" opacity="0.5"/>
+    <rect x="304.5" y="180" width="1.5" height="380" fill="#1a0a18"/>
+
+    <!-- Haft circuit trace -->
+    <g stroke="#ff00ea" stroke-width="0.8" fill="none" opacity="0.5">
+      <line x1="299" y1="200" x2="299" y2="520"/>
+      <circle cx="299" cy="230" r="2" fill="#ff00ea"/>
+      <circle cx="299" cy="290" r="2" fill="#ff00ea"/>
+      <circle cx="299" cy="360" r="2" fill="#ff00ea"/>
+      <circle cx="299" cy="430" r="2" fill="#ff00ea"/>
+      <circle cx="299" cy="490" r="2" fill="#ff00ea"/>
+      <line x1="299" y1="230" x2="292" y2="225" stroke-width="0.6"/>
+      <line x1="299" y1="290" x2="307" y2="285" stroke-width="0.6"/>
+      <line x1="299" y1="360" x2="292" y2="355" stroke-width="0.6"/>
+    </g>
+
+    <!-- Butt spike at bottom -->
+    <polygon points="300,560 295,530 305,530" fill="url(#sd-bladeCore)" stroke="#cc2040" stroke-width="1"/>
+
+    <!-- SPEARHEAD - serrated barbed tip -->
+    <!-- Main blade shape -->
+    <path d="M 300,90 L 320,140 L 315,155 L 322,165 L 314,175 L 320,185 L 310,185 L 306,180 L 294,180 L 290,185 L 280,185 L 286,175 L 278,165 L 285,155 L 280,140 Z"
+          fill="url(#sd-bladeCore)" stroke="#aa2030" stroke-width="1.5"/>
+
+    <!-- Energy core in blade -->
+    <path d="M 300,100 L 312,140 L 308,175 L 292,175 L 288,140 Z"
+          fill="url(#sd-energy)" filter="url(#sd-softGlow)" opacity="0.8"/>
+
+    <!-- Center spine highlight -->
+    <line x1="300" y1="95" x2="300" y2="175" stroke="#ffffff" stroke-width="1.5" opacity="0.7" filter="url(#sd-hardGlow)"/>
+
+    <!-- Tip glow -->
+    <circle cx="300" cy="92" r="10" fill="url(#sd-tipGlow)" filter="url(#sd-softGlow)"/>
+    <circle cx="300" cy="92" r="4" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Barb highlights -->
+    <g fill="#ff4060" opacity="0.6" filter="url(#sd-hardGlow)">
+      <polygon points="322,165 330,162 325,170"/>
+      <polygon points="278,165 270,162 275,170"/>
+    </g>
+  </g>
+
+  <!-- Blood-red energy drips -->
+  <g stroke="#ff0040" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#sd-softGlow)">
+    <path d="M 280 200 L 260 210"/>
+    <path d="M 320 200 L 340 210"/>
+    <path d="M 270 300 L 250 295"/>
+    <path d="M 330 300 L 350 295"/>
+    <path d="M 275 400 L 255 405"/>
+    <path d="M 325 400 L 345 405"/>
+  </g>
+
+  <!-- Destiny particles -->
+  <g fill="#ff00ea" opacity="0.6" filter="url(#sd-hardGlow)">
+    <circle cx="200" cy="200" r="2"/>
+    <circle cx="400" cy="180" r="1.5"/>
+    <circle cx="180" cy="320" r="2"/>
+    <circle cx="420" cy="340" r="1.5"/>
+    <circle cx="210" cy="440" r="1.5"/>
+    <circle cx="390" cy="420" r="2"/>
+    <circle cx="160" cy="260" r="1"/>
+    <circle cx="440" cy="280" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#sd-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// DMG 99 · PIERCES ALL · SOUL-BOUND</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 1.24M</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#sd-vignette)"/>
+</svg>

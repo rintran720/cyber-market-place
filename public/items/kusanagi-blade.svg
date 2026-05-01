@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="kb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0500"/>
+      <stop offset="60%" stop-color="#1f1500"/>
+      <stop offset="100%" stop-color="#3a1a4a"/>
+    </linearGradient>
+
+    <radialGradient id="kb-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#fcee0a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="kb-blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8eef5"/>
+      <stop offset="60%" stop-color="#c0cad8"/>
+      <stop offset="100%" stop-color="#3a4252"/>
+    </linearGradient>
+
+    <linearGradient id="kb-bladeEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="85%" stop-color="#fcee0a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="kb-tipGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#fcee0a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="kb-tsuba" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1408"/>
+      <stop offset="30%" stop-color="#7a6228"/>
+      <stop offset="50%" stop-color="#c8a840"/>
+      <stop offset="70%" stop-color="#7a6228"/>
+      <stop offset="100%" stop-color="#1a1408"/>
+    </linearGradient>
+
+    <linearGradient id="kb-hilt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1408"/>
+      <stop offset="50%" stop-color="#5a4018"/>
+      <stop offset="100%" stop-color="#1a1408"/>
+    </linearGradient>
+
+    <pattern id="kb-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#fcee0a" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="kb-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="kb-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="kb-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="kb-bladeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="kb-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#kb-bg)"/>
+  <rect width="600" height="600" fill="url(#kb-grid)"/>
+
+  <!-- Yellow aura -->
+  <ellipse cx="300" cy="280" rx="160" ry="270" fill="url(#kb-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#fcee0a" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ KUSANAGI.blade ] ame-no-cyber</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">★ LEGENDARY</text>
+  </g>
+
+  <!-- KATANA - vertical pointing up, single-edged (edge on right) -->
+  <g>
+    <!-- Outer blade glow -->
+    <path d="M 310,80 L 328,440 L 285,440 Z" fill="#fcee0a" opacity="0.25" filter="url(#kb-bladeGlow)"/>
+
+    <!-- Main blade body (katana single-edge, slight curve) -->
+    <!-- Edge side (right) -->
+    <path d="M 310,82 C 312,200 316,360 318,438 L 296,438 C 296,360 295,200 294,82 Z"
+          fill="url(#kb-blade)" stroke="#5a6272" stroke-width="1"/>
+
+    <!-- Ha (cutting edge) on right side with yellow energy -->
+    <path d="M 318,82 C 320,200 322,360 322,438 L 318,438 C 316,360 312,200 310,82 Z"
+          fill="url(#kb-bladeEdge)" filter="url(#kb-softGlow)" opacity="0.9"/>
+
+    <!-- Inner energy line -->
+    <line x1="312" y1="85" x2="320" y2="435" stroke="#ffffff" stroke-width="1" opacity="0.7" filter="url(#kb-hardGlow)"/>
+    <line x1="312" y1="85" x2="320" y2="435" stroke="#fcee0a" stroke-width="0.5" opacity="0.9"/>
+
+    <!-- HAMON (wave temper line) - characteristic katana feature -->
+    <path d="M 296,438 C 297,400 300,380 298,360 C 296,340 299,320 301,300 C 303,280 300,260 302,240 C 304,220 301,200 303,180 C 305,160 302,130 305,100"
+          fill="none" stroke="#fcee0a" stroke-width="1.5" opacity="0.8" filter="url(#kb-hardGlow)"/>
+    <!-- Hamon highlight zone -->
+    <path d="M 296,438 C 297,400 300,380 298,360 C 296,340 299,320 301,300 C 303,280 300,260 302,240 C 304,220 301,200 303,180 L 298,180 C 296,200 299,220 297,240 C 295,260 298,280 296,300 C 294,320 297,340 295,360 C 293,380 290,400 291,438 Z"
+          fill="#fcee0a" opacity="0.08"/>
+
+    <!-- Blade tip (kissaki) -->
+    <circle cx="302" cy="84" r="8" fill="url(#kb-tipGlow)" filter="url(#kb-softGlow)"/>
+    <circle cx="302" cy="84" r="3" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Circuit traces - grass-cutter circuit -->
+    <g stroke="#fcee0a" stroke-width="0.7" fill="none" opacity="0.5">
+      <line x1="299" y1="150" x2="299" y2="420"/>
+      <line x1="299" y1="180" x2="292" y2="175"/>
+      <line x1="299" y1="240" x2="292" y2="235"/>
+      <line x1="299" y1="300" x2="292" y2="295"/>
+      <line x1="299" y1="360" x2="292" y2="355"/>
+      <circle cx="295" cy="175" r="1.5" fill="#fcee0a"/>
+      <circle cx="295" cy="235" r="1.5" fill="#fcee0a"/>
+      <circle cx="295" cy="295" r="1.5" fill="#fcee0a"/>
+      <circle cx="295" cy="355" r="1.5" fill="#fcee0a"/>
+    </g>
+
+    <!-- Japanese kanji / rune on blade -->
+    <g font-family="serif" fill="#fcee0a" opacity="0.6" filter="url(#kb-hardGlow)" font-size="14" text-anchor="middle">
+      <text x="302" y="210">草</text>
+      <text x="302" y="270">薙</text>
+      <text x="302" y="330">剣</text>
+    </g>
+  </g>
+
+  <!-- TSUBA (guard) - ornate circular -->
+  <g>
+    <!-- Glow behind tsuba -->
+    <ellipse cx="302" cy="448" rx="56" ry="18" fill="#fcee0a" opacity="0.15" filter="url(#kb-softGlow)"/>
+
+    <!-- Main tsuba octagon -->
+    <path d="M 260,441 L 268,434 L 338,434 L 346,441 L 346,455 L 338,462 L 268,462 L 260,455 Z"
+          fill="url(#kb-tsuba)" stroke="#c8a840" stroke-width="1.5"/>
+
+    <!-- Inner tsuba ring detail -->
+    <ellipse cx="302" cy="448" rx="18" ry="12" fill="none" stroke="#fcee0a" stroke-width="1.5" filter="url(#kb-hardGlow)"/>
+    <ellipse cx="302" cy="448" rx="30" ry="10" fill="none" stroke="#7a6228" stroke-width="1" stroke-dasharray="3 3"/>
+
+    <!-- Center jewel -->
+    <circle cx="302" cy="448" r="6" fill="url(#kb-tipGlow)" filter="url(#kb-softGlow)"/>
+    <circle cx="302" cy="448" r="3" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Tsuba ornament dots -->
+    <g fill="#fcee0a" opacity="0.8" filter="url(#kb-hardGlow)">
+      <circle cx="270" cy="448" r="2.5"/>
+      <circle cx="334" cy="448" r="2.5"/>
+      <circle cx="302" cy="437" r="2"/>
+      <circle cx="302" cy="459" r="2"/>
+    </g>
+  </g>
+
+  <!-- HILT (handle) with ray-skin wrap pattern -->
+  <g>
+    <rect x="295" y="462" width="14" height="80" fill="url(#kb-hilt)"/>
+    <!-- Hilt edge highlights -->
+    <rect x="295" y="462" width="1.5" height="80" fill="#7a6228" opacity="0.6"/>
+    <rect x="307.5" y="462" width="1.5" height="80" fill="#1a1408"/>
+
+    <!-- Same-himo wrap lines (diagonal) -->
+    <g stroke="#fcee0a" stroke-width="1.2" fill="none" opacity="0.6">
+      <path d="M 295,472 L 309,474"/>
+      <path d="M 295,482 L 309,484"/>
+      <path d="M 295,492 L 309,494"/>
+      <path d="M 295,502 L 309,504"/>
+      <path d="M 295,512 L 309,514"/>
+      <path d="M 295,522 L 309,524"/>
+      <path d="M 295,532 L 309,534"/>
+    </g>
+
+    <!-- Pommel (kashira) -->
+    <ellipse cx="302" cy="550" rx="16" ry="10" fill="url(#kb-tsuba)" stroke="#c8a840" stroke-width="1.5"/>
+    <ellipse cx="302" cy="550" rx="7" ry="5" fill="#fcee0a" opacity="0.3" filter="url(#kb-hardGlow)"/>
+  </g>
+
+  <!-- Grass-cutter wind particles -->
+  <g stroke="#fcee0a" stroke-width="1.5" fill="none" opacity="0.5" filter="url(#kb-softGlow)">
+    <path d="M 200 200 L 240 220"/>
+    <path d="M 400 200 L 360 220"/>
+    <path d="M 190 300 L 235 310"/>
+    <path d="M 410 310 L 365 310"/>
+    <path d="M 210 400 L 250 395"/>
+    <path d="M 390 400 L 350 395"/>
+  </g>
+
+  <!-- Energy particles -->
+  <g fill="#fcee0a" opacity="0.7" filter="url(#kb-hardGlow)">
+    <circle cx="240" cy="160" r="2"/>
+    <circle cx="365" cy="140" r="1.5"/>
+    <circle cx="220" cy="280" r="1.5"/>
+    <circle cx="385" cy="260" r="2"/>
+    <circle cx="235" cy="380" r="1"/>
+    <circle cx="370" cy="360" r="1.5"/>
+    <circle cx="260" cy="100" r="1"/>
+    <circle cx="345" cy="110" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#kb-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#fcee0a" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// DMG 88 · GRASS-CUTTER · WIND++</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 4.8K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#kb-vignette)"/>
+</svg>

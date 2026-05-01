@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fjp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#02030d"/>
+      <stop offset="55%" stop-color="#0a0520"/>
+      <stop offset="100%" stop-color="#170836"/>
+    </linearGradient>
+
+    <radialGradient id="fjp-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#bd00ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="fjp-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1a3a"/>
+      <stop offset="50%" stop-color="#3a2048"/>
+      <stop offset="100%" stop-color="#150a20"/>
+    </linearGradient>
+
+    <linearGradient id="fjp-bodyEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a0514"/>
+      <stop offset="50%" stop-color="#8040b0"/>
+      <stop offset="100%" stop-color="#0a0514"/>
+    </linearGradient>
+
+    <linearGradient id="fjp-grip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#100818"/>
+      <stop offset="50%" stop-color="#2a1a38"/>
+      <stop offset="100%" stop-color="#100818"/>
+    </linearGradient>
+
+    <radialGradient id="fjp-chamberGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#bd00ff" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#5500aa" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="fjp-muzzleGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#bd00ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="fjp-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#bd00ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="fjp-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="fjp-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="fjp-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="fjp-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#fjp-bg)"/>
+  <rect width="600" height="600" fill="url(#fjp-grid)"/>
+
+  <!-- Purple aura -->
+  <ellipse cx="300" cy="310" rx="200" ry="170" fill="url(#fjp-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#bd00ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ FENRIR-jaw.pistol ] wolf-iron-works</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">◇ EPIC</text>
+  </g>
+
+  <!-- PISTOL body -->
+  <g>
+    <!-- Slide / upper receiver -->
+    <path d="M 160,250 L 400,250 L 410,260 L 410,310 L 400,318 L 160,318 L 148,310 L 148,260 Z"
+          fill="url(#fjp-body)" stroke="url(#fjp-bodyEdge)" stroke-width="1.5"/>
+
+    <!-- Slide serrations (wolf-fang pattern) -->
+    <g fill="#100818" stroke="#6a30a0" stroke-width="0.8" opacity="0.7">
+      <polygon points="360,250 368,250 364,262"/>
+      <polygon points="370,250 378,250 374,262"/>
+      <polygon points="380,250 388,250 384,262"/>
+      <polygon points="360,318 368,318 364,306"/>
+      <polygon points="370,318 378,318 374,306"/>
+      <polygon points="380,318 388,318 384,306"/>
+    </g>
+
+    <!-- Ejection port -->
+    <rect x="290" y="254" width="60" height="22" rx="2" fill="#0a0514"/>
+    <line x1="292" y1="260" x2="348" y2="260" stroke="#bd00ff" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Slide top channel / rail -->
+    <rect x="155" y="244" width="250" height="8" rx="2" fill="#3a2050" stroke="#8040b0" stroke-width="1"/>
+
+    <!-- Chamber area (purple glow from here) -->
+    <rect x="240" y="256" width="50" height="58" rx="2" fill="#0a0518"/>
+    <rect x="243" y="259" width="44" height="52" rx="1" fill="url(#fjp-chamberGlow)" opacity="0.6" filter="url(#fjp-softGlow)"/>
+    <!-- Chamber ring markers -->
+    <circle cx="265" cy="284" r="16" fill="none" stroke="#bd00ff" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="265" cy="284" r="10" fill="none" stroke="#bd00ff" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+    <circle cx="265" cy="284" r="5" fill="#bd00ff" opacity="0.4" filter="url(#fjp-hardGlow)"/>
+
+    <!-- WOLF-TOOTH MUZZLE - fang-like front -->
+    <!-- Upper fang -->
+    <path d="M 408,258 L 450,258 L 460,268 L 450,278 L 408,278 Z" fill="url(#fjp-body)" stroke="#8040b0" stroke-width="1"/>
+    <!-- Lower fang -->
+    <path d="M 408,290 L 450,290 L 460,300 L 450,310 L 408,310 Z" fill="url(#fjp-body)" stroke="#8040b0" stroke-width="1"/>
+    <!-- Fang tips -->
+    <path d="M 455,264 L 480,268 L 455,272" fill="#bd00ff" opacity="0.8" filter="url(#fjp-hardGlow)"/>
+    <path d="M 455,296 L 480,300 L 455,304" fill="#bd00ff" opacity="0.8" filter="url(#fjp-hardGlow)"/>
+    <!-- Muzzle glow between fangs -->
+    <circle cx="480" cy="284" r="20" fill="url(#fjp-muzzleGlow)" filter="url(#fjp-softGlow)" opacity="0.8"/>
+    <circle cx="480" cy="284" r="7" fill="#ffffff" opacity="0.9"/>
+
+    <!-- CURVED FANG-LIKE GRIP -->
+    <!-- Main grip body - curved wolf jaw shape -->
+    <path d="M 175,318 C 165,340 158,380 162,430 C 164,455 178,470 198,468 C 220,466 230,450 228,425 C 225,395 218,365 215,340 L 215,318 Z"
+          fill="url(#fjp-grip)" stroke="#6a30a0" stroke-width="1.5"/>
+    <!-- Grip texture - wolf scale pattern -->
+    <g stroke="#bd00ff" stroke-width="0.8" opacity="0.4" fill="none">
+      <path d="M 165,340 C 175,345 205,345 213,340"/>
+      <path d="M 163,358 C 173,363 207,363 214,358"/>
+      <path d="M 163,376 C 173,381 207,381 213,376"/>
+      <path d="M 163,394 C 173,399 205,399 213,394"/>
+      <path d="M 164,412 C 174,417 202,417 212,412"/>
+      <path d="M 166,430 C 176,435 200,435 210,430"/>
+    </g>
+
+    <!-- Trigger guard - fang curve -->
+    <path d="M 215,320 C 230,330 240,355 235,375 C 230,395 215,395 210,375 C 205,355 210,330 215,320 Z"
+          fill="none" stroke="#6a30a0" stroke-width="1.5"/>
+
+    <!-- Trigger -->
+    <path d="M 222,345 L 235,350 L 232,368 L 218,365" fill="none" stroke="#bd00ff" stroke-width="1.2" opacity="0.8"/>
+
+    <!-- Heel of grip (curved fang bottom tip) -->
+    <ellipse cx="192" cy="466" rx="22" ry="8" fill="#2a1a3a" stroke="#6a30a0" stroke-width="1"/>
+
+    <!-- SIDE LED INDICATORS on frame -->
+    <g fill="#bd00ff" filter="url(#fjp-hardGlow)" opacity="0.9">
+      <rect x="155" y="268" width="5" height="10" rx="1"/>
+      <rect x="155" y="285" width="5" height="10" rx="1"/>
+      <rect x="155" y="302" width="5" height="10" rx="1"/>
+    </g>
+    <!-- LED indicator right side -->
+    <g fill="#bd00ff" filter="url(#fjp-hardGlow)" opacity="0.7">
+      <circle cx="222" cy="348" r="2.5"/>
+      <circle cx="222" cy="360" r="2.5"/>
+      <circle cx="222" cy="372" r="2.5"/>
+    </g>
+
+    <!-- Wolf rune on slide -->
+    <g font-family="serif" fill="#bd00ff" opacity="0.8" filter="url(#fjp-hardGlow)" font-size="14" text-anchor="middle">
+      <text x="200" y="290">ᚠ</text>
+      <text x="225" y="290">ᛖ</text>
+      <text x="185" y="290">ᚾ</text>
+    </g>
+
+    <!-- Circuit traces on slide -->
+    <g stroke="#bd00ff" stroke-width="0.8" fill="none" opacity="0.5">
+      <line x1="160" y1="264" x2="240" y2="264"/>
+      <line x1="160" y1="264" x2="160" y2="314"/>
+      <circle cx="180" cy="264" r="2" fill="#bd00ff"/>
+      <circle cx="210" cy="264" r="2" fill="#bd00ff"/>
+    </g>
+  </g>
+
+  <!-- Wolf energy arcs -->
+  <g stroke="#bd00ff" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#fjp-softGlow)">
+    <path d="M 460,250 C 470,240 480,245 475,255"/>
+    <path d="M 460,316 C 470,328 480,323 475,313"/>
+    <path d="M 120,240 L 140,255"/>
+    <path d="M 120,325 L 140,313"/>
+  </g>
+
+  <!-- Purple particles -->
+  <g fill="#bd00ff" opacity="0.65" filter="url(#fjp-hardGlow)">
+    <circle cx="130" cy="200" r="2"/>
+    <circle cx="460" cy="180" r="1.5"/>
+    <circle cx="110" cy="400" r="2"/>
+    <circle cx="490" cy="420" r="1.5"/>
+    <circle cx="510" cy="280" r="1"/>
+    <circle cx="90" cy="310" r="1.5"/>
+    <circle cx="300" cy="160" r="1"/>
+    <circle cx="300" cy="450" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#fjp-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// WOLF-MARK: ACTIVE · ARMOUR-PIERCE</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 2.7K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#fjp-vignette)"/>
+</svg>

@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="hg-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0218"/>
+      <stop offset="55%" stop-color="#1a0430"/>
+      <stop offset="100%" stop-color="#3a0529"/>
+    </linearGradient>
+
+    <radialGradient id="hg-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff00ea" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#ff00ea" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="hg-beam" cx="0.5" cy="1" r="0.8">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#ff00ea" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="hg-core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ff88ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hg-cup" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2a1535"/>
+      <stop offset="35%" stop-color="#7a5090"/>
+      <stop offset="65%" stop-color="#c8a0e0"/>
+      <stop offset="100%" stop-color="#2a1535"/>
+    </linearGradient>
+
+    <linearGradient id="hg-stem" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a0d22"/>
+      <stop offset="50%" stop-color="#8a60a0"/>
+      <stop offset="100%" stop-color="#1a0d22"/>
+    </linearGradient>
+
+    <linearGradient id="hg-base" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a0d22"/>
+      <stop offset="50%" stop-color="#9a70b0"/>
+      <stop offset="100%" stop-color="#1a0d22"/>
+    </linearGradient>
+
+    <pattern id="hg-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ff00ea" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="hg-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="hg-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="hg-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="hg-beamFilter" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="hg-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#hg-bg)"/>
+  <rect width="600" height="600" fill="url(#hg-grid)"/>
+
+  <!-- Big aura behind grail -->
+  <ellipse cx="300" cy="320" rx="220" ry="200" fill="url(#hg-aura)"/>
+
+  <!-- Light beam rising from cup -->
+  <polygon points="300,120 270,340 330,340" fill="url(#hg-beam)" filter="url(#hg-beamFilter)" opacity="0.7"/>
+  <polygon points="300,80 292,340 308,340" fill="#ffffff" opacity="0.3" filter="url(#hg-softGlow)"/>
+
+  <!-- Holographic soul-bound ring - outer -->
+  <ellipse cx="300" cy="340" rx="130" ry="22" fill="none" stroke="#ff00ea" stroke-width="2" stroke-dasharray="8 6" opacity="0.7" filter="url(#hg-hardGlow)"/>
+  <ellipse cx="300" cy="340" rx="130" ry="22" fill="none" stroke="#ff88ff" stroke-width="1" opacity="0.4"/>
+  <!-- inner ring -->
+  <ellipse cx="300" cy="340" rx="90" ry="15" fill="none" stroke="#ff00ea" stroke-width="1.5" stroke-dasharray="4 8" opacity="0.85" filter="url(#hg-hardGlow)"/>
+  <!-- vertical ring -->
+  <ellipse cx="300" cy="320" rx="22" ry="130" fill="none" stroke="#ff00ea" stroke-width="1" stroke-dasharray="6 6" opacity="0.4"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#ff00ea" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ HOLY-GRAIL ] vatican-vault-7</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">⬢ 1/1 UNIQUE</text>
+  </g>
+
+  <!-- CHALICE BODY -->
+  <g>
+    <!-- Cup outer glow -->
+    <path d="M 230,220 C 225,260 220,310 240,340 L 360,340 C 380,310 375,260 370,220 Z"
+          fill="#ff00ea" opacity="0.2" filter="url(#hg-softGlow)"/>
+
+    <!-- Cup body -->
+    <path d="M 235,222 C 228,262 222,312 242,338 L 358,338 C 378,312 372,262 365,222 Z"
+          fill="url(#hg-cup)" stroke="#cc44cc" stroke-width="1.5"/>
+
+    <!-- Cup inner shadow / liquid glow -->
+    <path d="M 248,228 C 243,265 240,305 255,332 L 345,332 C 360,305 357,265 352,228 Z"
+          fill="#ff00ea" opacity="0.12"/>
+    <ellipse cx="300" cy="228" rx="68" ry="12" fill="url(#hg-core)" opacity="0.6" filter="url(#hg-softGlow)"/>
+
+    <!-- Rim highlight -->
+    <path d="M 235,222 Q 300,210 365,222" stroke="#ff88ff" stroke-width="2" fill="none" opacity="0.8"/>
+    <ellipse cx="300" cy="222" rx="66" ry="8" fill="none" stroke="#ff00ea" stroke-width="1" opacity="0.6"/>
+
+    <!-- Cup circuit traces -->
+    <g stroke="#ff00ea" stroke-width="0.8" fill="none" opacity="0.6">
+      <line x1="270" y1="240" x2="268" y2="320"/>
+      <line x1="330" y1="240" x2="332" y2="320"/>
+      <line x1="265" y1="270" x2="275" y2="270"/>
+      <line x1="335" y1="270" x2="325" y2="270"/>
+      <circle cx="270" cy="270" r="2" fill="#ff00ea"/>
+      <circle cx="330" cy="270" r="2" fill="#ff00ea"/>
+      <circle cx="268" cy="300" r="1.5" fill="#ff00ea"/>
+      <circle cx="332" cy="300" r="1.5" fill="#ff00ea"/>
+    </g>
+
+    <!-- Rune engravings on cup -->
+    <g font-family="serif" fill="#ff88ff" opacity="0.8" filter="url(#hg-hardGlow)" font-size="16" text-anchor="middle">
+      <text x="275" y="290">ᚷ</text>
+      <text x="300" y="295">ᚹ</text>
+      <text x="325" y="290">ᛚ</text>
+    </g>
+
+    <!-- STEM -->
+    <rect x="288" y="338" width="24" height="60" fill="url(#hg-stem)" stroke="#9944aa" stroke-width="1"/>
+    <!-- Stem knob -->
+    <ellipse cx="300" cy="370" rx="22" ry="12" fill="url(#hg-stem)" stroke="#cc44cc" stroke-width="1.5"/>
+    <ellipse cx="300" cy="370" rx="10" ry="5" fill="#ff00ea" opacity="0.4" filter="url(#hg-hardGlow)"/>
+
+    <!-- BASE -->
+    <path d="M 250,398 L 256,406 L 344,406 L 350,398 Z" fill="url(#hg-base)" stroke="#9944aa" stroke-width="1"/>
+    <rect x="258" y="406" width="84" height="14" rx="3" fill="url(#hg-base)" stroke="#cc44cc" stroke-width="1.5"/>
+    <!-- base circuit -->
+    <line x1="270" y1="413" x2="330" y2="413" stroke="#ff00ea" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="280" cy="413" r="2" fill="#ff00ea" filter="url(#hg-hardGlow)" opacity="0.7"/>
+    <circle cx="300" cy="413" r="2" fill="#ff00ea" filter="url(#hg-hardGlow)" opacity="0.7"/>
+    <circle cx="320" cy="413" r="2" fill="#ff00ea" filter="url(#hg-hardGlow)" opacity="0.7"/>
+  </g>
+
+  <!-- Soul particles rising -->
+  <g fill="#ff00ea" filter="url(#hg-hardGlow)" opacity="0.8">
+    <circle cx="285" cy="190" r="2"/>
+    <circle cx="315" cy="160" r="1.5"/>
+    <circle cx="295" cy="140" r="1"/>
+    <circle cx="305" cy="110" r="1.5"/>
+    <circle cx="278" cy="130" r="1"/>
+    <circle cx="322" cy="145" r="1"/>
+  </g>
+
+  <!-- Outer mystic particles -->
+  <g fill="#ff00ea" opacity="0.5" filter="url(#hg-hardGlow)">
+    <circle cx="170" cy="280" r="2"/>
+    <circle cx="430" cy="260" r="2"/>
+    <circle cx="155" cy="360" r="1.5"/>
+    <circle cx="445" cy="340" r="1.5"/>
+    <circle cx="190" cy="430" r="1.5"/>
+    <circle cx="410" cy="420" r="1.5"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#hg-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#ff00ea" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// SOUL-BOUND · CLASSIFIED</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 1.5M</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#hg-vignette)"/>
+</svg>

@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="ba-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#02030d"/>
+      <stop offset="55%" stop-color="#080520"/>
+      <stop offset="100%" stop-color="#170836"/>
+    </linearGradient>
+
+    <radialGradient id="ba-aura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#bd00ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ba-limb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0a28"/>
+      <stop offset="50%" stop-color="#5a2888"/>
+      <stop offset="100%" stop-color="#1a0a28"/>
+    </linearGradient>
+
+    <linearGradient id="ba-limbEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a0514"/>
+      <stop offset="50%" stop-color="#c060f0"/>
+      <stop offset="100%" stop-color="#0a0514"/>
+    </linearGradient>
+
+    <linearGradient id="ba-arrow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#bd00ff" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="80%" stop-color="#bd00ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="ba-arrowTip" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#bd00ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="ba-crescentGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#bd00ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="ba-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#bd00ff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="ba-scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <filter id="ba-softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="ba-hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="ba-vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="600" height="600" fill="url(#ba-bg)"/>
+  <rect width="600" height="600" fill="url(#ba-grid)"/>
+
+  <!-- Purple aura -->
+  <ellipse cx="280" cy="300" rx="260" ry="160" fill="url(#ba-aura)"/>
+
+  <!-- HUD frame corners -->
+  <g stroke="#bd00ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
+    <path d="M 580 20 L 580 60 M 580 20 L 540 20"/>
+    <path d="M 20 580 L 20 540 M 20 580 L 60 580"/>
+    <path d="M 580 580 L 580 540 M 580 580 L 540 580"/>
+  </g>
+
+  <!-- HUD labels -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.9">
+    <text x="40" y="48" font-size="12" letter-spacing="3">[ BOW-of-ARTEMIS ] olympus-armory</text>
+    <text x="560" y="48" font-size="11" letter-spacing="2" text-anchor="end">◇ EPIC</text>
+  </g>
+
+  <!-- COMPOUND RECURVE BOW - horizontal, bowstring at full draw -->
+  <g>
+    <!-- BOW LIMBS - top and bottom, curved outward and recurved at tips -->
+    <!-- Top limb -->
+    <!-- Upper limb main curve (C shape) -->
+    <path d="M 180,300 C 185,240 200,200 220,175 C 240,150 260,145 280,148"
+          fill="none" stroke="url(#ba-limb)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 180,300 C 185,240 200,200 220,175 C 240,150 260,145 280,148"
+          fill="none" stroke="url(#ba-limbEdge)" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+    <!-- Recurve tip upper (eccentrics) -->
+    <path d="M 280,148 C 300,145 315,152 320,165 C 325,178 315,190 300,188"
+          fill="none" stroke="#5a2888" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 280,148 C 300,145 315,152 320,165 C 325,178 315,190 300,188"
+          fill="none" stroke="#c060f0" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Bottom limb -->
+    <path d="M 180,300 C 185,360 200,400 220,425 C 240,450 260,455 280,452"
+          fill="none" stroke="url(#ba-limb)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 180,300 C 185,360 200,400 220,425 C 240,450 260,455 280,452"
+          fill="none" stroke="url(#ba-limbEdge)" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+    <!-- Recurve tip lower -->
+    <path d="M 280,452 C 300,455 315,448 320,435 C 325,422 315,410 300,412"
+          fill="none" stroke="#5a2888" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 280,452 C 300,455 315,448 320,435 C 325,422 315,410 300,412"
+          fill="none" stroke="#c060f0" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Limb edge energy glow -->
+    <path d="M 180,300 C 185,240 200,200 220,175 C 240,150 260,145 280,148 C 300,145 315,152 320,165"
+          fill="none" stroke="#bd00ff" stroke-width="2" opacity="0.5" filter="url(#ba-softGlow)"/>
+    <path d="M 180,300 C 185,360 200,400 220,425 C 240,450 260,455 280,452 C 300,455 315,448 320,435"
+          fill="none" stroke="#bd00ff" stroke-width="2" opacity="0.5" filter="url(#ba-softGlow)"/>
+
+    <!-- Cam wheels / eccentric pulleys -->
+    <circle cx="310" cy="180" r="14" fill="#2a1a3a" stroke="#bd00ff" stroke-width="2"/>
+    <circle cx="310" cy="180" r="8" fill="#0a0518" stroke="#8040b0" stroke-width="1"/>
+    <circle cx="310" cy="180" r="3" fill="#bd00ff" opacity="0.6" filter="url(#ba-hardGlow)"/>
+
+    <circle cx="310" cy="420" r="14" fill="#2a1a3a" stroke="#bd00ff" stroke-width="2"/>
+    <circle cx="310" cy="420" r="8" fill="#0a0518" stroke="#8040b0" stroke-width="1"/>
+    <circle cx="310" cy="420" r="3" fill="#bd00ff" opacity="0.6" filter="url(#ba-hardGlow)"/>
+
+    <!-- Cables from cams to riser -->
+    <line x1="310" y1="192" x2="280" y2="300" stroke="#8040b0" stroke-width="2" opacity="0.7"/>
+    <line x1="310" y1="408" x2="280" y2="300" stroke="#8040b0" stroke-width="2" opacity="0.7"/>
+
+    <!-- CENTER RISER / GRIP with Lunar Crescent emblem -->
+    <rect x="168" y="278" width="25" height="45" rx="4" fill="#2a1a3a" stroke="#8040b0" stroke-width="1.5"/>
+    <!-- Crescent moon emblem -->
+    <g transform="translate(180, 300)">
+      <circle r="18" fill="none" stroke="#bd00ff" stroke-width="1.5" opacity="0.8"/>
+      <!-- Crescent shape -->
+      <path d="M 0,-14 C 10,-14 18,-6 18,0 C 18,6 10,14 0,14 C 6,8 8,4 8,0 C 8,-4 6,-8 0,-14 Z"
+            fill="#bd00ff" opacity="0.6" filter="url(#ba-softGlow)"/>
+      <path d="M 0,-14 C 10,-14 18,-6 18,0 C 18,6 10,14 0,14 C 6,8 8,4 8,0 C 8,-4 6,-8 0,-14 Z"
+            fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+      <!-- Star dot -->
+      <circle cx="-5" cy="-5" r="2" fill="#ffffff" opacity="0.9" filter="url(#ba-hardGlow)"/>
+    </g>
+
+    <!-- BOWSTRING at full draw -->
+    <!-- String from upper tip, bowed to right (drawn), back to lower tip -->
+    <!-- Draw point at right -->
+    <path d="M 300,188 C 310,230 480,300 310,412" fill="none" stroke="#c0a0e0" stroke-width="2" opacity="0.9"/>
+    <path d="M 300,188 C 310,230 480,300 310,412" fill="none" stroke="#bd00ff" stroke-width="1" opacity="0.5" filter="url(#ba-softGlow)"/>
+
+    <!-- ARROW nocked on string -->
+    <!-- Arrow shaft along the horizontal draw - from left to muzzle right -->
+    <!-- Arrow body -->
+    <rect x="180" y="297" width="330" height="5" rx="1" fill="url(#ba-arrow)" filter="url(#ba-softGlow)"/>
+    <!-- Arrow central energy line -->
+    <line x1="185" y1="299.5" x2="506" y2="299.5" stroke="#ffffff" stroke-width="1" opacity="0.6" filter="url(#ba-hardGlow)"/>
+    <!-- Arrow tip (pointing right) -->
+    <polygon points="506,295 530,299.5 506,304" fill="#c060f0" stroke="#bd00ff" stroke-width="1.5"/>
+    <!-- Tip glow -->
+    <circle cx="528" cy="299" r="14" fill="url(#ba-arrowTip)" filter="url(#ba-softGlow)" opacity="0.9"/>
+    <circle cx="528" cy="299" r="5" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Arrow fletching (at left, near bow) -->
+    <g fill="#5a2888" stroke="#8040b0" stroke-width="1" opacity="0.8">
+      <polygon points="185,297 165,285 175,297"/>
+      <polygon points="185,302 165,314 175,302"/>
+      <polygon points="185,294 168,280 180,294"/>
+    </g>
+    <!-- Fletching energy glow -->
+    <g fill="#bd00ff" opacity="0.4" filter="url(#ba-hardGlow)">
+      <polygon points="185,297 165,285 175,297"/>
+      <polygon points="185,302 165,314 175,302"/>
+    </g>
+
+    <!-- Nock point glow where arrow meets string -->
+    <circle cx="320" cy="300" r="6" fill="#bd00ff" opacity="0.6" filter="url(#ba-softGlow)"/>
+    <circle cx="320" cy="300" r="3" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Sight pin on riser -->
+    <rect x="165" y="272" width="28" height="12" rx="2" fill="#1a0a28" stroke="#6a30a0" stroke-width="1"/>
+    <circle cx="179" cy="278" r="3" fill="#bd00ff" opacity="0.5" filter="url(#ba-hardGlow)"/>
+  </g>
+
+  <!-- Lunar particles -->
+  <g fill="#bd00ff" opacity="0.65" filter="url(#ba-hardGlow)">
+    <circle cx="100" cy="180" r="2"/>
+    <circle cx="520" cy="180" r="1.5"/>
+    <circle cx="100" cy="430" r="2"/>
+    <circle cx="520" cy="420" r="1.5"/>
+    <circle cx="80" cy="300" r="1"/>
+    <circle cx="550" cy="300" r="1"/>
+    <circle cx="350" cy="120" r="1.5"/>
+    <circle cx="350" cy="480" r="1.5"/>
+  </g>
+
+  <!-- Moon glow stars -->
+  <g fill="#ffffff" opacity="0.5" filter="url(#ba-hardGlow)">
+    <circle cx="120" cy="120" r="1.5"/>
+    <circle cx="490" cy="100" r="1.5"/>
+    <circle cx="80" cy="500" r="1"/>
+    <circle cx="510" cy="510" r="1"/>
+    <circle cx="420" cy="140" r="1"/>
+    <circle cx="160" cy="480" r="1"/>
+  </g>
+
+  <!-- SCANLINES -->
+  <rect width="600" height="600" fill="url(#ba-scanlines)" opacity="0.4"/>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, 'Courier New', monospace" fill="#bd00ff" opacity="0.85">
+    <text x="40" y="568" font-size="10" letter-spacing="2">// DRAW: FULL · LUNAR-TRACK · READY</text>
+    <text x="560" y="568" font-size="10" letter-spacing="2" text-anchor="end" fill="#fcee0a">⟁ 2.4K</text>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="600" height="600" fill="url(#ba-vignette)"/>
+</svg>
