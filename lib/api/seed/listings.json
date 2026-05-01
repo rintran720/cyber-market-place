@@ -1,0 +1,10 @@
+[
+  { "slug": "mjolnir-exe",      "views": 1842, "sales": 7,  "revenue": 29400 },
+  { "slug": "excalibur-dll",    "views": 1320, "sales": 3,  "revenue": 18600 },
+  { "slug": "kusanagi-blade",   "views": 982,  "sales": 5,  "revenue": 24000 },
+  { "slug": "valkyrie-rifle",   "views": 654,  "sales": 4,  "revenue": 21600 },
+  { "slug": "shadow-katar",     "views": 1205, "sales": 16, "revenue": 13600 },
+  { "slug": "claws-of-anubis",  "views": 488,  "sales": 4,  "revenue": 8400  },
+  { "slug": "phoenix-quiver",   "views": 372,  "sales": 6,  "revenue": 5880  },
+  { "slug": "starter-blade",    "views": 95,   "sales": 12, "revenue": 600   }
+]
