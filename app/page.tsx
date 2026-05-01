@@ -9,7 +9,7 @@ import { ItemCard } from "@/components/item/ItemCard";
 import { ItemCardSkeleton } from "@/components/feedback/Skeleton";
 import { formatNeon } from "@/lib/format";
 
-const HERO_BG = "https://picsum.photos/seed/neonmarket-hero/1800/900";
+const HERO_BG = "/hero-bg.svg";
 
 function useHomeFeeds() {
   const trending = useSWR<ItemsResponse>("/api/items?sort=rarity", fetcher, {
@@ -51,13 +51,13 @@ export default function HomePage() {
             priority
             sizes="100vw"
             style={{ objectFit: "cover" }}
-            className="opacity-40"
+            className="opacity-90"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(5,0,20,0.4) 0%, rgba(5,0,20,0.85) 60%, var(--cp-bg) 100%)",
+                "linear-gradient(180deg, rgba(2,0,12,0.05) 0%, rgba(2,0,12,0.55) 70%, var(--cp-bg) 100%)",
             }}
           />
           <div className="cp-scanlines absolute inset-0 pointer-events-none" />

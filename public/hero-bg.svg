@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Sky gradient: deep purple-cyan -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0220"/>
+      <stop offset="35%" stop-color="#150840"/>
+      <stop offset="70%" stop-color="#1a0a4a"/>
+      <stop offset="100%" stop-color="#3a0a5a"/>
+    </linearGradient>
+
+    <!-- Aurora glow band -->
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00f0ff" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#ff00ea" stop-opacity="0.22"/>
+      <stop offset="80%" stop-color="#bd00ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ground floor gradient -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0a4a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#02030d" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- City silhouette gradient -->
+    <linearGradient id="city" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0530" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#04020a" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Hero hammer glow -->
+    <radialGradient id="hammerAura" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="20%" stop-color="#00f0ff" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Side magenta aura -->
+    <radialGradient id="magentaSpot" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ff00ea" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff00ea" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Side yellow aura -->
+    <radialGradient id="yellowSpot" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fcee0a" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Tron-floor grid -->
+    <pattern id="floorGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#00f0ff" stroke-opacity="0.35" stroke-width="1"/>
+    </pattern>
+
+    <!-- Sky grid -->
+    <pattern id="skyGrid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#00f0ff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+
+    <!-- Scanlines -->
+    <pattern id="scan" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" fill-opacity="0.18"/>
+    </pattern>
+
+    <!-- Filters -->
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+    <filter id="medGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="hardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Vignette -->
+    <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+
+  <!-- SKY -->
+  <rect width="1800" height="900" fill="url(#sky)"/>
+  <rect width="1800" height="900" fill="url(#skyGrid)"/>
+
+  <!-- STARS -->
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="120" cy="80" r="1.2"/>
+    <circle cx="280" cy="160" r="0.8"/>
+    <circle cx="440" cy="60" r="1"/>
+    <circle cx="640" cy="120" r="0.7"/>
+    <circle cx="880" cy="200" r="1.2"/>
+    <circle cx="1080" cy="80" r="0.9"/>
+    <circle cx="1280" cy="140" r="1"/>
+    <circle cx="1480" cy="60" r="0.8"/>
+    <circle cx="1680" cy="180" r="1.1"/>
+    <circle cx="1720" cy="40" r="0.7"/>
+    <circle cx="160" cy="240" r="0.7"/>
+    <circle cx="380" cy="280" r="1"/>
+    <circle cx="780" cy="40" r="0.6"/>
+    <circle cx="1180" cy="240" r="0.8"/>
+    <circle cx="1580" cy="220" r="0.9"/>
+  </g>
+
+  <!-- AURORA BAND -->
+  <rect x="0" y="120" width="1800" height="240" fill="url(#aurora)" filter="url(#bigGlow)"/>
+
+  <!-- Distant city silhouette (back layer) -->
+  <g fill="url(#city)">
+    <polygon points="0,520 60,420 100,440 140,360 200,380 240,300 280,340 340,280 380,320 440,260 480,310 520,250 580,320 620,290 680,340 720,280 780,330 840,260 900,300 960,250 1020,310 1080,260 1140,320 1180,290 1240,340 1300,280 1360,310 1400,260 1460,320 1500,280 1560,340 1620,300 1680,360 1740,320 1800,360 1800,560 0,560"/>
+  </g>
+
+  <!-- City window lights -->
+  <g fill="#fcee0a" opacity="0.9">
+    <rect x="265" y="320" width="3" height="3"/>
+    <rect x="285" y="340" width="2" height="2"/>
+    <rect x="365" y="300" width="3" height="3"/>
+    <rect x="510" y="280" width="2" height="2"/>
+    <rect x="690" y="310" width="2" height="2"/>
+    <rect x="845" y="290" width="3" height="3"/>
+    <rect x="975" y="280" width="2" height="2"/>
+    <rect x="1110" y="300" width="2" height="2"/>
+    <rect x="1320" y="320" width="3" height="3"/>
+    <rect x="1495" y="290" width="2" height="2"/>
+    <rect x="1665" y="340" width="2" height="2"/>
+  </g>
+  <g fill="#00f0ff" opacity="0.8">
+    <rect x="330" y="310" width="2" height="2"/>
+    <rect x="555" y="320" width="3" height="3"/>
+    <rect x="730" y="340" width="2" height="2"/>
+    <rect x="930" y="270" width="2" height="2"/>
+    <rect x="1145" y="335" width="3" height="3"/>
+    <rect x="1395" y="290" width="2" height="2"/>
+    <rect x="1605" y="335" width="2" height="2"/>
+  </g>
+  <g fill="#ff00ea" opacity="0.85">
+    <rect x="295" y="365" width="3" height="3"/>
+    <rect x="495" y="335" width="2" height="2"/>
+    <rect x="785" y="345" width="3" height="3"/>
+    <rect x="1055" y="295" width="3" height="3"/>
+    <rect x="1240" y="345" width="2" height="2"/>
+    <rect x="1525" y="320" width="3" height="3"/>
+  </g>
+
+  <!-- Hammer aura behind silhouette (large) -->
+  <ellipse cx="900" cy="430" rx="500" ry="320" fill="url(#hammerAura)" opacity="0.9"/>
+
+  <!-- Side ambient glows -->
+  <ellipse cx="200" cy="500" rx="280" ry="220" fill="url(#yellowSpot)"/>
+  <ellipse cx="1600" cy="500" rx="280" ry="220" fill="url(#magentaSpot)"/>
+
+  <!-- LEFT silhouette: Excalibur sword (yellow tint) -->
+  <g opacity="0.85">
+    <path d="M 200 320 L 220 540 L 220 600 L 180 600 L 180 540 Z"
+          fill="#fcee0a" opacity="0.25" filter="url(#medGlow)"/>
+    <path d="M 200 320 L 220 540 L 220 600 L 180 600 L 180 540 Z"
+          fill="#1a1408" stroke="#fcee0a" stroke-width="1.5"/>
+    <line x1="200" y1="340" x2="200" y2="600" stroke="#fcee0a" stroke-width="2" opacity="0.85" filter="url(#medGlow)"/>
+    <rect x="135" y="600" width="130" height="14" fill="#3a2e10" stroke="#fcee0a" stroke-width="1"/>
+    <rect x="190" y="614" width="20" height="50" fill="#1a1408"/>
+    <circle cx="200" cy="678" r="11" fill="#1a1408" stroke="#fcee0a" stroke-width="1.5"/>
+    <circle cx="200" cy="678" r="4" fill="#fcee0a"/>
+  </g>
+
+  <!-- CENTER silhouette: Massive Mjolnir hammer floating -->
+  <g>
+    <!-- Outer aura -->
+    <ellipse cx="900" cy="430" rx="280" ry="170" fill="#00f0ff" opacity="0.18" filter="url(#bigGlow)"/>
+
+    <!-- Hammer head (octagonal) -->
+    <polygon points="730,330 800,250 1000,250 1070,330 1070,500 1000,580 800,580 730,500"
+             fill="#0d1424" stroke="#00f0ff" stroke-width="2.5" filter="url(#medGlow)"/>
+
+    <!-- Inner panel -->
+    <polygon points="760,345 820,275 980,275 1040,345 1040,485 980,555 820,555 760,485"
+             fill="#04050b"/>
+
+    <!-- Glowing core -->
+    <circle cx="900" cy="415" r="120" fill="#00f0ff" opacity="0.18" filter="url(#bigGlow)"/>
+    <circle cx="900" cy="415" r="65" fill="url(#hammerAura)" filter="url(#medGlow)"/>
+    <circle cx="900" cy="415" r="42" fill="#ffffff" opacity="0.95"/>
+    <circle cx="900" cy="415" r="42" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <circle cx="900" cy="415" r="55" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.55"/>
+    <circle cx="900" cy="415" r="78" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.35" stroke-dasharray="4 6"/>
+    <circle cx="900" cy="415" r="100" fill="none" stroke="#00f0ff" stroke-width="0.8" opacity="0.25" stroke-dasharray="2 8"/>
+    <text x="900" y="423" font-family="ui-monospace, monospace" font-size="22"
+          fill="#02030d" font-weight="700" text-anchor="middle">⚡</text>
+
+    <!-- Haft -->
+    <rect x="880" y="580" width="40" height="280" fill="#0d1424" stroke="#3a4358" stroke-width="1"/>
+    <line x1="900" y1="585" x2="900" y2="855" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+
+    <!-- Lightning bolts -->
+    <g stroke="#ffffff" stroke-width="2.5" fill="none" filter="url(#medGlow)" opacity="0.95">
+      <path d="M 660 280 L 700 320 L 670 350 L 720 410"/>
+      <path d="M 1140 280 L 1100 320 L 1130 350 L 1080 410"/>
+      <path d="M 620 460 L 680 480 L 660 510 L 720 530"/>
+      <path d="M 1180 460 L 1120 480 L 1140 510 L 1080 530"/>
+    </g>
+  </g>
+
+  <!-- RIGHT silhouette: Spear tilted (magenta) -->
+  <g opacity="0.85">
+    <g transform="translate(1600, 460) rotate(20)">
+      <ellipse cx="0" cy="0" rx="40" ry="220" fill="#ff00ea" opacity="0.25" filter="url(#medGlow)"/>
+      <polygon points="0,-220 12,-150 12,140 -12,140 -12,-150" fill="#1a0825" stroke="#ff00ea" stroke-width="1.5"/>
+      <line x1="0" y1="-200" x2="0" y2="130" stroke="#ff00ea" stroke-width="2" opacity="0.95" filter="url(#medGlow)"/>
+      <polygon points="-15,-220 0,-260 15,-220 6,-200 -6,-200" fill="#1a0825" stroke="#ff00ea" stroke-width="1.5"/>
+      <circle cx="0" cy="-235" r="6" fill="#ff00ea" filter="url(#hardGlow)"/>
+    </g>
+  </g>
+
+  <!-- VANISHING POINT FLOOR (Tron grid) -->
+  <g transform="translate(900, 700)">
+    <!-- Ground gradient cover -->
+    <rect x="-900" y="0" width="1800" height="200" fill="url(#floor)"/>
+    <!-- Radial perspective lines -->
+    <g stroke="#00f0ff" stroke-opacity="0.55" stroke-width="1.2">
+      <line x1="0" y1="0" x2="-900" y2="200"/>
+      <line x1="0" y1="0" x2="-700" y2="200"/>
+      <line x1="0" y1="0" x2="-500" y2="200"/>
+      <line x1="0" y1="0" x2="-340" y2="200"/>
+      <line x1="0" y1="0" x2="-200" y2="200"/>
+      <line x1="0" y1="0" x2="-100" y2="200"/>
+      <line x1="0" y1="0" x2="0" y2="200"/>
+      <line x1="0" y1="0" x2="100" y2="200"/>
+      <line x1="0" y1="0" x2="200" y2="200"/>
+      <line x1="0" y1="0" x2="340" y2="200"/>
+      <line x1="0" y1="0" x2="500" y2="200"/>
+      <line x1="0" y1="0" x2="700" y2="200"/>
+      <line x1="0" y1="0" x2="900" y2="200"/>
+    </g>
+    <!-- Horizontal floor lines -->
+    <g stroke="#00f0ff" stroke-opacity="0.45" stroke-width="1">
+      <line x1="-50" y1="20" x2="50" y2="20"/>
+      <line x1="-130" y1="50" x2="130" y2="50"/>
+      <line x1="-280" y1="90" x2="280" y2="90"/>
+      <line x1="-500" y1="140" x2="500" y2="140"/>
+      <line x1="-900" y1="200" x2="900" y2="200"/>
+    </g>
+  </g>
+
+  <!-- Particles in foreground -->
+  <g fill="#00f0ff" opacity="0.85" filter="url(#hardGlow)">
+    <circle cx="320" cy="640" r="2"/>
+    <circle cx="540" cy="690" r="2.5"/>
+    <circle cx="780" cy="660" r="1.8"/>
+    <circle cx="1240" cy="680" r="2"/>
+    <circle cx="1480" cy="650" r="2.2"/>
+    <circle cx="1680" cy="690" r="1.6"/>
+    <circle cx="180" cy="700" r="2.4"/>
+  </g>
+
+  <!-- Hex/diamond particles colored -->
+  <g opacity="0.7" filter="url(#hardGlow)">
+    <polygon points="120,420 128,412 136,420 136,432 128,440 120,432" fill="#fcee0a"/>
+    <polygon points="1670,420 1678,412 1686,420 1686,432 1678,440 1670,432" fill="#ff00ea"/>
+    <polygon points="80,560 86,554 92,560 92,568 86,574 80,568" fill="#00f0ff"/>
+    <polygon points="1720,560 1726,554 1732,560 1732,568 1726,574 1720,568" fill="#00f0ff"/>
+  </g>
+
+  <!-- Light rays from top -->
+  <g opacity="0.18" filter="url(#bigGlow)">
+    <polygon points="900,0 1100,500 700,500" fill="#00f0ff"/>
+  </g>
+
+  <!-- HUD frame corners -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M 30 30 L 30 80 M 30 30 L 80 30"/>
+    <path d="M 1770 30 L 1770 80 M 1770 30 L 1720 30"/>
+    <path d="M 30 870 L 30 820 M 30 870 L 80 870"/>
+    <path d="M 1770 870 L 1770 820 M 1770 870 L 1720 870"/>
+  </g>
+
+  <!-- HUD top labels -->
+  <g font-family="ui-monospace, monospace" fill="#00f0ff" opacity="0.8">
+    <text x="60" y="60" font-size="14" letter-spacing="4">[ NEONMARKET · SECTOR-7 ]</text>
+    <text x="60" y="82" font-size="11" letter-spacing="3" opacity="0.6">COORD 47.3°N · 8.5°E · GRID-04 · 2185.4.30</text>
+  </g>
+  <g font-family="ui-monospace, monospace" fill="#ff00ea" opacity="0.8">
+    <text x="1740" y="60" font-size="13" letter-spacing="4" text-anchor="end">NCPD-LICENSED · TIER-S</text>
+    <text x="1740" y="82" font-size="11" letter-spacing="3" text-anchor="end" opacity="0.6">⚠ ICE-7 ACTIVE · NETRUNNERS WELCOME</text>
+  </g>
+
+  <!-- HUD bottom -->
+  <g font-family="ui-monospace, monospace" fill="#00f0ff" opacity="0.65">
+    <text x="60" y="850" font-size="11" letter-spacing="3">// 40 LISTINGS · 24 SELLERS · ⟁ 12.4M VOL/24h</text>
+  </g>
+  <g font-family="ui-monospace, monospace" fill="#fcee0a" opacity="0.7">
+    <text x="1740" y="850" font-size="11" letter-spacing="3" text-anchor="end">PROTOCOL v2185.4 · CHAIN STABLE</text>
+  </g>
+
+  <!-- Scanlines overlay -->
+  <rect width="1800" height="900" fill="url(#scan)" opacity="0.35"/>
+
+  <!-- Vignette -->
+  <rect width="1800" height="900" fill="url(#vignette)"/>
+</svg>
