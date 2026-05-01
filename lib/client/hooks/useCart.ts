@@ -37,7 +37,7 @@ export function useCart() {
           return { ...base, lines };
         },
         rollbackOnError: true,
-        revalidate: true,
+        revalidate: false,
       });
       pushToast({ tone: "success", message: `Added ${qty}× to cart` });
     } catch (e) {
@@ -54,7 +54,7 @@ export function useCart() {
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ qty }),
         }).then((r) => r.json() as Promise<CartResponse>),
-        { rollbackOnError: true, revalidate: true },
+        { rollbackOnError: true, revalidate: false },
       );
       pushToast({ tone: "success", message: `Updated quantity` });
     } catch (e) {
@@ -69,7 +69,7 @@ export function useCart() {
         fetch(`${KEY}/${encodeURIComponent(slug)}`, { method: "DELETE" }).then(
           (r) => r.json() as Promise<CartResponse>,
         ),
-        { rollbackOnError: true, revalidate: true },
+        { rollbackOnError: true, revalidate: false },
       );
       pushToast({ tone: "info", message: `Removed from cart` });
     } catch (e) {
@@ -82,7 +82,7 @@ export function useCart() {
     try {
       await mutate(
         fetch(KEY, { method: "DELETE" }).then((r) => r.json() as Promise<CartResponse>),
-        { rollbackOnError: true, revalidate: true },
+        { rollbackOnError: true, revalidate: false },
       );
       pushToast({ tone: "info", message: `Cart cleared` });
     } catch (e) {
