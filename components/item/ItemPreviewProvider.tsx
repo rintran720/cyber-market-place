@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Weapon } from "@/lib/client/types";
@@ -18,8 +18,18 @@ const PreviewCtx = createContext<Ctx | null>(null);
 
 export function ItemPreviewProvider({ children }: { children: React.ReactNode }) {
   const [current, setCurrent] = useState<Weapon | null>(null);
-  const open = useCallback((w: Weapon) => setCurrent(w), []);
-  const close = useCallback(() => setCurrent(null), []);
+  const triggerRef = useRef<HTMLElement | null>(null);
+
+  const open = useCallback((w: Weapon) => {
+    triggerRef.current = (document.activeElement as HTMLElement | null) ?? null;
+    setCurrent(w);
+  }, []);
+
+  const close = useCallback(() => {
+    setCurrent(null);
+    // restore focus next tick (after dialog unmounts)
+    setTimeout(() => triggerRef.current?.focus({ preventScroll: true }), 0);
+  }, []);
 
   useEffect(() => {
     if (!current) return;
@@ -59,6 +69,11 @@ const RARITY_GLOW: Record<string, { rim: string; soft: string }> = {
 function ItemPreviewDialog({ weapon, onClose }: { weapon: Weapon; onClose: () => void }) {
   const color = rarityColor(weapon.rarity);
   const glow = RARITY_GLOW[weapon.rarity] ?? RARITY_GLOW.legendary;
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeBtnRef.current?.focus();
+  }, []);
 
   return (
     <div
@@ -130,6 +145,7 @@ function ItemPreviewDialog({ weapon, onClose }: { weapon: Weapon; onClose: () =>
         <div className="relative flex flex-col p-6 md:p-8 gap-6 bg-cp-bg-soft">
           {/* close button */}
           <button
+            ref={closeBtnRef}
             type="button"
             aria-label="Close preview"
             onClick={onClose}
