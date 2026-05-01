@@ -16,7 +16,7 @@ export function RelatedItems({ current }: { current: Weapon }) {
   return (
     <section>
       <div className="font-cp-mono text-[10px] tracking-[0.4em] text-cp-cyan-500 mb-1">
-        // COMPATIBLE
+        {"// COMPATIBLE"}
       </div>
       <h3 className="font-cp-display text-2xl text-cp-fg mb-4">
         Other {current.subCategory.replace("-", " ")} weapons

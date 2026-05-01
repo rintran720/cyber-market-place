@@ -75,7 +75,7 @@ export default function ItemDetailPage() {
           <div className="absolute top-3 left-3"><RarityBadge rarity={item.rarity} size="md" /></div>
           <div className="absolute top-3 right-3"><StockIndicator stock={item.stock} /></div>
           <div className="absolute bottom-3 left-3 font-cp-mono text-[10px] tracking-[0.3em] text-cp-cyan-500">
-            // {item.subCategory.replace("-", " ").toUpperCase()}
+            {"// "}{item.subCategory.replace("-", " ").toUpperCase()}
           </div>
         </div>
 
@@ -83,7 +83,7 @@ export default function ItemDetailPage() {
         <div className="flex flex-col gap-6">
           <div>
             <div className="font-cp-mono text-[10px] tracking-[0.4em] text-cp-magenta-500 mb-2">
-              // PROVENANCE · {item.origin}
+              {"// PROVENANCE · "}{item.origin}
             </div>
             <h1
               className="cp-heading cp-heading--lg cp-heading--glitch text-cp-fg"

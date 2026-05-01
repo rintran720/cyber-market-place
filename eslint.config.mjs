@@ -20,6 +20,12 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Project uses // prefix convention for decorative labels in JSX text nodes
+      "react/jsx-no-comment-textnodes": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
