@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TickerTape } from "@/components/feedback/TickerTape";
 import { ItemPreviewProvider } from "@/components/item/ItemPreviewProvider";
+import { Toaster } from "@/components/feedback/Toaster";
 
 export const metadata: Metadata = {
   title: "NeonMarket — Arsenal of Myths",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <TickerTape items={TICKER_ITEMS} />
           <main className="cp-container py-8 min-h-[60vh]">{children}</main>
           <Footer />
+          <Toaster />
         </ItemPreviewProvider>
       </body>
     </html>

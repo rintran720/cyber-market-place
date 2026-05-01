@@ -2,6 +2,7 @@
 
 import useSWR from "swr";
 import { fetcher } from "@/lib/client/fetcher";
+import { pushToast } from "@/components/feedback/Toaster";
 import type { CartResponse } from "@/lib/client/types";
 
 const KEY = "/api/cart";
@@ -16,52 +17,76 @@ export function useCart() {
   const cart = data ?? empty;
 
   const addItem = async (slug: string, qty = 1) => {
-    await mutate(
-      fetch(KEY, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ slug, qty }),
-      }).then((r) => r.json() as Promise<CartResponse>),
-      {
-        optimisticData: (prev) => {
-          const base = prev ?? empty;
-          const existing = base.lines.find((l) => l.itemSlug === slug);
-          const lines = existing
-            ? base.lines.map((l) => (l.itemSlug === slug ? { ...l, qty: l.qty + qty } : l))
-            : [...base.lines, { itemSlug: slug, qty, addedAt: new Date().toISOString() }];
-          return { ...base, lines };
+    try {
+      await mutate(
+        fetch(KEY, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ slug, qty }),
+        }).then((r) => r.json() as Promise<CartResponse>),
+        {
+          optimisticData: (prev) => {
+            const base = prev ?? empty;
+            const existing = base.lines.find((l) => l.itemSlug === slug);
+            const lines = existing
+              ? base.lines.map((l) => (l.itemSlug === slug ? { ...l, qty: l.qty + qty } : l))
+              : [...base.lines, { itemSlug: slug, qty, addedAt: new Date().toISOString() }];
+            return { ...base, lines };
+          },
+          rollbackOnError: true,
+          revalidate: true,
         },
-        rollbackOnError: true,
-        revalidate: true,
-      },
-    );
+      );
+      pushToast({ tone: "success", message: `Added ${qty}× to cart` });
+    } catch (e) {
+      pushToast({ tone: "danger", title: "ICE_INTERFERENCE", message: "Failed to add. Retry." });
+      throw e;
+    }
   };
 
   const updateQty = async (slug: string, qty: number) => {
-    await mutate(
-      fetch(`${KEY}/${encodeURIComponent(slug)}`, {
-        method: "PATCH",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ qty }),
-      }).then((r) => r.json() as Promise<CartResponse>),
-      { rollbackOnError: true, revalidate: true },
-    );
+    try {
+      await mutate(
+        fetch(`${KEY}/${encodeURIComponent(slug)}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ qty }),
+        }).then((r) => r.json() as Promise<CartResponse>),
+        { rollbackOnError: true, revalidate: true },
+      );
+      pushToast({ tone: "success", message: `Updated quantity` });
+    } catch (e) {
+      pushToast({ tone: "danger", title: "ICE_INTERFERENCE", message: "Failed to update qty. Retry." });
+      throw e;
+    }
   };
 
   const removeItem = async (slug: string) => {
-    await mutate(
-      fetch(`${KEY}/${encodeURIComponent(slug)}`, { method: "DELETE" }).then(
-        (r) => r.json() as Promise<CartResponse>,
-      ),
-      { rollbackOnError: true, revalidate: true },
-    );
+    try {
+      await mutate(
+        fetch(`${KEY}/${encodeURIComponent(slug)}`, { method: "DELETE" }).then(
+          (r) => r.json() as Promise<CartResponse>,
+        ),
+        { rollbackOnError: true, revalidate: true },
+      );
+      pushToast({ tone: "info", message: `Removed from cart` });
+    } catch (e) {
+      pushToast({ tone: "danger", title: "ICE_INTERFERENCE", message: "Failed to remove. Retry." });
+      throw e;
+    }
   };
 
   const clear = async () => {
-    await mutate(
-      fetch(KEY, { method: "DELETE" }).then((r) => r.json() as Promise<CartResponse>),
-      { rollbackOnError: true, revalidate: true },
-    );
+    try {
+      await mutate(
+        fetch(KEY, { method: "DELETE" }).then((r) => r.json() as Promise<CartResponse>),
+        { rollbackOnError: true, revalidate: true },
+      );
+      pushToast({ tone: "info", message: `Cart cleared` });
+    } catch (e) {
+      pushToast({ tone: "danger", title: "ICE_INTERFERENCE", message: "Failed to clear cart. Retry." });
+      throw e;
+    }
   };
 
   const count = cart.lines.reduce((n, l) => n + l.qty, 0);
