@@ -4,9 +4,9 @@ test("seller dashboard + publish new listing", async ({ page }) => {
   // Dashboard renders with seeded data
   await page.goto("/seller");
   await expect(page.getByText("// SELLER DASHBOARD")).toBeVisible();
-  await expect(page.getByText(/REVENUE/)).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText(/REVENUE/).first()).toBeVisible({ timeout: 10_000 });
   await expect(page.getByText("Last 30 days")).toBeVisible();
-  await expect(page.getByText(/MJOLNIR\.exe|EXCALIBUR\.dll|KUSANAGI\.blade/)).toBeVisible();
+  await expect(page.getByText(/MJOLNIR\.exe|EXCALIBUR\.dll|KUSANAGI\.blade/).first()).toBeVisible();
 
   // Start new listing
   await page.getByRole("link", { name: /LIST NEW WEAPON/ }).click();
@@ -38,5 +38,5 @@ test("seller dashboard + publish new listing", async ({ page }) => {
 
   // Verify it appears on /browse search
   await page.goto("/browse?q=playtest");
-  await expect(page.getByText("PLAYTEST.blade")).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("PLAYTEST.blade").first()).toBeVisible({ timeout: 10_000 });
 });

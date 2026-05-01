@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useItems } from "@/lib/client/hooks/useItems";
 import { defaultFilters, FilterSidebar } from "@/components/filters/FilterSidebar";
 import { Pagination } from "@/components/filters/Pagination";
@@ -10,7 +11,9 @@ import { ErrorState } from "@/components/feedback/ErrorState";
 import { NeonHeading } from "@/components/decorative/NeonHeading";
 
 export default function BrowsePage() {
-  const [filters, setFilters] = useState(defaultFilters);
+  const searchParams = useSearchParams();
+  const initialQ = searchParams.get("q") ?? "";
+  const [filters, setFilters] = useState({ ...defaultFilters, q: initialQ });
   const { items, total, page, pageSize, isLoading, error, mutate } = useItems(filters);
 
   return (
