@@ -4,6 +4,7 @@ import Link from "next/link";
 import { formatNeon } from "@/lib/format";
 import { useCart } from "@/lib/client/hooks/useCart";
 import { useWallet } from "@/lib/client/hooks/useWallet";
+import { GlowToggle } from "./GlowToggle";
 
 export function Header() {
   const { count } = useCart();
@@ -21,6 +22,7 @@ export function Header() {
           <Link href="/seller" className="text-cp-fg-muted hover:text-cp-cyan-500">Seller</Link>
         </nav>
         <div className="ml-auto flex items-center gap-3">
+          <GlowToggle />
           <Link
             href="/cart"
             className="relative cp-chip cp-chip--cyan font-cp-mono text-xs"
