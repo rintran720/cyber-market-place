@@ -1,12 +1,42 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { useCart } from "@/lib/client/hooks/useCart";
 import { formatNeon } from "@/lib/format";
 import { CartLine } from "./CartLine";
 
-export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function CartDrawer({
+  open,
+  onClose,
+  triggerRef,
+}: {
+  open: boolean;
+  onClose: () => void;
+  triggerRef?: React.RefObject<HTMLElement | null>;
+}) {
   const { cart, updateQty, removeItem } = useCart();
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
+
+  useEffect(() => {
+    if (open && !wasOpen.current) {
+      closeRef.current?.focus();
+    }
+    if (!open && wasOpen.current) {
+      triggerRef?.current?.focus({ preventScroll: true });
+    }
+    wasOpen.current = open;
+  }, [open, triggerRef]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
 
   return (
     <div
@@ -30,7 +60,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
       >
         <header className="flex items-center justify-between px-4 py-3 border-b border-cp-border">
           <h2 id="cart-drawer-title" className="font-cp-display text-lg text-cp-cyan-500">⌗ CART</h2>
-          <button onClick={onClose} aria-label="Close cart" className="px-3 py-1 hover:text-cp-magenta-500">✕</button>
+          <button ref={closeRef} onClick={onClose} aria-label="Close cart" className="px-3 py-1 hover:text-cp-magenta-500">✕</button>
         </header>
         <div className="overflow-y-auto px-4">
           {cart.lines.length === 0 ? (
