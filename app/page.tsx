@@ -135,7 +135,7 @@ export default function HomePage() {
           [SECTOR-07]
         </div>
         <div className="absolute top-6 right-6 font-cp-mono text-[10px] tracking-[0.3em] text-cp-magenta-500 opacity-70">
-          NCPD-LICENSED
+          VOTEK-LICENSED
         </div>
       </section>
 

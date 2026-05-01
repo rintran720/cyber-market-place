@@ -110,15 +110,17 @@ export function Step4Preview({ draft, isPublishing, publishedSlug, onBack, onPub
         </span>
       </header>
 
-      {/* TWO-COLUMN: Preview card + Details */}
-      <div className="grid lg:grid-cols-[minmax(280px,360px)_1fr] gap-6 items-start">
-        {/* LEFT: Item preview card with frame */}
-        <aside className="flex flex-col gap-3">
+      {/* 2×2 GRID: Card preview · Specs · Pre-flight · Fees — all equal width */}
+      <div className="grid md:grid-cols-2 gap-6 items-start">
+        {/* TL: Item preview card with frame */}
+        <aside className="flex flex-col gap-3 h-full">
           <div className="font-cp-mono text-[10px] tracking-[0.3em] text-cp-fg-muted">
             // CARD PREVIEW
           </div>
-          <div className={`border-2 ${tintClass} p-3 bg-cp-bg-soft`}>
-            <ItemCard weapon={previewWeapon} />
+          <div className={`border-2 ${tintClass} p-4 bg-cp-bg-soft flex-1 flex items-center justify-center`}>
+            <div style={{ maxWidth: 340, width: "100%" }}>
+              <ItemCard weapon={previewWeapon} />
+            </div>
           </div>
           <p className="text-[10px] text-cp-fg-dim font-cp-mono leading-relaxed">
             How buyers will see this listing in the marketplace grid.
