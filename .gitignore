@@ -40,3 +40,7 @@ next-env.d.ts
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Superpowers (specs, plans, brainstorm sessions — local only)
+.superpowers/
+docs/superpowers/
